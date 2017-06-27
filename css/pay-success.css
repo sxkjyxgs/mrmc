@@ -1,0 +1,93 @@
+.middle{
+	background: #efeff4 !important;
+}
+
+.payment-success-tips{
+	width: 100%;
+	height: 1.6rem;
+	background: #FFFFFF;
+	font-size: 14px;
+	text-align: center;
+	line-height: 1.6rem;
+}
+
+.order-information{
+	width: 100%;
+	min-height: 2.78rem;
+	margin-top: 0.2rem;
+	background: #FFFFFF;
+	padding: 0 0.45rem;
+	box-sizing: border-box;
+}
+
+.user{
+	display: flex;
+	justify-content: space-between;
+	font-size: 12px;
+}
+
+.user-name,.user-phone{
+	margin-top: 0.3rem;
+	color: #303030;
+}
+
+.address{
+	font-size: 14px;
+	color: #303030;
+	margin: 0.2rem 0 0 0;
+	padding-bottom: 0.3rem;
+	border-bottom: 1px solid #EFEFF4;
+}
+
+.order-number{
+	margin-top: 0.3rem;
+	color: #303030;
+}
+
+.order-number i{
+	color: #838383;
+	font-style: normal;
+}
+
+.total-price{
+	color: #303030;
+	margin-top: 0.2rem;
+}
+
+.total-price i{
+	font-style: normal;
+	color: #FF3366;
+}
+
+.altogether{
+	color: #303030;
+	margin-top: 0.2rem;
+	padding-bottom: 0.3rem;
+}
+
+.altogether i{
+	font-style: normal;
+	color: #838383;
+}
+
+.altogether i span{
+	color: #FF3366;
+}
+
+.pay-success-btns{
+	margin-top: 0.3rem;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.view-details,.go-to-the-homepage{
+	width: 3.1rem;
+	height: 0.88rem;
+	border-radius: 5px;
+	background: #FF3366;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 0.88rem;
+	font-size: 14px;
+}
