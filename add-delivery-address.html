@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>添加收货地址</title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" type="text/css" href="css/add-delivery-address.css"/>
+		<link href="css/cityLayout.css" type="text/css" rel="stylesheet">
+	</head>
+
+	<body>
+		<div class="Bigbox">
+			<header>
+				<div class="back">
+					<a href="###">
+						<img src="image/back.png" alt="">
+					</a>
+				</div>
+				<div class="titles">添加收货地址</div>
+				<div class="more">保存</div>
+			</header>
+			<section class="middle">
+				<div class="consignee">
+					<div class="consignee-title">
+						收货人
+					</div>
+					<div class="consignee-ipt">
+						<input type="text" />
+					</div>
+				</div>
+				<div class="contact-number">
+					<div class="contact-number-title">
+						联系电话
+					</div>
+					<div class="contact-number-ipt">
+						<input type="text" />
+					</div>
+				</div>
+				<div class="add_adderss">
+					<div class="add_adderss-title">
+						所在地址
+					</div>
+					<div class="add_adderss-select">
+						<input type="text" name="" id="sel1" class="city_input" value="请选择" readonly="readonly" />       &gt;
+					</div>
+				</div>
+				<div class="detailed-address">
+					<textarea name="" rows="" cols="" placeholder="请填写详细地址，不少于5个字"></textarea>
+				</div>
+				<div class="set-as-default">
+					<div class="set-as-default-title">
+						设为默认
+					</div>
+					<div class="set-as-default-btn">
+						<img src="image/moren.png"/>
+					</div>
+				</div>
+			</section>
+		</div>
+		<div class="Bigbox2">
+			<header>
+				<div class="back1">
+					<a href="#">
+						<img src="image/back.png" alt="">返回
+					</a>
+				</div>
+			</header>
+			<section>
+				
+			</section>
+		</div>
+	</body>
+	<script src="js/zepto.js"></script>
+	<script src="js/cityselect.js"></script>
+	<script>
+//		$(function(){
+//			$('.add_adderss').click(function(){
+//				$('.Bigbox2').css({transform:"translateX(-7.5rem)",transition:".1s"});
+//			})
+//			$('.back1').click(function(){
+//				$('.Bigbox2').css({transform:"translateX(0)",transition:".1s"})
+//			})
+//		})
+			$(function() {
+				init_city_select($("#sel1"));
+			});
+	
+			function getValue() {
+				alert($('#sel1').val());
+			}
+//	</script>
+</html>

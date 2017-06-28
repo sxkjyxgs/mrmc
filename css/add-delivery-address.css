@@ -1,0 +1,177 @@
+body{
+	overflow-x: hidden;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.Bigbox{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    height:100%;
+    flex-grow: 1;
+}
+
+.middle{
+	background: #EFEFF4;
+	position: relative;
+}
+
+.consignee,.contact-number,.add_adderss,.set-as-default{
+	width: 100%;
+	height: 1rem;
+	border-bottom: 1px solid #EFEFF4;
+	background: #FFFFFF;
+	padding: 0 0.28rem;
+	box-sizing: border-box;
+}
+
+.consignee{
+	margin-top: 0.3rem;
+}
+
+.consignee-title{
+	width: 25%;
+	float: left;
+	font-size: 14px;
+	color: #303030;
+	line-height: 1rem;
+}
+
+.consignee-ipt{
+	width: 70%;
+	float: left;
+}
+
+.consignee-ipt input{
+	display: block;
+	width: 100%;
+	height: 0.32rem;
+	border: none;
+	margin-top: 0.35rem;
+}
+
+.contact-number-title{
+	width: 25%;
+	float: left;
+	font-size: 14px;
+	color: #303030;
+	line-height: 1rem;
+}
+
+.contact-number-ipt{
+	width: 70%;
+	float: left;
+}
+
+.contact-number input{
+	display: block;
+	width: 100%;
+	height: 0.32rem;
+	border: none;
+	margin-top: 0.35rem;
+}
+
+.add_adderss-title{
+	float: left;
+	font-size: 14px;
+	color: #303030;
+	line-height: 1rem;
+}
+
+.add_adderss-select{
+	float: right;
+	font-size: 14px;
+	color: #838383;
+	line-height: 1rem;
+}
+
+.add_adderss-select input{
+	text-align: right;
+	border: none;
+	color: #838383;
+}
+
+.detailed-address{
+	width: 100%;
+	height: 2rem;
+	padding: 0 0.28rem;
+	overflow: hidden;
+	box-sizing: border-box;
+	background: #FFFFFF;
+}
+
+.detailed-address textarea{
+	width: 100%;
+	height: 100%;
+	border: none;
+	resize : none;
+	font-size: 14px;
+	line-height: 0.38rem;
+	padding: 0.16rem 0;
+	box-sizing: border-box;
+	color: #303030;
+}
+
+.set-as-default{
+	width: 100%;
+	height: 0.72rem;
+	border-bottom: 1px solid #EFEFF4;
+	background: #FFFFFF;
+	padding: 0 0.28rem;
+	box-sizing: border-box;
+	margin-top: 0.3rem;
+}
+
+.set-as-default-title{
+	float: left;
+	font-size: 14px;
+	color: #303030;
+	line-height: 0.72rem;
+}
+
+.set-as-default-btn{
+	float: right;
+}
+
+.set-as-default-btn img{
+	display: block;
+	height: 0.52rem;
+	margin-top: 0.1rem;
+}
+
+.Bigbox2{
+	background: #FFFFFF;
+	position: absolute;
+	left: 7.5rem;
+	top: 0;
+    width:100%;
+    height:100%;
+    z-index: 2;
+}
+
+.Bigbox2{
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.back1 a{
+    display: block;
+    box-sizing: border-box;
+    float: left;
+    color: #FFFFFF;
+}
+.back1 a img{
+    width:0.18rem;
+    height:0.32rem;
+    display: block;
+    margin-top: 0.28rem;
+    float: left;
+    margin-right: 0.1rem;
+}
+
+.address-last{
+	color: #838383;
+}
