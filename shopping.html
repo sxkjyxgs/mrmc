@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/rem.js"></script>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/shopping.css">
+</head>
+<body>
+<div class="Bigbox">
+    <header>
+        <div class="back">
+            <a href="###">
+                <img src="image/back.png" alt="">
+            </a>
+        </div>
+        <div class="titles">购物车</div>
+        <div class="more">完成</div>
+    </header>
+    <section class="middle">
+        <ul class="zyj_box">
+            <li class="shopList">
+                <div class="check">
+                </div>
+                <div class="images">
+                    <img src="image/1.jpg" alt="">
+                </div>
+                <div class="fonts">
+                    <h1>绿色食品500克</h1>
+                    <span>￥8</span>
+                </div>
+                <div class="sun">
+                    <img src="image/down.png" alt="" class="jian">
+                    <span class="number">2</span>
+                    <img src="image/up.png" alt="" class="jia">
+                </div>
+            </li>
+            <li class="shopList">
+                <div class="check">
+                </div>
+                <div class="images">
+                    <img src="image/1.jpg" alt="">
+                </div>
+                <div class="fonts">
+                    <h1>绿色食品500克</h1>
+                    <span>￥8</span>
+                </div>
+                <div class="sun">
+                    <img src="image/down.png" alt="" class="jian">
+                    <span class="number">2</span>
+                    <img src="image/up.png" alt="" class="jia">
+                </div>
+            </li> <li class="shopList">
+            <div class="check">
+            </div>
+            <div class="images">
+                <img src="image/1.jpg" alt="">
+            </div>
+            <div class="fonts">
+                <h1>绿色食品500克</h1>
+                <span>￥8</span>
+            </div>
+            <div class="sun">
+                <img src="image/down.png" alt="" class="jian">
+                <span class="number">2</span>
+                <img src="image/up.png" alt="" class="jia">
+            </div>
+        </li>
+        </ul>
+    </section>
+
+
+    <div class="bottomBox">
+        <img src="image/nocheck.png" alt="">
+        <div class="leftfont">全选</div>
+        <div class="allNum">
+            合计:
+            <span class="allMoney">￥800</span>
+            <span class="freight">不含运费</span>
+        </div>
+        <div class="delete">删除</div>
+    </div>
+</div>
+<script src="js/swiper.min.js"></script>
+<script src="js/zepto.js"></script>
+<script>
+   $('.check').on('click',function () {
+       $(this).toggleClass('active')
+   })
+
+</script>
+</body>
+</html>
