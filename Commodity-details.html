@@ -22,8 +22,78 @@
         <div class="titles">婴儿纸尿裤</div>
         <div class="more">完成</div>
     </header>
-    <section class="middle">bbb</section>
-    <footer>fff</footer>
+    <section class="middle">
+        <div class="swiper-container" id="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">Slide 1</div>
+                <div class="swiper-slide">Slide 2</div>
+                <div class="swiper-slide">Slide 3</div>
+                <div class="swiper-slide">Slide 4</div>
+                <div class="swiper-slide">Slide 5</div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="shop-content">
+            <div class="shop-title">
+                <p>婴儿纸尿裤,宝宝都喜欢！婴儿纸尿裤,宝宝都喜欢！婴儿纸尿裤,宝宝都喜欢！婴儿纸尿裤,宝宝都喜欢！婴儿纸尿裤,宝宝都喜欢！婴儿纸尿裤,宝宝都喜欢！婴儿纸尿裤,宝宝都喜欢！</p>
+            </div>
+            <div class="shop-number">
+                <div class="rmb">￥<span>199.07</span></div>
+                <div class="jl-rmb">可奖励<span>10.2</span>元</div>
+                <div class="salse-number">月销 <span>5678</span>笔</div>
+            </div>
+        </div>
+        <div id="shop-num">
+            选择购买规格和数量
+        </div>
+        <div class="swiper-container" id="swiper2">
+            <div class="swiper-wrapper">
+                <div class="showTitle swiper-slide active">图文详情</div>
+                <div class="showTitle swiper-slide ">规格参数</div>
+                <div class="showTitle swiper-slide ">商品视频</div>
+            </div>
+        </div>
+        <div class="swiper-container" id="swiper3">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide show1">
+                    Slide 1
+
+                </div>
+                <div class="swiper-slide">Slide 2</div>
+                <div class="swiper-slide">Slide 3</div>
+            </div>
+        </div>
+    </section>
+    <div class=""></div>
 </div>
+<script src="js/swiper.min.js"></script>
+<script src="js/zepto.js"></script>
+<script>
+    var swiper2Top=$("#swiper").scrollTop();
+    var swiper = new Swiper('#swiper', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        loop:true
+    });
+    var swiper2 = new Swiper('#swiper2', {
+        watchSlidesProgress : true,
+        watchSlidesVisibility : true,
+        slidesPerView :3,
+        onTap: function(){
+            swiper3.slideTo(swiper2.clickedIndex);
+            $(".showTitle").removeClass("active").eq(swiper2.clickedIndex).addClass("active");
+        }
+
+    });
+    var swiper3 = new Swiper('#swiper3', {
+        watchSlidesProgress : true,
+        watchSlidesVisibility : true,
+        onSlideChangeStart: function(swiper){
+            swiper2Top.scrollTop = 0;
+            $(".showTitle").removeClass("active").eq(swiper3.activeIndex).addClass("active");
+        }
+    });
+</script>
 </body>
 </html>
