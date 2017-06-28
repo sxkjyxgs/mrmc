@@ -1,0 +1,121 @@
+footer{
+    height:0.96rem;
+    line-height: 0.96rem;
+    text-align: center;
+    background: #FF3366;
+    font-size: 16px;
+}
+footer a{
+    display: block;
+    width:100%;
+    height:100%;
+    color:#fff;
+}
+.middle{
+    padding:0 0.28rem;
+    box-sizing: border-box;
+}
+.address-box{
+    width:100%;
+    height:auto;
+    display: flex;
+    flex-direction: column;
+    padding-top:0.3rem;
+}
+.names-phone{
+    width:100%;
+    padding:0.23rem 0;
+    font-size: 14px;
+    line-height: 0.3rem;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.right div{
+    float: left;
+    line-height: 0.39rem;
+}
+.operation div img{
+    height:0.39rem;
+    margin-right:0.13rem;
+}
+.left  img{
+    margin-right:0.09rem;
+    float: left;
+}
+.right div img{
+    margin-right:0.13rem;
+    float: left;
+}
+.edit{
+    margin-right:0.23rem;
+}
+.edit a{
+   display: block;
+   color:#838383;
+}
+.right div{
+    color:#838383;
+}
+.left span{
+    color:#838383;
+    line-height: 0.39rem;
+}
+.left span.Default-address{
+    color:#FF3366;
+}
+.address{
+    width:100%;
+    padding-bottom:0.24rem;
+}
+.operation{
+    width:100%;
+    padding:0.25rem 0;
+    line-height: 0.3rem;
+}
+.mask{
+    display: none;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.3);
+    position:absolute;
+    top:0;
+    left:0;
+}
+.ntp{
+    width:60%;
+    height:3rem;
+    background: #fff;
+    margin:3rem auto 0;
+}
+.ntp-top{
+    width:100%;
+    height:2rem;
+    line-height: 2rem;
+    text-align: center;
+    color:#FF3366;
+    border-bottom:1px solid #FF3366;
+}
+.ntp-bottom{
+    width:100%;
+    height:1rem;
+    line-height: 1rem;
+    text-align:center;
+    color:#FF3366;
+}
+.ntp-bottom div{
+    width:50%;
+    height:100%;
+    float: left;
+}
+.make-sure{
+    background: #FF3366;
+    color:#fff;
+}
+.address-height{
+    height:1.64rem;
+    background: pink;
+}

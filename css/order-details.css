@@ -1,0 +1,147 @@
+.middle{
+    padding:0 0.28rem;
+    box-sizing: border-box;
+}
+.address-box{
+    width:100%;
+    height:1.64rem;
+    box-sizing: border-box;
+    padding:0.3rem 0;
+    display: flex;
+    flex-direction: column;
+}
+i{
+    font-style: normal;
+}
+.address-box a{
+    display: block;
+    width:100%;
+    height:100%;
+    line-height: 1.64rem;
+    text-align: center;
+    color:#303030;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.names-phone{
+    margin-bottom:0.2rem;
+}
+.lists{
+    display: flex;
+    flex-direction: column;
+}
+.lists li{
+    width:100%;
+    height:2.08rem;
+    padding:0.2rem 0;
+}
+.lists li a{
+    width:100%;
+    height:100%;
+    display: flex;
+    color:#303030;
+}
+.list-img{
+    margin-right:0.27rem;
+}
+.list-img img{
+    width:2.08rem;
+    height:2.08rem;
+}
+.list-content{
+    height:100%;
+    position: relative;
+}
+.content-top{
+    padding-top:0.4rem;
+    overflow: hidden;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.content-bottom{
+    color:#838383;
+    position: absolute;
+    bottom:0;
+    display: flex;
+    justify-content: space-between;
+    width:100%;
+}
+.content-bottom .left{
+     color:#FF3366;
+}
+.content-bottom div{
+    font-size: 12px;
+}
+.content-bottom div i{
+    font-size: 16px;
+}
+.num{
+    padding:0.2rem 0;
+}
+.num .right div{
+    float: left;
+    margin-left:0.2rem;
+}
+.message{
+    width:100%;
+    padding:0.36rem 0;
+}
+input{
+    border:none;
+    text-align: right;
+}
+.message .right{
+    color:#838383;
+}
+footer{
+    height:0.96rem;
+    line-height: 0.96rem;
+}
+footer .rights{
+  padding-right:0.25rem;
+  font-size: 16px;
+}
+footer .rights span{
+    margin-right:0.43rem;
+    color:#FF3366;
+}
+footer .rights b{
+    font-weight:500;
+    margin-left:0.12rem;
+    color:#FF3366;
+    font-size: 10px;
+}
+footer .rights i{
+    color: #838383;
+    font-size: 14px;
+}
+footer .lefts{
+    width:2rem;
+    height:100%;
+    line-height: 0.96rem;
+    font-size: 18px;
+}
+footer .lefts a{
+    display: block;
+    width:100%;
+    height:100%;
+    text-align: center;
+    color:#fff;
+    background: #FF3366;
+}
+.order{
+    padding:0.3rem 0 0.1rem;
+}
+.order li{
+    font-size: 12px;
+    padding-bottom:0.2rem;
+}
+.pink{
+    color:#FF3366;
+}
