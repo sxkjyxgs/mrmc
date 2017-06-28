@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<title>Document</title>
+		<script src="js/rem.js"></script>
+		<link rel="stylesheet" href="css/base.css">
+		<link rel="stylesheet" type="text/css" href="css/invoice-information.css" />
+	</head>
+
+	<body>
+		<div class="Bigbox">
+			<header>
+				<div class="back">
+					<a href="###">
+						<img src="image/back.png" alt="">
+					</a>
+				</div>
+				<div class="titles">发票信息</div>
+				<div class="more">···</div>
+			</header>
+			<section class="middle">
+				<div class="invoice-header">
+					<div class="invoice-headertip">
+						发票抬头：
+					</div>
+					<div class="invoice-header-ipt">
+						<input type="text" class="ipt1" placeholder="填写发票抬头，必填" />
+					</div>
+				</div>
+				<div class="duty-paragraph">
+					<div class="duty-paragraphtip">
+						税号：
+					</div>
+					<div class="duty-paragraph-ipt">
+						<input type="text" class="ipt2" placeholder="填写税号，必填" />
+					</div>
+				</div>
+				<div class="invoice-content">发票内容：</div>
+				<div class="invoice-content-list">
+					<div class="invoice-content-list1 click_">
+						<div class="choosr_circle"></div>
+						<img class="check-mark" src="image/choose.png"/>
+						<i>母婴</i>
+					</div>
+					<div class="invoice-content-list2 click_">
+						<div class="choosr_circle"></div>
+						<img class="check-mark" src="image/choose.png"/>
+						<i>食品</i>
+					</div>
+					<div class="invoice-content-list3 click_">
+						<div class="choosr_circle"></div>
+						<img class="check-mark" src="image/choose.png"/>
+						<i>办公单位</i>
+					</div>
+				</div>
+			</section>
+			<footer>确认开具发票</footer>
+		</div>
+	</body>
+	<script src="js/zepto.js"></script>
+	<script>
+		$(function(){
+			$('.ipt1').focus(function(){
+				$(this).attr('placeholder',"");
+			});
+			$('.ipt1').blur(function(){
+				$(this).attr('placeholder',"填写发票抬头，必填");
+			});
+			$('.ipt2').focus(function(){
+				$(this).attr('placeholder',"");
+			});
+			$('.ipt2').blur(function(){
+				$(this).attr('placeholder',"填写税号，必填");
+			});
+			$('.click_').click(function(){
+				$(this).children('.check-mark').toggle();
+			});
+		})
+	</script>
+</html>
