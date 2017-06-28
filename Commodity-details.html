@@ -65,7 +65,38 @@
             </div>
         </div>
     </section>
-    <div class=""></div>
+    <div class="mask">
+        <div class="box-show">
+            <div class="shop-showBox">
+                <ul>
+                    <li>选择商品规格</li>
+                    <li>
+                        <div class="left">规格</div>
+                        <div class="right">
+                            <span class="colors pink">红色</span>
+                            <span class="colors">红色</span>
+                            <span class="colors">红色</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="left">规格</div>
+                        <div class="right">
+                            <span class="weight pink">15g</span>
+                            <span class="weight">15g</span>
+                            <span class="weight">15g</span>
+                        </div>
+                    </li>
+                </ul>
+                <p>选择商品数量</p>
+                <div class="chang-num">
+                    <div class="down"><img src="image/down.png" alt=""></div>
+                    <span class="pic-number">1</span>
+                    <div class="add"><img src="image/up.png" alt=""></div>
+                </div>
+            </div>
+            <div class="oks">确定</div>
+        </div>
+    </div>
 <!--</div>-->
 <script src="js/swiper.min.js"></script>
 <script src="js/zepto.js"></script>
@@ -94,6 +125,36 @@
             $(".showTitle").removeClass("active").eq(swiper3.activeIndex).addClass("active");
         }
     });
+    $(".colors").click(function(){
+        $(".colors").removeClass("pink");
+        $(this).addClass("pink");
+    })
+    $(".weight").click(function(){
+        $(".weight").removeClass("pink");
+        $(this).addClass("pink");
+    })
+    $(".down").click(function(){
+        var num=$(".pic-number").html();
+        num--;
+        var newnum=num;
+        if(newnum==0){
+            newnum=0;
+            $(".pic-number").html(newnum);
+        }
+
+    })
+    $(".add").click(function(){
+        var num=$(".pic-number").html();
+        num++;
+        var newnum=num;
+        $(".pic-number").html(newnum);
+    })
+    $("#shop-num").click(function(){
+        $(".mask").css({display:"block"});
+    })
+    $(".oks").click(function(){
+        $(".mask").css({display:"none"});
+    })
 </script>
 </body>
 </html>
