@@ -53,6 +53,14 @@
     float: right;
     margin:1.15rem 0.68rem 0 0 ;
 }
+.end{
+    border:1px solid #ff3366;
+    border-radius: 5px;
+    text-align: center;
+    color: #FF3366;
+    line-height: 0.47rem;
+    font-size: 16px;
+}
 .sun .jian{
     width:0.47rem;
     height:0.47rem;
@@ -92,10 +100,9 @@
     font-size: 16px;
     font-weight: 700;
     color: #303030;
-    margin-top: 0.32rem;
     float: left;
     display: inline-block;
-    margin-left: 0.8rem;
+    margin: 0.32rem 0.25rem 0 0.8rem;
 }
 .bottomBox .allMoney{
     font-size: 16px;
@@ -105,6 +112,7 @@
     font-size: 12px;
     color: #838383;
     float: right;
+    line-height: 0.5rem;
 }
 .delete{
     float: right;
