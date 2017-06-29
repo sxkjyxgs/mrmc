@@ -71,6 +71,7 @@
             </div>
         </div>
     </section>
+    <footer></footer>
     <div class="mask">
         <div class="box-show">
             <div class="shop-showBox">
@@ -103,6 +104,15 @@
             <div class="oks">确定</div>
         </div>
     </div>
+    <div class="share">
+        <p>分享商品到</p>
+        <div>qq好友</div>
+        <div>qq空间</div>
+        <div>微信好友</div>
+        <div>朋友圈</div>
+        <div>复制链接</div>
+    </div>
+
 <!--</div>-->
 <script src="js/swiper.min.js"></script>
 <script src="js/zepto.js"></script>
@@ -161,6 +171,12 @@
     $(".oks").click(function(){
         $(".mask").css({display:"none"});
     })
+    $(".more").click(function () {
+        $(".share").show();
+    })
+//    $(document).on("click",function(event){
+//        $(".share").hide();
+//    });
 </script>
 </body>
 </html>

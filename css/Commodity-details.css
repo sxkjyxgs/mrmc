@@ -165,3 +165,34 @@
 .pink{
     color:#FF3366;
 }
+
+footer{
+    background: #ff3366;
+}
+
+.share{
+    width: 5rem;
+    height:30%;
+    padding:0 0.25rem;
+    position: absolute;
+    left: 1rem;
+    top:35%;
+    background: red;
+    z-index:9;
+    display: none;
+}
+
+.share p{
+    font-size:14px;
+    color: #000000;
+    line-height: 0.7rem;
+}
+
+.share div{
+    width:1.2rem;
+    height: 0.8rem;
+    border:1px solid #303030;
+    margin-right: 0.4rem;
+    float: left;
+    background: #FFFFFF;
+}
