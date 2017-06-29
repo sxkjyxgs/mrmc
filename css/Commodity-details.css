@@ -6,6 +6,12 @@
 #swiper{
     height: 5.5rem;
 }
+#swiper img{
+    width:100%;
+}
+#swiper .swiper-slide{
+    overflow: hidden;
+}
 #swiper3{
     height:6rem;
 }

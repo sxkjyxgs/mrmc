@@ -58,7 +58,9 @@ header{
     flex:0 0 auto;
 }
 .back a{
-    display: block;
+    display: flex;
+    height:100%;
+  align-items: center;
     box-sizing: border-box;
 }
 .back a img{
@@ -76,4 +78,25 @@ footer{
     height:1rem;
     width:100%;
     flex:0 0 auto;
+}
+footer ul{
+    display: flex;
+}
+footer ul li{
+    width:20%;
+    height:100%;
+}
+footer ul li a{
+    display: flex;
+    flex-direction: column;
+    color:#303030;
+    text-align: center;
+}
+footer ul li a img{
+    height:0.43rem;
+    width:0.43rem;
+    margin:0.1rem auto;
+}
+.pink{
+    color:#FF3366;
 }
