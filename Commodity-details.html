@@ -71,7 +71,22 @@
             </div>
         </div>
     </section>
-    <footer></footer>
+
+    <footer>
+        <div class="save-money">
+            我要赚钱
+        </div>
+        <div class="shopcar">
+            <img src="" alt=""/>
+        </div>
+        <div class="buynow">
+            立即购买
+        </div>
+        <div class="into-shopcar">
+            加入购物车
+        </div>
+    </footer>
+
     <div class="mask">
         <div class="box-show">
             <div class="shop-showBox">
@@ -104,6 +119,9 @@
             <div class="oks">确定</div>
         </div>
     </div>
+    <div class="share-box">
+
+    </div>
     <div class="share">
         <p>分享商品到</p>
         <div>qq好友</div>
@@ -111,6 +129,61 @@
         <div>微信好友</div>
         <div>朋友圈</div>
         <div>复制链接</div>
+    </div>
+
+    <div class="go-download">
+        <p>您需下载美日美C 客户端APP 变成店主，即可分享商品赚的佣金！<a href="#">去下载</a></p>
+    </div>
+
+    <div class="login">
+        <div class="login_title">
+            登录购买商品
+        </div>
+        <div class="number">
+            <input type="text" placeholder="请输入手机号"/>
+        </div>
+        <div class="password">
+            <input type="text" placeholder="输入密码登录"/>
+        </div>
+        <p class="reg-url"><a href="#">去注册>></a></p>
+        <div class="btns">
+            <div class="cancel">
+                取消
+            </div>
+            <div class="logining">
+                登录
+            </div>
+        </div>
+    </div>
+
+    <div class="register">
+        <div class="reg-title">
+            输入手机号并设置密码注册，即可购买商品
+        </div>
+        <div class="reg-number">
+            <input type="text" placeholder="请输入手机号"/>
+        </div>
+        <div class="reg-yzm">
+            <div class="yzm_ipt">
+                <input type="text" placeholder="请输入验证码"/>
+            </div>
+            <div class="send-btn">
+                <p>发送</p>
+                <!--<p><a href="#">重新发送</a><span></span></p>-->
+            </div>
+        </div>
+        <div class="reg-password">
+            <input type="text" placeholder="设置密码，6位到15位的字母或者数字任意组合"/>
+        </div>
+        <p class="login-url"><a href="#">直接登录>></a></p>
+        <div class="reg-btns">
+            <div class="reg-cancel">
+                取消
+            </div>
+            <div class="reg-logining">
+                登录
+            </div>
+        </div>
     </div>
 
 <!--</div>-->
@@ -172,11 +245,43 @@
         $(".mask").css({display:"none"});
     })
     $(".more").click(function () {
+        $(".share-box").show();
         $(".share").show();
     })
-//    $(document).on("click",function(event){
-//        $(".share").hide();
-//    });
+    $(".save-money").click(function () {
+        $(".share-box").show();
+        $(".go-download").show();
+    })
+    $(".buynow").click(function () {
+        $(".share-box").show();
+        $(".login").show();
+    })
+    $(".cancel").click(function () {
+        $(".share-box").hide();
+        $(".login").hide();
+    })
+    $(".reg-cancel").click(function () {
+        $(".share-box").hide();
+        $(".register").hide();
+    })
+    $(".login-url").click(function () {
+        $(".share-box").show();
+        $(".login").show();
+        $(".register").hide();
+    })
+    $(".reg-url").click(function () {
+        $(".share-box").show();
+        $(".register").show();
+        $(".login").hide();
+    })
+    $(".share-box").click(function () {
+        $(".share-box").hide();
+        $(".share").hide();
+        $(".go-download").hide();
+        $(".login").hide();
+        $(".register").hide();
+    })
+
 </script>
 </body>
 </html>
