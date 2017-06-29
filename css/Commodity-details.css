@@ -287,6 +287,8 @@ footer{
     z-index:9;
     display: none;
     vertical-align: middle;
+    display: flex;
+    align-items: center;
 }
 
 .go-download p{
