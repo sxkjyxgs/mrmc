@@ -8,11 +8,11 @@
 		<script src="js/rem.js"></script>
 		<link rel="stylesheet" href="css/base.css">
 		<link rel="stylesheet" type="text/css" href="css/add-delivery-address.css"/>
-		<link href="css/cityLayout.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="css/style.css" />
 	</head>
 
 	<body>
-		<div class="Bigbox">
+
 			<header>
 				<div class="back">
 					<a href="###">
@@ -20,7 +20,7 @@
 					</a>
 				</div>
 				<div class="titles">添加收货地址</div>
-				<div class="more">保存</div>
+				<div class="more" style="font-size: 16px;">保存</div>
 			</header>
 			<section class="middle">
 				<div class="consignee">
@@ -44,7 +44,13 @@
 						所在地址
 					</div>
 					<div class="add_adderss-select">
-						<input type="text" name="" id="sel1" class="city_input" value="请选择" readonly="readonly" />       &gt;
+						<!--<section class="express-area">-->
+							<a id="expressArea" href="javascript:void(0)">
+								<dl>
+									<dd>请选择地区></dd>
+								</dl>
+							</a>
+						<!--</section>-->
 					</div>
 				</div>
 				<div class="detailed-address">
@@ -55,41 +61,40 @@
 						设为默认
 					</div>
 					<div class="set-as-default-btn">
-						<img src="image/moren.png"/>
+						<img src="image/y.png"/>
 					</div>
 				</div>
 			</section>
-		</div>
-		<div class="Bigbox2">
-			<header>
-				<div class="back1">
-					<a href="#">
-						<img src="image/back.png" alt="">返回
-					</a>
+			<!--选择地区弹层-->
+			<section id="areaLayer" class="express-area-box">
+				<div>
+					<h3>选择地区</h3>
+					<a id="backUp" class="backs" href="javascript:void(0)" title="返回"></a>
+					<a id="closeArea" class="close" href="javascript:void(0)" title="关闭"></a>
 				</div>
-			</header>
-			<section>
-				
+				<article id="areaBox">
+					<ul id="areaList" class="area-list"></ul>
+				</article>
 			</section>
-		</div>
+			<!--遮罩层-->
+			<div id="areaMask" class="mask"></div>
+
 	</body>
 	<script src="js/zepto.js"></script>
-	<script src="js/cityselect.js"></script>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.area.js"></script>
 	<script>
-//		$(function(){
-//			$('.add_adderss').click(function(){
-//				$('.Bigbox2').css({transform:"translateX(-7.5rem)",transition:".1s"});
-//			})
-//			$('.back1').click(function(){
-//				$('.Bigbox2').css({transform:"translateX(0)",transition:".1s"})
-//			})
-//		})
-			$(function() {
-				init_city_select($("#sel1"));
-			});
-	
-			function getValue() {
-				alert($('#sel1').val());
+		var flag=true;
+		$(".set-as-default-btn").click(function(){
+		    if(flag){
+		        $("img",".set-as-default-btn").css({left:0});
+		        $(".set-as-default-btn").css({background:"#838383"});
+		        flag=false;
+			}else{
+                $("img",".set-as-default-btn").css({left:"0.48rem"});
+                $(".set-as-default-btn").css({background:"#4CD964"});
+                flag=true;
 			}
-//	</script>
+		})
+	</script>
 </html>

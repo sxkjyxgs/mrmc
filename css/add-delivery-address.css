@@ -133,12 +133,18 @@ body{
 
 .set-as-default-btn{
 	float: right;
+	width:1rem;
+	height:0.58rem;
+	border-radius: 0.29rem;
+	background: #4CD964;
+	padding:2px;
+	position: relative;
 }
-
 .set-as-default-btn img{
 	display: block;
 	height: 0.52rem;
-	margin-top: 0.1rem;
+	position: absolute;
+	right:0!important;
 }
 
 .Bigbox2{

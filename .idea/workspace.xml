@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cc8f4d7b-35db-4ce3-8542-23b425a5f3be" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/image/y.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/change-delivery-address.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/css/cityLayout.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/cityselect.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Commodity-details.html" afterPath="$PROJECT_DIR$/Commodity-details.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/Commodity-details.css" afterPath="$PROJECT_DIR$/css/Commodity-details.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/add-delivery-address.html" afterPath="$PROJECT_DIR$/add-delivery-address.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/add-delivery-address.css" afterPath="$PROJECT_DIR$/css/add-delivery-address.css" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -21,13 +25,25 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="Commodity-details.html" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/Commodity-details.html">
+          <file leaf-file-name="add-delivery-address.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/add-delivery-address.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="586">
-                  <caret line="138" column="23" lean-forward="true" selection-start-line="138" selection-start-column="23" selection-end-line="138" selection-end-column="23" />
+                <state relative-caret-position="575">
+                  <caret line="64" column="26" lean-forward="true" selection-start-line="62" selection-start-column="20" selection-end-line="64" selection-end-column="26" />
                   <folding>
-                    <element signature="n#div#1;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                    <element signature="n#style#0;n#div#2;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="change-delivery-address.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/change-delivery-address.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="172">
+                  <caret line="63" column="36" lean-forward="true" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
+                  <folding>
+                    <element signature="n#style#0;n#div#2;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                   </folding>
                 </state>
               </provider>
@@ -37,11 +53,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file leaf-file-name="Commodity-details.css" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/css/Commodity-details.css">
+          <file leaf-file-name="add-delivery-address.css" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/css/add-delivery-address.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="448">
-                  <caret line="105" column="18" lean-forward="false" selection-start-line="105" selection-start-column="18" selection-end-line="105" selection-end-column="18" />
+                <state relative-caret-position="576">
+                  <caret line="146" column="22" lean-forward="false" selection-start-line="146" selection-start-column="22" selection-end-line="146" selection-end-column="22" />
                   <folding />
                 </state>
               </provider>
@@ -54,10 +70,19 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="CSS File" />
+        <option value="HTML File" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>img</find>
+      <find>mask</find>
+      <find>area-list</find>
+      <find>h3</find>
+      <find>back</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -76,8 +101,12 @@
         <option value="$PROJECT_DIR$/order-address.html" />
         <option value="$PROJECT_DIR$/css/order-details.css" />
         <option value="$PROJECT_DIR$/order-details.html" />
-        <option value="$PROJECT_DIR$/css/Commodity-details.css" />
         <option value="$PROJECT_DIR$/Commodity-details.html" />
+        <option value="$PROJECT_DIR$/css/Commodity-details.css" />
+        <option value="$PROJECT_DIR$/css/style.css" />
+        <option value="$PROJECT_DIR$/add-delivery-address.html" />
+        <option value="$PROJECT_DIR$/change-delivery-address.html" />
+        <option value="$PROJECT_DIR$/css/add-delivery-address.css" />
       </list>
     </option>
   </component>
@@ -256,15 +285,15 @@
       <option name="presentableId" value="Default" />
       <updated>1498550753228</updated>
       <workItem from="1498550754495" duration="10609000" />
-      <workItem from="1498613456509" duration="22723000" />
+      <workItem from="1498613456509" duration="26621000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33332000" />
+    <option name="totallyTimeSpent" value="37230000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="1" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14857745" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -453,7 +482,7 @@
         <state relative-caret-position="342">
           <caret line="23" column="57" lean-forward="false" selection-start-line="23" selection-start-column="57" selection-end-line="23" selection-end-column="57" />
           <folding>
-            <element signature="n#style#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#li#0;n#ul#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#li#1;n#ul#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#li#2;n#ul#0;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -477,19 +506,75 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/Commodity-details.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="105" column="18" lean-forward="false" selection-start-line="105" selection-start-column="18" selection-end-line="105" selection-end-column="18" />
+        <state relative-caret-position="241">
+          <caret line="100" column="32" lean-forward="false" selection-start-line="100" selection-start-column="4" selection-end-line="100" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Commodity-details.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="586">
+        <state relative-caret-position="310">
           <caret line="138" column="23" lean-forward="true" selection-start-line="138" selection-start-column="23" selection-end-line="138" selection-end-column="23" />
           <folding>
             <element signature="n#div#1;n#section#0;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/jquery.area.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="8" column="9" lean-forward="false" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="9" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+            <element signature="e#391#3589#0" expanded="false" />
+            <element signature="e#3607#29872#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../jQuery-dangdang-ld372820160704/jQuery-dangdang-ld20160704/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="46">
+          <caret line="2" column="41" lean-forward="false" selection-start-line="2" selection-start-column="41" selection-end-line="2" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/add-delivery-address.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="575">
+          <caret line="64" column="26" lean-forward="true" selection-start-line="62" selection-start-column="20" selection-end-line="64" selection-end-column="26" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/change-delivery-address.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="63" column="36" lean-forward="true" selection-start-line="63" selection-start-column="36" selection-end-line="63" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#div#2;n#header#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/add-delivery-address.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="146" column="22" lean-forward="false" selection-start-line="146" selection-start-column="22" selection-end-line="146" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
