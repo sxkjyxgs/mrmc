@@ -1,19 +1,13 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<title>商品品牌管理</title>
-	<link rel="stylesheet" href="../../css/brand-goods.css" />
-	<link rel="stylesheet" href="../../assets/plugins/bootstrap/css/bootstrap.css" />
-	<script src="../../assets/plugins/jquery/jquery.min.js"></script>
-	<script src="../../assets/plugins/bootstrap/js/bootstrap.js"></script>
-</head>
-<body>
+<template>
+  <div id="box">
+
+  </div>
+</template>
 	<div class="box">
 		<div class="location">
 			<a href="#">业务管理</a>&gt;&gt;<a href="#">商品品牌</a>
 		</div>
-		
+
 		<div class="brand_">
 			<div class="brand_title">
 				商品品牌列表
@@ -85,7 +79,7 @@
 			</div>
 		</div>
 	</div>
-	
+
 	<div class="box2">
 		<div class="add_brand_goods">
 			<div class="add_brand_goods_title">
@@ -109,7 +103,7 @@
 			</div>
 		</div>
 	</div>
-</body>
+
 <script>
 	$(function(){
 		$('.add_brand_btn').click(function(){
@@ -120,4 +114,3 @@
 		})
 	})
 </script>
-</html>

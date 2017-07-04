@@ -1,10 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<title>团队详情</title>
-</head>
-<body>
-	
-</body>
-</html>
+<template>
+  <div id="box">
+
+  </div>
+</template>

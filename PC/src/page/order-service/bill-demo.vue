@@ -1,14 +1,8 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<title>发票管理</title>
-	<link rel="stylesheet" type="text/css" href="../../css/bill-demo.css"/>
-	<link rel="stylesheet" href="../../assets/plugins/bootstrap/css/bootstrap.css" />
-	<script src="../../assets/plugins/jquery/jquery.min.js"></script>
-	<script src="../../assets/plugins/bootstrap/js/bootstrap.js"></script>
-</head>
-<body>
+<template>
+  <div id="box">
+
+  </div>
+</template>
 	<div class="box">
 		<div class="location">
 			<a href="#">其他服务</a>&gt;&gt;<a href="#">发票管理</a>
@@ -37,5 +31,3 @@
 			</div>
 		</div>
 	</div>
-</body>
-</html>

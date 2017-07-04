@@ -1,11 +1,117 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<title>运费模板管理</title>
-	<link rel="stylesheet" href="../../assets/plugins/bootstrap/css/bootstrap.css" />
-	<script src="../../assets/plugins/jquery/jquery.min.js"></script>
-	<script src="../../assets/plugins/bootstrap/js/bootstrap.js"></script>
+<template>
+  <div id="box">
+    <div class="box">
+      <div class="location">
+        <a href="#">其他服务</a>&gt;&gt;<a href="#">运费模板</a>
+      </div>
+
+      <div class="freight_">
+        <!--<div class="freight_title"></div>-->
+        <div class="freight_form">
+          <table class="table table-bordered">
+            <tr>
+              <td>序号</td>
+              <td>模板名称</td>
+              <td>默认运费</td>
+              <td>地址</td>
+              <td>免邮设置</td>
+              <td>操作</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>系统默认运费模板（不可删除）</td>
+              <td>￥20.00 </td>
+              <td></td>
+              <td>￥1000.00免邮</td>
+              <td><a href="#">修改</a></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>运费模板1</td>
+              <td>￥20.00 </td>
+              <td></td>
+              <td>￥100.00<a href="#">修改</a></td>
+              <td><a href="#">修改</a><a href="#">删除</a></td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>杭州市西湖区运费模板</td>
+              <td>￥10.00 </td>
+              <td></td>
+              <td>￥100.00<a href="#">修改</a></td>
+              <td><a href="#">修改</a><a href="#">删除</a></td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="add_freight_template">
+          <div class="template_title">添加运费模板</div>
+          <div class="template_name"><i>模板名称</i><input type="text" /></div>
+          <div class="default_freight"><i>默认运费（元）</i><input type="text" /></div>
+          <div class="add_nonDefault_btn"><a href="#">添加非默认运费地区</a></div>
+          <div class="add_template_form">
+            <table class="table table-bordered">
+              <tr>
+                <td>非默认运费地区</td>
+                <td>运费</td>
+              </tr>
+              <tr>
+                <td>厦门市、xx市（精确到市。选中省即全选所有市，但可以取消勾选单个市）</td>
+                <td><input type="text" placeholder="免费金额" />元</td>
+              </tr>
+              <tr>
+                <td>杭州市</td>
+                <td><input type="text" placeholder="免费金额" />元</td>
+              </tr>
+            </table>
+          </div>
+          <div class="free_settings">
+            <p>免邮设置</p>
+            <div>
+              <input type="radio" />不免邮
+            </div>
+
+            <input type="text" class="free_money" placeholder="免邮金额" />
+            <div>
+              <input type="radio" />订单满额免邮
+            </div>
+          </div>
+          <div class="add_freight_btn">
+            <div class="add_freight_cancel">取消</div>
+            <div class="add_freight_confirm">确认</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box2">
+      <div class="add_nonDefault_area">
+        <div class="add_nonDefault_area_title">添加非默认运费地区</div>
+        <div class="area_choose">
+          <p>非默认运费地区选择</p>
+          <div class="area_list">
+            <dl>
+              <dt><input type="checkbox" />浙江省</dt>
+              <dd><input type="checkbox" />杭州市</dd>
+              <dd><input type="checkbox" />舟山市</dd>
+            </dl>
+            <dl>
+              <dt><input type="checkbox" />辽宁省</dt>
+              <dd><input type="checkbox" />葫芦岛市</dd>
+              <dd><input type="checkbox" />大连市</dd>
+            </dl>
+          </div>
+          <p>运费</p>
+          <div class="free_setting"><input type="text" placeholder="免邮金额" />元</div>
+        </div>
+        <div class="area_choose_btn">
+          <div class="area_choose_cancel">取消</div>
+          <div class="area_choose_confirm">确认</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
 	<style>
 		html,body{font-size: 14px;font-family: "微软雅黑";}
 		i{font-style: normal;}
@@ -56,119 +162,9 @@
 		.area_choose_confirm{background: #1E9FFF;float: right;margin-right: 50px;color: #FFFFFF;}
 		.area_choose_confirm:hover{background: #178FE5;}
 	</style>
-</head>
-<body>
-	<div class="box">
-		<div class="location">
-			<a href="#">其他服务</a>&gt;&gt;<a href="#">运费模板</a>
-		</div>
-		
-		<div class="freight_">
-			<!--<div class="freight_title"></div>-->
-			<div class="freight_form">
-				<table class="table table-bordered">
-					<tr>
-						<td>序号</td>
-						<td>模板名称</td>
-						<td>默认运费</td>
-						<td>地址</td>
-						<td>免邮设置</td>
-						<td>操作</td>
-					</tr>
-					<tr>
-						<td>1</td>
-						<td>系统默认运费模板（不可删除）</td>
-						<td>￥20.00 </td>
-						<td></td>
-						<td>￥1000.00免邮</td>
-						<td><a href="#">修改</a></td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>运费模板1</td>
-						<td>￥20.00 </td>
-						<td></td>
-						<td>￥100.00<a href="#">修改</a></td>
-						<td><a href="#">修改</a><a href="#">删除</a></td>
-					</tr>
-					<tr>
-						<td>3</td>
-						<td>杭州市西湖区运费模板</td>
-						<td>￥10.00 </td>
-						<td></td>
-						<td>￥100.00<a href="#">修改</a></td>
-						<td><a href="#">修改</a><a href="#">删除</a></td>
-					</tr>
-				</table>
-			</div>
-			
-			<div class="add_freight_template">
-				<div class="template_title">添加运费模板</div>
-				<div class="template_name"><i>模板名称</i><input type="text" /></div>
-				<div class="default_freight"><i>默认运费（元）</i><input type="text" /></div>
-				<div class="add_nonDefault_btn"><a href="#">添加非默认运费地区</a></div>
-				<div class="add_template_form">
-					<table class="table table-bordered">
-						<tr>
-							<td>非默认运费地区</td>
-							<td>运费</td>
-						</tr>
-						<tr>
-							<td>厦门市、xx市（精确到市。选中省即全选所有市，但可以取消勾选单个市）</td>
-							<td><input type="text" placeholder="免费金额" />元</td>
-						</tr>
-						<tr>
-							<td>杭州市</td>
-							<td><input type="text" placeholder="免费金额" />元</td>
-						</tr>
-					</table>
-				</div>
-				<div class="free_settings">
-					<p>免邮设置</p>
-					<div>
-						<input type="radio" />不免邮
-					</div>
-					
-					<input type="text" class="free_money" placeholder="免邮金额" />
-					<div>
-						<input type="radio" />订单满额免邮
-					</div>
-				</div>
-				<div class="add_freight_btn">
-					<div class="add_freight_cancel">取消</div>
-					<div class="add_freight_confirm">确认</div>
-				</div>
-			</div>
-		</div>
-	</div>
 
-	<div class="box2">
-		<div class="add_nonDefault_area">
-			<div class="add_nonDefault_area_title">添加非默认运费地区</div>
-			<div class="area_choose">
-				<p>非默认运费地区选择</p>
-				<div class="area_list">
-					<dl>
-						<dt><input type="checkbox" />浙江省</dt>
-						<dd><input type="checkbox" />杭州市</dd>
-						<dd><input type="checkbox" />舟山市</dd>
-					</dl>
-					<dl>
-						<dt><input type="checkbox" />辽宁省</dt>
-						<dd><input type="checkbox" />葫芦岛市</dd>
-						<dd><input type="checkbox" />大连市</dd>
-					</dl>
-				</div>
-				<p>运费</p>
-				<div class="free_setting"><input type="text" placeholder="免邮金额" />元</div>
-			</div>
-			<div class="area_choose_btn">
-				<div class="area_choose_cancel">取消</div>
-				<div class="area_choose_confirm">确认</div>
-			</div>
-		</div>
-	</div>
-</body>
+
+
 <script>
 	$(function(){
 		$('.add_nonDefault_btn a').click(function(){
@@ -179,4 +175,3 @@
 		})
 	})
 </script>
-</html>
