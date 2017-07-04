@@ -38,7 +38,7 @@ export default {
     }
   },
   created: function(){
-    this.$router.push('/User');
+    this.$router.push('/Jurisdiction');
 
   },
   methods: {
