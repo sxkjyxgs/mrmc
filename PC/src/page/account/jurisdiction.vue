@@ -6,45 +6,33 @@
         <el-breadcrumb-item>账号角色与权限管理</el-breadcrumb-item>
       </el-breadcrumb>
       <div class="add_account">
-        <div class="add_title tit;l">添加账号角色</div>
-        <div class="add_name">
-          <input type="text" placeholder="填写角色名称" />
-        </div>
-        <div class="add_distribution">
-          <a href="#" class="permission_url">权限分配</a>
-        </div>
-        <div class="add_btn">
-          确认添加
-        </div>
+        <div class="add_title title">添加账号角色</div>
+        <el-input v-model="input" placeholder="填写角色名称"></el-input>
+        <el-button type="text">权限分配</el-button>
+        <el-button type="primary" size="large">大型按钮</el-button>
       </div>
       <div class="distribution">
-        <div class="distribution_title">
-          分配角色权限
-        </div>
-        <div class="distribution_form">
-          <table class="table table-bordered">
-            <tr>
-              <td>角色名</td>
-              <td>角色现有权限</td>
-              <td>操作</td>
-            </tr>
-            <tr>
-              <td>主管理员</td>
-              <td>后台账号管理-所有、业务管理-所有、用户信息处理-所有</td>
-              <td class="operation"><a href="#" class="permission_url">权限分配</a><a href="#">删除</a></td>
-            </tr>
-            <tr>
-              <td>客服管理员</td>
-              <td>用户信息处理-所有</td>
-              <td class="operation"><a href="#" class="permission_url">权限分配</a><a href="#">删除</a></td>
-            </tr>
-            <tr>
-              <td>管理员</td>
-              <td>业务管理-所有、用户信息处理-所有</td>
-              <td class="operation"><a href="#" class="permission_url">权限分配</a><a href="#">删除</a></td>
-            </tr>
-          </table>
-        </div>
+        <div class="distribution_title title">分配角色权限</div>
+        <el-table
+          :data="tableData"
+          border
+          style="width: 100%">
+          <el-table-column
+            prop="name"
+            label="角色名"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="jurisdiction"
+            label="角色现有权限"
+            width="180">
+          </el-table-column>
+          <el-table-column
+            prop="operation"
+            label="操作">
+          </el-table-column>
+        </el-table>
+
         <div class="page">
           <ul class="pager">
             <li class="previous"><a href="#">上一页</a></li>
@@ -76,3 +64,39 @@
     </div>
   </div>
 </template>
+
+<script>
+//  export default {
+//    data() {
+//      return {
+//        input: ''
+//      }
+//    }
+//  }
+
+
+
+//  export default {
+//    data() {
+//      return {
+//        tableData: [{
+//          name: '2016-05-02',
+//          jurisdiction: '王小虎',
+//          operation: '上海市普陀区金沙江路 1518 弄'
+//        }, {
+//          name: '2016-05-04',
+//          jurisdiction: '王小虎',
+//          operation: '上海市普陀区金沙江路 1517 弄'
+//        }, {
+//          name: '2016-05-01',
+//          jurisdiction: '王小虎',
+//          operation: '上海市普陀区金沙江路 1519 弄'
+//        }, {
+//          name: '2016-05-03',
+//          jurisdiction: '王小虎',
+//          operation: '上海市普陀区金沙江路 1516 弄'
+//        }]
+//      }
+//    }
+//  }
+</script>

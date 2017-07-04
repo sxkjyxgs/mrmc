@@ -38,7 +38,7 @@ export default {
     }
   },
   created: function(){
-    this.$router.push('/Jurisdiction');
+    this.$router.push('/RecordAccount');
 
   },
   methods: {
