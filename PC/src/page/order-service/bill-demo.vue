@@ -43,6 +43,8 @@
                <div class="right"><el-radio class="radio" v-model="radio" label="2">订单满额免邮</el-radio><el-input  placeholder="免邮金额"></el-input></div>
             </el-from-item>
             <el-form-item>
+
+
               <el-button>取消</el-button>
               <el-button type="primary" class="right" style="margin-right: 50px;">添加</el-button>
             </el-form-item>
