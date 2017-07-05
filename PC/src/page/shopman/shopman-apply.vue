@@ -10,7 +10,15 @@
         <div class="apply_title">店主申请管理</div>
         <div class="apply_condition">
           <div class="apply_time">
-            申请时间：时间插件
+            申请时间：
+            <div class="block">
+              <span class="demonstration">默认</span>
+              <el-date-picker
+                v-model="value6"
+                type="daterange"
+                placeholder="选择日期范围">
+              </el-date-picker>
+            </div>
           </div>
           <div class="apply_information">
             申请信息：
@@ -43,7 +51,7 @@
               label="当前级别">
             </el-table-column>
             <el-table-column
-              prop="current_level"
+              prop="accumulated_sales"
               label="累计销售金">
             </el-table-column>
             <el-table-column
@@ -70,7 +78,6 @@
   .apply_{
     width: 100%;
     min-height: 500px;
-    border: 1px solid #303030;
     margin-top: 30px;
     overflow: hidden;
     position: relative;
@@ -84,7 +91,6 @@
   }
 
   .apply_condition{
-    width: 100%;
     padding: 0 10% 50px 10%;
   }
 
@@ -100,7 +106,7 @@
   }
 
   .apply_information select{
-    height: 32px;
+    height: 36px;
     margin-left: 10px;
   }
 
@@ -124,8 +130,8 @@
   }
 
   .apply_form{
-    width: 100%;
-    padding: 0 10% 50px 10%;
+    width: 80%;
+    margin-left: 10%;
   }
 
   .table tr td{
@@ -133,8 +139,60 @@
     border-color: #303030 !important;
   }
 
+  .apply_form table tr td{
+    text-align: center;
+  }
+
+  .apply_form table tr th{
+    text-align: center;
+  }
+
   .table tr td a{
     color: #303030;
     margin: 0 5px;
   }
 </style>
+
+<script>
+  export default {
+    data() {
+    return {
+      tableData: [{
+        apply_time: '2016-05-02',
+        apply_account: '王小虎',
+        current_level: '上海市普陀区金沙江路 1518 弄',
+        accumulated_sales: '100',
+        subordinate_team: '上行',
+        inpofmation_detail: '好',
+        operation: '好'
+      }, {
+        apply_time: '2016-05-02',
+        apply_account: '王小虎',
+        current_level: '上海市普陀区金沙江路 1518 弄',
+        accumulated_sales: '100',
+        subordinate_team: '上行',
+        inpofmation_detail: '好',
+        operation: '好'
+      }, {
+        apply_time: '2016-05-02',
+        apply_account: '王小虎',
+        current_level: '上海市普陀区金沙江路 1518 弄',
+        accumulated_sales: '100',
+        subordinate_team: '上行',
+        inpofmation_detail: '好',
+        operation: '好'
+      }, {
+        apply_time: '2016-05-02',
+        apply_account: '王小虎',
+        current_level: '上海市普陀区金沙江路 1518 弄',
+        accumulated_sales: '100',
+        subordinate_team: '上行',
+        inpofmation_detail: '好',
+        operation: '好'
+      }]
+    }
+  }
+  }
+
+  
+</script>
