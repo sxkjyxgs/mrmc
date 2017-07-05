@@ -6,16 +6,7 @@
         <el-breadcrumb-item>账号角色与权限管理</el-breadcrumb-item>
       </el-breadcrumb>
 
-      <div class="add_account">
-        <div class="add_title">添加账号角色</div>
-        <div class="add_name">
-          <el-input v-model="input" placeholder="填写角色名称"></el-input>
-        </div>
-        <div class="add_distribution">
-          <a href="#" class="permission_url">权限分配</a>
-        </div>
-        <el-button type="primary" size="small">确认添加</el-button>
-      </div>
+
       <div class="distribution">
         <div class="distribution_title">
           分配角色权限
@@ -46,6 +37,17 @@
             :total="50">
           </el-pagination>
         </div>
+      </div>
+
+      <div class="add_account">
+        <div class="add_title">添加账号角色</div>
+        <div class="add_name">
+          <el-input v-model="input" placeholder="填写角色名称"></el-input>
+        </div>
+        <div class="add_distribution">
+          <a href="#" class="permission_url">权限分配</a>
+        </div>
+        <el-button type="primary" size="large">确认添加</el-button>
       </div>
     </div>
     <!--<div class="box2">-->
@@ -79,8 +81,8 @@
   .add_account{
     width: 100%;
     height: 200px;
-    margin-top: 30px;
     text-align: center;
+    border-top: 1px solid #c4c4c4;
   }
 
   .add_title,.add_name,.add_distribution{
@@ -125,7 +127,8 @@
 
   .distribution{
     width: 100%;
-    height: 500px;
+    height: auto;
+    padding-bottom: 50px;
     overflow: hidden;
     margin-top: 50px;
   }
@@ -170,7 +173,7 @@
 
   .el-pagination {
     float: right;
-    margin: 50px 10% 50px 0;
+    margin: 50px 10% 0 0;
   }
 
   .box2{
