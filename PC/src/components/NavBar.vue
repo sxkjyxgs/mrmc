@@ -1,10 +1,10 @@
 <template>
   <div id="box">
     <el-menu default-active="/" class="el-menu-vertical-demo" :router="true">
-      <el-menu-item index="/activePublic"  :class="{'isActive': active}">活动发布</el-menu-item>
-      <el-menu-item index="/activeManage" :class="{'isActive': active}">活动管理</el-menu-item>
+      <!--<el-menu-item index="/activePublic">活动发布</el-menu-item>-->
+      <!--<el-menu-item index="/activeManage">活动管理</el-menu-item>-->
       <el-submenu index="1">
-        <template slot="title" :class="{'isActive': !active}">
+        <template slot="title">
           <i class="el-icon-setting"></i>后台账号管理
         </template>
         <el-menu-item index="Jurisdiction">后台权限管理</el-menu-item>
@@ -12,7 +12,7 @@
         <el-menu-item index="RecordAccount">后台账号操作记录</el-menu-item>
       </el-submenu>
       <el-submenu index="/">
-        <template slot="title" :class="{'isActive': !active}">
+        <template slot="title">
           <i class="el-icon-menu"></i>商品管理
         </template>
         <el-menu-item index="Classify">商品分类管理</el-menu-item>
@@ -56,9 +56,9 @@
       </el-submenu>
       <el-submenu index="6">
         <template slot="title">
-          <i class="el-icon-upload2"></i>美日美C用户管理
+          <i class="el-icon-menu"></i>美日美C用户管理
         </template>
-        <el-menu-item index="2-1">用户管理</el-menu-item>
+        <el-menu-item index="userManage">用户管理</el-menu-item>
       </el-submenu>
       <el-submenu index="7">
         <template slot="title" ><i class="el-icon-message"></i>美日美C客服电话</template>

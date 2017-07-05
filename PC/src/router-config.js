@@ -55,6 +55,7 @@ import  ShopmanTeamShow from './page/shopman/shopman-team-show.vue'
 
 import  User from './page/user/user.vue'
 import ChangePass from './page/user/changepassword.vue'
+import userManage from './page/user/userManage.vue'
 export default [
   {
     path: '/activeManage',
@@ -188,6 +189,10 @@ export default [
   },
   {
     path:'/ChangePass',component:ChangePass,
+  }
+  ,
+  {
+    path:'/userManage',component:userManage,
   }
 
 ]
