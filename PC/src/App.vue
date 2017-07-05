@@ -95,7 +95,13 @@ header a {
   /* 主内容区 */
 main{display: -webkit-box;display: -ms-flexbox;display: flex;  min-height: 800px;  border: solid 40px #E9ECF1;  background-color: #FCFCFC;  }
 main .main-left{text-align: center;-webkit-box-flex: 0;-ms-flex: 0 0 200px;flex: 0 0 200px;}
-main .main-right{-webkit-box-flex:1;-ms-flex:1;flex:1; background-color: #fff; padding: 50px 70px; }
+main .main-right{
+  -webkit-box-flex:1;-ms-flex:1;flex:1; background-color: #fff; padding: 50px 70px;
+  width:calc(100% - 200px);
+  width:-moz-calc(100% - 200px);
+  width:-webkit-calc(100% - 200px);
+  overflow: hidden;
+}
 main .el-menu{background-color: transparent!important;}
 /*  */
 .router-link{display:inline-block;width:100%;height:100%;text-align:center;color:#475669;text-decoration: none; }

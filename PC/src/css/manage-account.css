@@ -54,8 +54,8 @@ i{
 }
 
 .distribution_form{
-	width: 100%;
-	padding: 0 10%;
+  width: 80%;
+  margin: 0 10%;
 }
 
 .table tr td{
