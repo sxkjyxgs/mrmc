@@ -102,7 +102,7 @@ header span {
 /*.el-menu--horizontal .el-submenu .el-submenu__title{height:80px!important;line-height: 80px!important;color:#fff;!important;background: #ff3366;!important;}*/
   /* 主内容区 */
 main{display: -webkit-box;display: -ms-flexbox;display: flex;  min-height: 800px;  border: solid 40px #E9ECF1;  background-color: #FCFCFC;  }
-main .main-left{-webkit-box-flex: 0;-ms-flex: 0 0 280px;flex: 0 0 280px;}
+main .main-left{-webkit-box-flex: 0;-ms-flex: 0 0 280px;flex: 0 0 280px;border-right:10px solid #E9ECF1;}
 main .main-right{-webkit-box-flex:1;-ms-flex:1;flex:1; background-color: #fff; padding: 50px 70px; }
 main .el-menu{background-color: transparent!important;}
 /*  */

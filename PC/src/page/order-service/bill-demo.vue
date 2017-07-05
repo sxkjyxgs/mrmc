@@ -1,101 +1,125 @@
 <template>
-  <div id="box">
+  <div class="userManage">
     <div class="box">
-      <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">其他服务</el-breadcrumb-item>
-        <el-breadcrumb-item>发票管理</el-breadcrumb-item>
-      </el-breadcrumb>
-
-      <div class="invoice">
-        <div class="invoice_title mid">
-          用户可选发票内容
+      <div class="broad">其他服务>>运费模板</div>
+      <div class="contents">
+        <div class="item1">
+          <div class="right"><el-button type="success" icon="icon-plus">添加运费模板</el-button></div>
         </div>
-        <el-button type="primary">添加发票内容</el-button>
-        <div class="invoice_form">
-          <el-table
-            :data="tableData"
-            border
-            style="width: 100%">
-            <el-table-column
-              prop="invoice_content"
-              label="发票内容">
-            </el-table-column>
-            <el-table-column
-              prop="operation"
-              label="操作">
-            </el-table-column>
+        <div class="item2">
+          <el-table :data="tableData"  border style="width: 100%">
+            <el-table-column prop="username" label="序号"  width="180" align="center" header-align="center"></el-table-column>
+            <el-table-column prop="restime" label="模板名称" align="center" width="180" header-align="center"></el-table-column>
+            <el-table-column prop="logintime" label="默认运费"  align="center"  width="180" header-align="center"></el-table-column>
+            <el-table-column prop="UserType" label="地址"  align="center" width="180" header-align="center"></el-table-column>
+            <el-table-column prop="number" label="免邮设置"  align="center" width="180"  header-align="center"></el-table-column>
+            <el-table-column label="操作" align="center" width="180"  header-align="center"></el-table-column>
           </el-table>
         </div>
+      </div>
+      <div class="content">
+        <div class="titles">
+          添加普通用户
+        </div>
+        <div class="form">
+          <el-form  label-width="100px" class="demo-ruleForm">
+            <el-form-item label="模板名称" prop="resname">
+              <el-input  placeholder="未注册的手机号"></el-input>
+            </el-form-item>
+            <el-form-item label="默认运费（元）" prop="pass">
+              <el-input  type="number" placeholder="输入数字（仅限数字）"></el-input>
+            </el-form-item>
+            <el-from-item>
+              <el-button type="success" icon="icon-plus">添加费默认运费地区</el-button>
+            </el-from-item>
+            <el-from-item>
+              <el-table :data="tableData"  border style="width: 100%">
+                <el-table-column prop="username" label="非默认模板地区"  width="180" align="center" header-align="center"></el-table-column>
+                <el-table-column prop="restime" label="运费" align="center" width="180" header-align="center"></el-table-column>
+              </el-table>
+            </el-from-item>
+            <el-from-item>
+               <div class="left">免邮设置<el-radio class="radio" v-model="radio" label="1">不免邮</el-radio></div>
+               <div class="right"><el-radio class="radio" v-model="radio" label="2">订单满额免邮</el-radio><el-input  placeholder="免邮金额"></el-input></div>
+            </el-from-item>
+            <el-form-item>
+              <el-button>取消</el-button>
+              <el-button type="primary" class="right" style="margin-right: 50px;">添加</el-button>
+            </el-form-item>
+          </el-form>
+        </div>
+
+
+
       </div>
     </div>
   </div>
 </template>
-
-<style>
-  .invoice{
-    width: 100%;
-    min-height: 500px;
-    margin-top: 30px;
-    overflow: hidden;
-    position: relative;
-  }
-
-  .invoice button{
-    float: right;
-    margin: 50px 10% 20px 0;
-  }
-
-  .invoice_title{
-    text-align: center;
-    line-height: 60px;
-    font-size: 16px;
-    margin-top: 20px;
-  }
-
-  .add_invoice_btn{
-    width: 100px;
-    height: 30px;
-    border-radius: 5px;
-    background: #1E9FFF;
-    color: #FFFFFF;
-    text-align: center;
-    line-height: 30px;
-    position: absolute;
-    right: 10%;
-    top: 30px;
-  }
-
-  .invoice_form{
-    width: 80%;
-    margin-left: 10%;
-  }
-
-  .invoice_form table tr td{
-    text-align: center;
-  }
-
-  .invoice_form table tr th{
-    text-align: center;
-  }
-
-  .table tr td{
-    text-align: center;
-    border-color: #303030 !important;
-  }
-</style>
-
 <script>
+  import Vue from 'vue'
+  import Element from 'element-ui'
+  import 'element-ui/lib/theme-default/index.css'
+
+  Vue.use(Element)
   export default {
+    name: 'userManage',
     data() {
-    return {
-      tableData: [{
-        invoice_content: '2016-05-02',
-        operation: '王小虎',
-      }, {
-        invoice_content: '2016-05-04',
-        operation: '王小虎'
-      }]
+      return {
+        tableData: [{
+          username:'1',
+          restime:'2016-05-20  20:50',
+          logintime:'2016-05-20  20:50',
+          UserType:'普通用户',
+          number:'123'
+        },
+          {
+            username:'2',
+            restime:'2016-05-20  20:50',
+            logintime:'2016-05-20  20:50',
+            UserType:'个人店主',
+            number:'123'
+          },
+          {
+            username:'3',
+            restime:'2016-05-20  20:50',
+            logintime:'2016-05-20  20:50',
+            UserType:'普通用户',
+            number:'123'
+          },
+          {
+            username:'4',
+            restime:'2016-05-20  20:50',
+            logintime:'2016-05-20  20:50',
+            UserType:'普通用户',
+            number:'123'
+          }
+        ]
+      }
     }
   }
-  }
+
 </script>
+<style>
+  .contents{
+    border:1px solid #ccc;
+  }
+  .left{
+    float: left;
+  }
+  .right{
+    float: right;
+  }
+  .item2{
+    padding:20px;
+    box-sizing: border-box;
+  }
+  .broad{
+    margin-bottom:30px;
+  }
+  .item1{
+    padding:20px;
+  }
+  .dange{
+    padding:20px 20px 0 20px;
+  }
+</style>

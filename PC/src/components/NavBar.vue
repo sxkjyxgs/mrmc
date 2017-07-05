@@ -20,14 +20,14 @@
         <el-menu-item index="TagGoods">商品标签管理</el-menu-item>
         <el-menu-item index="RecommendGoods">推荐页--系统推荐商品</el-menu-item>
         <el-menu-item index="RecommendGoodsLike">推荐页--根据客户兴趣推荐商品</el-menu-item>
-        <el-menu-item index="AddGoods">商品管理（添加商品）</el-menu-item>
+        <el-menu-item index="ManageGoods">商品管理（添加商品）</el-menu-item>
       </el-submenu>
       <el-submenu index="3">
         <template slot="title">
           <i class="el-icon-document"></i>订单管理
         </template>
-        <el-menu-item index="FreightManage">订单列表</el-menu-item>
-        <el-menu-item index="BillDemo">退款中订单</el-menu-item>
+        <el-menu-item index="OrderList">订单列表</el-menu-item>
+        <el-menu-item index="OrderRefund">退款中订单</el-menu-item>
       </el-submenu>
       <el-submenu index="8">
         <template slot="title">

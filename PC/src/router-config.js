@@ -104,9 +104,6 @@ export default [
     path:'/RecordAccount',component:RecordAccount,
   },
   {
-    path:'/AddGoods',component:AddGoods,
-  },
-  {
     path:'/BrandGoods',component:BrandGoods,
   },
   {
@@ -114,6 +111,7 @@ export default [
   },
   {
     path:'/ManageGoods',component:ManageGoods,
+    children:[{ path:'/AddGoods',component:AddGoods}]
   },
   {
     path:'/RecommendGoods',component:RecommendGoods,
