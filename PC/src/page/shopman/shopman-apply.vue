@@ -12,7 +12,6 @@
           <div class="apply_time">
             申请时间：
             <div class="block">
-              <span class="demonstration">默认</span>
               <el-date-picker
                 v-model="value6"
                 type="daterange"
@@ -100,6 +99,10 @@
     margin-right: 10px;
   }
 
+  .apply_time .block{
+    float: right;
+  }
+
   .apply_information{
     float: right;
     line-height: 32px;
@@ -156,43 +159,73 @@
 <script>
   export default {
     data() {
-    return {
-      tableData: [{
-        apply_time: '2016-05-02',
-        apply_account: '王小虎',
-        current_level: '上海市普陀区金沙江路 1518 弄',
-        accumulated_sales: '100',
-        subordinate_team: '上行',
-        inpofmation_detail: '好',
-        operation: '好'
-      }, {
-        apply_time: '2016-05-02',
-        apply_account: '王小虎',
-        current_level: '上海市普陀区金沙江路 1518 弄',
-        accumulated_sales: '100',
-        subordinate_team: '上行',
-        inpofmation_detail: '好',
-        operation: '好'
-      }, {
-        apply_time: '2016-05-02',
-        apply_account: '王小虎',
-        current_level: '上海市普陀区金沙江路 1518 弄',
-        accumulated_sales: '100',
-        subordinate_team: '上行',
-        inpofmation_detail: '好',
-        operation: '好'
-      }, {
-        apply_time: '2016-05-02',
-        apply_account: '王小虎',
-        current_level: '上海市普陀区金沙江路 1518 弄',
-        accumulated_sales: '100',
-        subordinate_team: '上行',
-        inpofmation_detail: '好',
-        operation: '好'
-      }]
+      return {
+        pickerOptions2: {
+          shortcuts: [{
+            text: '最近一周',
+            onClick(picker) {
+            const end = new Date();
+            const start = new Date();
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7);
+            picker.$emit('pick', [start, end]);
+          }
+          }, {
+            text: '最近一个月',
+              onClick(picker) {
+              const end = new Date();
+              const start = new Date();
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 30);
+              picker.$emit('pick', [start, end]);
+            }
+          }, {
+            text: '最近三个月',
+              onClick(picker) {
+              const end = new Date();
+              const start = new Date();
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 90);
+              picker.$emit('pick', [start, end]);
+            }
+          }]
+          },
+          value6: '',
+          value7: '',
+
+        tableData: [{
+          apply_time: '2016-05-02',
+          apply_account: '王小虎',
+          current_level: '上海市普陀区金沙江路 1518 弄',
+          accumulated_sales: '100',
+          subordinate_team: '上行',
+          inpofmation_detail: '好',
+          operation: '好'
+        }, {
+          apply_time: '2016-05-02',
+          apply_account: '王小虎',
+          current_level: '上海市普陀区金沙江路 1518 弄',
+          accumulated_sales: '100',
+          subordinate_team: '上行',
+          inpofmation_detail: '好',
+          operation: '好'
+        }, {
+          apply_time: '2016-05-02',
+          apply_account: '王小虎',
+          current_level: '上海市普陀区金沙江路 1518 弄',
+          accumulated_sales: '100',
+          subordinate_team: '上行',
+          inpofmation_detail: '好',
+          operation: '好'
+        }, {
+          apply_time: '2016-05-02',
+          apply_account: '王小虎',
+          current_level: '上海市普陀区金沙江路 1518 弄',
+          accumulated_sales: '100',
+          subordinate_team: '上行',
+          inpofmation_detail: '好',
+          operation: '好'
+        }]
+      }
     }
   }
-  }
 
-  
+
 </script>
