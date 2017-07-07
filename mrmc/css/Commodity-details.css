@@ -396,10 +396,11 @@ footer{
     padding: 0 0.28rem;
     background: #FFFFFF;
     position: absolute;
-    left: 1.33rem;
+    left: 1.05rem;
     top: 4rem;
     display: none;
     z-index: 9;
+    border-radius: 10px;
 }
 
 .login_title{
@@ -492,11 +493,13 @@ footer{
     height: 5.56rem;
     padding: 0 0.28rem;
     background: #FFFFFF;
+    border-radius: ;
     position: absolute;
     left: 1.05rem;
     top: 3.5rem;
     display: none;
     z-index: 9;
+    border-radius: 10px;
 }
 
 .reg-title{
