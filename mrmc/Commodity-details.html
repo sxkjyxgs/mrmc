@@ -74,17 +74,15 @@
 
     <footer>
         <div class="save-money">
-            我要赚钱
+        	<img src="image/with-draw.png"/>
+        	<i>我要赚钱</i>
         </div>
         <div class="shopcar">
-            <img src="" alt=""/>
+        	<img src="image/shopping-.png"/>
+        	<i>购物车</i>
         </div>
-        <div class="buynow">
-            立即购买
-        </div>
-        <div class="into-shopcar">
-            加入购物车
-        </div>
+        <div class="into-shopcar">加入购物袋</div>
+        <div class="buynow">立即购买</div>
     </footer>
 
     <div class="mask">
@@ -119,9 +117,11 @@
             <div class="oks">确定</div>
         </div>
     </div>
+    
     <div class="share-box">
 
     </div>
+    
     <div class="share">
         <p>分享商品到</p>
         <div>qq好友</div>
@@ -130,6 +130,14 @@
         <div>朋友圈</div>
         <div>复制链接</div>
     </div>
+    
+    <div class="upgrade_owner">
+    	<p>您需要变成店主，分享商品才可分得佣金，是否去升级到店主？</p>
+    	<div class="upgrade_btn">
+    		<a href="#" class="upgrade_cancel">取消</a>
+    		<a href="#" class="go_upgrade">去升级</a>
+    	</div>
+    </div>
 
     <div class="go-download">
         <p>您需下载美日美C 客户端APP 变成店主，即可分享商品赚的佣金！<a href="#">去下载</a></p>
@@ -137,7 +145,7 @@
 
     <div class="login">
         <div class="login_title">
-            登录购买商品
+            登录即可购买商品
         </div>
         <div class="number">
             <input type="text" placeholder="请输入手机号"/>
@@ -145,20 +153,18 @@
         <div class="password">
             <input type="text" placeholder="输入密码登录"/>
         </div>
-        <p class="reg-url"><a href="#">去注册>></a></p>
+        
         <div class="btns">
-            <div class="cancel">
-                取消
-            </div>
-            <div class="logining">
-                登录
-            </div>
+            <div class="cancel">取消</div>
+            <div class="logining">登录</div>
         </div>
+        
+        <p class="reg-url">还没账号？<a href="#">去注册</a></p>
     </div>
 
     <div class="register">
         <div class="reg-title">
-            输入手机号并设置密码注册，即可购买商品
+            注册即可购买商品
         </div>
         <div class="reg-number">
             <input type="text" placeholder="请输入手机号"/>
@@ -168,14 +174,14 @@
                 <input type="text" placeholder="请输入验证码"/>
             </div>
             <div class="send-btn">
-                <p>发送</p>
+                <p>获取验证码</p>
                 <!--<p><a href="#">重新发送</a><span></span></p>-->
             </div>
         </div>
         <div class="reg-password">
-            <input type="text" placeholder="设置密码，6位到15位的字母或者数字任意组合"/>
+            <input type="text" placeholder="密码6到15位的字母或数字组合"/>
         </div>
-        <p class="login-url"><a href="#">直接登录>></a></p>
+        
         <div class="reg-btns">
             <div class="reg-cancel">
                 取消
@@ -184,6 +190,7 @@
                 登录
             </div>
         </div>
+        <p class="login-url">已注册？<a href="#">去登录</a></p>
     </div>
 
 <!--</div>-->
@@ -240,9 +247,11 @@
     })
     $("#shop-num").click(function(){
         $(".mask").css({display:"block"});
+        $('.share-box').show();
     })
     $(".oks").click(function(){
         $(".mask").css({display:"none"});
+        $('.share-box').hide();
     })
     $(".more").click(function () {
         $(".share-box").show();
@@ -250,7 +259,15 @@
     })
     $(".save-money").click(function () {
         $(".share-box").show();
-        $(".go-download").show();
+        $(".upgrade_owner").show();
+    })
+    $('.upgrade_cancel').click(function(){
+    	$('.share-box').hide();
+    	$('.upgrade_owner').hide();
+    })
+    $('.go_upgrade').click(function(){
+    	$('.share-box').show();
+    	$('.go-download').show();
     })
     $(".buynow").click(function () {
         $(".share-box").show();
@@ -280,6 +297,8 @@
         $(".go-download").hide();
         $(".login").hide();
         $(".register").hide();
+        $('.mask').hide();
+        $('.upgrade_owner').hide();
     })
 
 </script>

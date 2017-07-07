@@ -4,7 +4,17 @@
     <file url="file://$PROJECT_DIR$/PC/src/page/account/jurisdiction.vue" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/PC/src/page/account/manage-account.vue" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/PC/src/page/account/record-account.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/PC/src/page/goods/add-goods.vue" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/PC/src/page/goods/brand-goods.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/PC/src/page/goods/classify-goods.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/PC/src/page/goods/manage-goods.vue" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/PC/src/page/goods/tag-goods.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/PC/src/page/order-service/bill-demo.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/PC/src/page/order-service/freight-manage.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/PC/src/page/phone/phone.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/PC/src/page/shopman/shopman-apply-show.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/PC/src/page/shopman/shopman-apply.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/PC/src/page/shopman/shopman-commission.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/PC/src/router-config.js" charset="UTF-8" />
   </component>
 </project>
