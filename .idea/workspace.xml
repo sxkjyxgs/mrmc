@@ -2,21 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="090d164b-3f7b-47b0-93ad-354117094580" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mrmc/.project" afterPath="$PROJECT_DIR$/mrmc/.project" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PC/src/App.vue" afterPath="$PROJECT_DIR$/PC/src/App.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PC/src/components/NavBar.vue" afterPath="$PROJECT_DIR$/PC/src/components/NavBar.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PC/src/page/money/accounted-for.vue" afterPath="$PROJECT_DIR$/PC/src/page/money/accounted-for.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PC/src/page/goods/add-goods.vue" afterPath="$PROJECT_DIR$/PC/src/page/goods/add-goods.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PC/src/page/order-service/bill-demo.vue" afterPath="$PROJECT_DIR$/PC/src/page/order-service/bill-demo.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PC/src/page/goods/classify-goods.vue" afterPath="$PROJECT_DIR$/PC/src/page/goods/classify-goods.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PC/src/page/goods/manage-goods.vue" afterPath="$PROJECT_DIR$/PC/src/page/goods/manage-goods.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PC/src/page/money/out-of-account.vue" afterPath="$PROJECT_DIR$/PC/src/page/money/out-of-account.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PC/src/router-config.js" afterPath="$PROJECT_DIR$/PC/src/router-config.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PC/src/page/shopman/shopman-apply-show.vue" afterPath="$PROJECT_DIR$/PC/src/page/shopman/shopman-apply-show.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PC/src/page/shopman/shopman-commission.vue" afterPath="$PROJECT_DIR$/PC/src/page/shopman/shopman-commission.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PC/src/page/money/user-withdraw-apply.vue" afterPath="$PROJECT_DIR$/PC/src/page/money/user-withdraw-apply.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PC/src/page/user/userManage.vue" afterPath="$PROJECT_DIR$/PC/src/page/user/userManage.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -54,8 +39,8 @@
       <file leaf-file-name="user-withdraw-apply.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/PC/src/page/money/user-withdraw-apply.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9293233">
-              <caret line="66" column="10" selection-start-line="66" selection-start-column="10" selection-end-line="66" selection-end-column="10" />
+            <state vertical-scroll-proportion="0.30676693">
+              <caret line="49" column="19" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
               <folding>
                 <element signature="n#style#0;n#el-table#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
               </folding>
@@ -783,8 +768,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/PC/src/page/money/user-withdraw-apply.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9293233">
-          <caret line="66" column="10" selection-start-line="66" selection-start-column="10" selection-end-line="66" selection-end-column="10" />
+        <state vertical-scroll-proportion="0.30676693">
+          <caret line="49" column="19" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
           <folding>
             <element signature="n#style#0;n#el-table#0;n#div#1;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
           </folding>
