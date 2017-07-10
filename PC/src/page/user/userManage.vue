@@ -1,7 +1,11 @@
 <template>
   <div class="userManage">
     <div class="box">
-      <div class="broad">用户信息处理>>用户信息查看</div>
+      <el-breadcrumb separator="/">
+        <el-breadcrumb-item :to="{ path: '/' }">用户信息处理</el-breadcrumb-item>
+        <el-breadcrumb-item>用户信息查看</el-breadcrumb-item>
+      </el-breadcrumb>
+
       <div class="contents">
         <div class="item1">
           <div class="left">用户信息查看</div>
@@ -97,7 +101,7 @@
 </script>
 <style>
   .contents{
-    border:1px solid #ccc;
+    margin-top: 30px;
   }
   .left{
     float: left;

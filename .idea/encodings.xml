@@ -11,6 +11,7 @@
     <file url="file://$PROJECT_DIR$/PC/src/page/goods/tag-goods.vue" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/PC/src/page/money/accounted-for.vue" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/PC/src/page/money/out-of-account.vue" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/PC/src/page/money/user-withdraw-apply.vue" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/PC/src/page/order-service/bill-demo.vue" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/PC/src/page/order-service/freight-manage.vue" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/PC/src/page/phone/phone.vue" charset="UTF-8" />

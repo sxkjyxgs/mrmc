@@ -7,7 +7,7 @@
       </el-breadcrumb>
 
       <div class="add_goods">
-        <el-button type="primary">添加商品</el-button>
+        <!--<router-link to="/AddGoods">添加商品</router-link>-->
       </div>
 
       <div class="goods_search">
@@ -18,7 +18,7 @@
         <select name="" id="">
           <option value="">二级分类</option>
         </select>
-        <el-input v-model="input" placeholder="请输入内容"></el-input>
+        <el-input v-model="input" placeholder="输入商品名称搜索"></el-input>
         <el-button type="primary">搜索</el-button>
       </div>
       <div class="add_goods_form">
