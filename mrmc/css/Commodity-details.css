@@ -20,10 +20,10 @@
     font-size: 18px;
     background: #fff;
     /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
+    /*display: -webkit-box;*/
+    /*display: -ms-flexbox;*/
+    /*display: -webkit-flex;*/
+    /*display: flex;*/
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     -webkit-justify-content: center;
@@ -183,9 +183,10 @@ footer{
 
 .save-money img{
 	display: block;
-	height: 0.5rem;
+	height: 0.37rem;
 	margin: 0 auto;
 	margin-top: 0.1rem;
+	margin-bottom: 0.1rem;
 }
 
 .save-money i{
@@ -204,9 +205,10 @@ footer{
 
 .shopcar img{
 	display: block;
-	height: 0.5rem;
+	height: 0.37rem;
 	margin: 0 auto;
 	margin-top: 0.1rem;
+	margin-bottom: 0.1rem;
 }
 
 .shopcar i{
@@ -255,6 +257,7 @@ footer{
     background: #FFFFFF;
     z-index:9;
     display: none;
+    border-radius: 5px;
 }
 
 .share p{
@@ -263,33 +266,18 @@ footer{
     line-height: 0.7rem;
 }
 
-.share div{
-    width:1.2rem;
-    height: 0.8rem;
-    border:1px solid #303030;
-    margin-right: 0.4rem;
-    float: left;
-    background: #FFFFFF;
-    margin-top: 0.2rem;
-    text-align: center;
-    line-height: 0.8rem;
+.share .icon{
+	font-size: 0.9rem;
+	padding: 0 0.3rem;
+	margin-top: 0.35rem;
 }
 
-.share div:nth-child(2){
-    margin-left: 0.25rem;
+.share .kongjian{
+	padding: 0 0.4rem !important;
 }
 
-.share div:nth-child(5){
-    margin-left: 0.25rem;
-    margin-top: 0.3rem;
-}
-
-.share div:nth-child(6){
-    margin-top: 0.3rem;
-}
-
-.share div:nth-child(4){
-    margin-right: 0;
+.share .copyurl{
+	padding: 0 0.4rem !important;
 }
 
 .upgrade_owner{
@@ -628,3 +616,76 @@ footer{
     color: #FFFFFF;
     border-radius: 5px;
 }
+
+.more .icon{
+	font-size: 0.5rem;
+	margin-top: 0.2rem;
+}
+
+.fenxiang_btn1,.fenxiang_btn2,.fenxiang_btn3{
+	width: 50%;
+	margin-left: 25%;
+	margin-top: 0.1rem;
+	height:0.6rem;
+	font-size: 14px;
+	background: #FF3366;
+	text-align: center;
+	line-height: 0.6rem;
+	border-radius: 5px;
+	color: #FFFFFF;
+}
+
+.go-top{
+	width: 10%;
+	height: 0.5rem;
+	background: #cccccc;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 0.6rem;
+	z-index: 5;
+	position: fixed;
+	right: 0.1rem;
+	bottom: 1.1rem;
+	border-radius: 5px;
+	display: block;
+}
+
+.go-top .icon{
+	font-size: 0.4rem;
+	font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

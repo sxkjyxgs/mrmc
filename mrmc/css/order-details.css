@@ -84,9 +84,17 @@ i{
 .num{
     padding:0.2rem 0;
 }
+.num .right{
+	overflow: hidden;
+	float: none !important;
+}
 .num .right div{
-    float: left;
+    float: right;
     margin-left:0.2rem;
+}
+.num_total{
+	padding:0.2rem 0;
+	text-align: right;
 }
 .message{
     width:100%;

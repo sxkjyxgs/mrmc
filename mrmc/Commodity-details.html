@@ -7,9 +7,19 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="js/rem.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/iconfont/iconfont.css"/>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/swiper.min.css">
     <link rel="stylesheet" href="css/Commodity-details.css">
+    <script src="js/iconfont/iconfont.js"></script>
+    <style type="text/css">
+		.icon {
+		   width: 1em; height: 1em;
+		   vertical-align: -0.15em;
+		   fill: currentColor;
+		   overflow: hidden;
+		}
+	</style>
 </head>
 <body>
 <!--<div class="Bigbox">-->
@@ -21,10 +31,13 @@
         </div>
         <div class="titles">婴儿纸尿裤</div>
         <div class="more">
-            <img src="image/enjoy.png" alt="" style="width:0.44rem;">
+            <svg class="icon" aria-hidden="true">
+			  	<use xlink:href="#icon-fenxiang"></use>
+			</svg>
         </div>
     </header>
     <section class="middle">
+    	<a name="top"></a>
         <div class="swiper-container" id="swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
@@ -63,11 +76,13 @@
         <div class="swiper-container" id="swiper3">
             <div class="swiper-wrapper">
                 <div class="swiper-slide show1">
-                    Slide 1
-
+                    <div class="fenxiang_btn1">分享长图片</div>
+                    <div class="fenxiang_btn2">分享图片</div>
                 </div>
                 <div class="swiper-slide">Slide 2</div>
-                <div class="swiper-slide">Slide 3</div>
+                <div class="swiper-slide">
+                	<div class="fenxiang_btn3">分享视频</div>
+                </div>
             </div>
         </div>
     </section>
@@ -124,11 +139,21 @@
     
     <div class="share">
         <p>分享商品到</p>
-        <div>qq好友</div>
-        <div>qq空间</div>
-        <div>微信好友</div>
-        <div>朋友圈</div>
-        <div>复制链接</div>
+        <svg class="icon qqfriend" aria-hidden="true">
+		  	<use xlink:href="#icon-qqhaoyou"></use>
+		</svg>
+		<svg class="icon kongjian" aria-hidden="true">
+		  	<use xlink:href="#icon-QQkongjian"></use>
+		</svg>
+		<svg class="icon friend" aria-hidden="true">
+		  	<use xlink:href="#icon-fenxianggeiweixinhaoyou"></use>
+		</svg>
+		<svg class="icon circle" aria-hidden="true">
+		  	<use xlink:href="#icon-pengyouquan2"></use>
+		</svg>
+		<svg class="icon copyurl" aria-hidden="true">
+		  	<use xlink:href="#icon-fuzhilianjie"></use>
+		</svg>
     </div>
     
     <div class="upgrade_owner">
@@ -193,9 +218,15 @@
         <p class="login-url">已注册？<a href="#">去登录</a></p>
     </div>
 
+	<a href="#top" class="go-top">
+		<svg class="icon" aria-hidden="true">
+		  	<use xlink:href="#icon-huidingbu"></use>
+		</svg>
+	</a>
 <!--</div>-->
 <script src="js/swiper.min.js"></script>
 <script src="js/zepto.js"></script>
+<script src="js/return_top.js"></script>
 <script>
     var swiper2Top=$("#swiper").scrollTop();
     var swiper = new Swiper('#swiper', {
@@ -300,7 +331,6 @@
         $('.mask').hide();
         $('.upgrade_owner').hide();
     })
-
 </script>
 </body>
 </html>

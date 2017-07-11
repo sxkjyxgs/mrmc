@@ -35,7 +35,7 @@
 						税号：
 					</div>
 					<div class="duty-paragraph-ipt">
-						<input type="text" class="ipt2" placeholder="填写税号，必填" />
+						<input type="text" class="ipt2" placeholder="填写税号，选填" />
 					</div>
 				</div>
 				<div class="invoice-content">发票内容：</div>
@@ -77,6 +77,7 @@
 			});
 			$('.click_').click(function(){
 				$(this).children('.check-mark').toggle();
+				$(this).siblings().children('.check-mark').hide();
 			});
 		})
 	</script>
