@@ -3,55 +3,51 @@
     <div class="box">
       <div class="broad">其他服务>>运费模板</div>
       <div class="contents">
+        <div class="titlee" style="border:0;">
+          运费模板
+        </div>
         <div class="item1">
           <div class="right"><el-button type="success" icon="icon-plus">添加运费模板</el-button></div>
         </div>
         <div class="item2">
           <el-table
-            :data="tableData"
             border
             style="width: 100%">
             <el-table-column
-              prop="username"
               label="序号">
             </el-table-column>
             <el-table-column
-              prop="restime"
               label="模板名称">
             </el-table-column>
             <el-table-column
-              prop="logintime"
               label="默认运费">
             </el-table-column>
             <el-table-column
-              prop="UserType"
               label="地址">
             </el-table-column>
             <el-table-column
-              prop="number"
               label="免邮设置">
             </el-table-column>
             <el-table-column
-              prop="operation"
               label="操作">
             </el-table-column>
           </el-table>
         </div>
       </div>
-      <div class="add_user">
-        <div class="add_user_title">
+      <div class="add_user" >
+        <div class="titles">
           添加普通用户
         </div>
 
-          <el-form  label-width="100px" class="demo-ruleForm">
+          <el-form  label-width="100px" class="demo-ruleForm" style="padding-top:30px;">
             <el-form-item label="模板名称" prop="resname">
-              <el-input  placeholder=""></el-input>
+              <el-input  ></el-input>
             </el-form-item>
             <el-form-item label="默认运费（元）" prop="pass">
               <el-input  type="number" placeholder="输入数字（仅限数字）"></el-input>
             </el-form-item>
               <el-button type="primary">添加费默认运费地区</el-button>
-            <el-from-item>
+            <div>
               <el-table
                 :data="tableData"
                 border
@@ -65,10 +61,10 @@
                   label="运费">
                 </el-table-column>
               </el-table>
-            </el-from-item>
+            </div>
             <div class="free_setting">
-              <div class="free_setting_left">免邮设置<el-radio class="radio" v-model="radio" label="1">不免邮</el-radio></div>
-              <div class="free_setting_right"><el-radio class="radio" v-model="radio" label="2">订单满额免邮</el-radio><el-input  placeholder="免邮金额"></el-input></div>
+              <div class="free_setting_left">免邮设置<el-radio class="radio"  label="1" name="yes">不免邮</el-radio></div>
+              <div class="free_setting_right"><el-radio class="radio" label="2" >订单满额免邮</el-radio><el-input  placeholder="免邮金额"></el-input></div>
             </div>
 
             <div class="bill_demo_btn">
@@ -137,6 +133,9 @@
   .add_user{
     margin: 100px auto 0;
     overflow: hidden;
+    width:600px;
+    border:1px solid #ff3366;
+    border-radius: 7px;
   }
 
   .add_user_title{
@@ -154,8 +153,9 @@
   }
 
   .el-form{
-    width: 40%;
-    margin: auto;
+    width: 80%;
+    display: block;
+    margin:auto!important;
   }
 
   .el-form .el-button{

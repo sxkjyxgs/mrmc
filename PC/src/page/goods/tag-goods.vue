@@ -33,7 +33,7 @@
         <div class="good_tag3">
           <div class="tag_name3">
             <div class="tag_name3_title">商品标签3：兴趣</div>
-            <el-button type="primary">添加兴趣</el-button>
+            <el-button type="success">添加兴趣</el-button>
           </div>
           <div class="tag_list3">
             <div class="tag_list3_title">兴趣</div>

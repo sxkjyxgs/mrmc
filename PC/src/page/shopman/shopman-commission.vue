@@ -7,22 +7,18 @@
       </el-breadcrumb>
 
       <div class="commission_">
-        <div class="commission_title">系统默认店主提成</div>
+        <div class="titlee" style="border:0;">系统默认店主提成</div>
         <div class="commission_form">
           <el-table
-            :data="tableData"
             border
             style="width: 100%">
             <el-table-column
-              prop="owner_class"
               label="店主级别">
             </el-table-column>
             <el-table-column
-              prop="royalty"
               label="级别提成">
             </el-table-column>
             <el-table-column
-              prop="operation"
               label="操作">
             </el-table-column>
           </el-table>
@@ -31,33 +27,6 @@
     </div>
   </div>
 </template>
-
-<script>
-  export default {
-    data() {
-    return {
-      tableData: [{
-        owner_class: '2016-05-02',
-        royalty: '王小虎',
-        operation: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        owner_class: '2016-05-02',
-        royalty: '王小虎',
-        operation: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        owner_class: '2016-05-02',
-        royalty: '王小虎',
-        operation: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        owner_class: '2016-05-02',
-        royalty: '王小虎',
-        operation: '上海市普陀区金沙江路 1518 弄'
-      }]
-    }
-  }
-  }
-</script>
-
 <style>
   .commission_{
     width: 100%;

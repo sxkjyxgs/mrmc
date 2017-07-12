@@ -10,7 +10,7 @@
         <div class="brand_title mid">
           商品品牌列表
         </div>
-        <el-button type="primary">添加商品品牌</el-button>
+        <el-button type="success">添加商品品牌</el-button>
         <div class="brand_form">
           <el-table
             :data="tableData"

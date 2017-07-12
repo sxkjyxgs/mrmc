@@ -12,38 +12,32 @@
 
       <div class="goods_search">
         <i>搜索</i>
-        <select name="" id="">
+        <select name="" >
           <option value="">一级分类</option>
         </select>
-        <select name="" id="">
+        <select name="" >
           <option value="">二级分类</option>
         </select>
-        <el-input v-model="input" placeholder="输入商品名称搜索"></el-input>
-        <el-button type="primary">搜索</el-button>
+        <el-input placeholder="输入商品名称搜索"></el-input>
+        <el-button type="success">搜索</el-button>
       </div>
       <div class="add_goods_form">
         <el-table
-          :data="tableData"
           border
           style="width: 100%">
           <el-table-column
-            prop="serial_number"
             label="序号">
           </el-table-column>
           <el-table-column
-            prop="goods_name"
             label="商品名称">
           </el-table-column>
           <el-table-column
-            prop="stock"
             label="库存">
           </el-table-column>
           <el-table-column
-            prop="freight_template"
             label="运费模板">
           </el-table-column>
           <el-table-column
-            prop="operation"
             label="操作">
           </el-table-column>
         </el-table>

@@ -5,12 +5,11 @@
         <el-breadcrumb-item :to="{ path: '/' }">支付系统</el-breadcrumb-item>
         <el-breadcrumb-item>出账记录</el-breadcrumb-item>
       </el-breadcrumb>
-
+      <div class="titlee" style="border:0;">出账</div>
       <div class="operation_time">
         <i>操作时间：</i>
         <div class="block">
           <el-date-picker
-            v-model="value6"
             type="daterange"
             placeholder="选择日期范围">
           </el-date-picker>
@@ -26,38 +25,31 @@
 
       <div class="out_account_form">
         <el-table
-          :data="tableData"
           border
           style="width: 100%">
           <el-table-column
-            prop="operating_time"
             label="操作时间">
           </el-table-column>
           <el-table-column
-            prop="occurrence_cause"
             label="发生原因">
           </el-table-column>
           <el-table-column
-            prop="payment"
             label="出款方式">
           </el-table-column>
           <el-table-column
-            prop="finance_account"
             label="财务出款账号">
           </el-table-column>
           <el-table-column
-            prop="user_account"
             label="用户账号">
           </el-table-column>
           <el-table-column
-            prop="amount_account"
             label="出账金额">
           </el-table-column>
         </el-table>
       </div>
 
       <div class="accumulated_account">
-        当前后台余额:￥10086
+        当前后台余额:￥<span>10086</span>
       </div>
     </div>
   </div>

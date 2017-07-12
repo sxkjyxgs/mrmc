@@ -8,7 +8,7 @@
       <div class="phone">
         <div class="phone_title">客服电话</div>
         <div class="current_phone">
-          <p>当前客服电话：<i class="current_phonenumber">18858594797</i><el-button type="primary">修改</el-button></p>
+          <p>当前客服电话：<i class="current_phonenumber">18858594797</i><el-button type="danger">修改</el-button></p>
         </div>
         <div class="change_phone">
           <div class="change_ipt">

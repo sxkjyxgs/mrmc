@@ -7,10 +7,10 @@
       </el-breadcrumb>
 
       <div class="invoice">
-        <div class="invoice_title mid">
+        <div class="titlee" style="border:0;">
           用户可选发票内容
         </div>
-        <el-button type="primary">添加发票内容</el-button>
+        <el-button type="success">添加发票内容</el-button>
         <div class="invoice_form">
           <el-table
             :data="tableData"

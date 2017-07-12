@@ -97,4 +97,8 @@
   .form{
     padding:30px 30px 0 0;
   }
+  .form .el-form{
+    width:100%;
+    margin:0;
+  }
 </style>

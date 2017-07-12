@@ -31,9 +31,12 @@
               prop="role"
               label="角色">
             </el-table-column>
-            <el-table-column
-              prop="operation"
-              label="操作">
+            <el-table-column label="操作" fixed="right">
+              <template scope="scope">
+                <el-button type="text" size="small">修改密码</el-button>
+                <el-button type="text" size="small">分配角色</el-button>
+                <el-button type="text" size="small">注销账号</el-button>
+              </template>
             </el-table-column>
           </el-table>
         </div>
@@ -49,16 +52,17 @@
       <div class="add_background_account">
         <div class="add_background_account_title mid">添加后台账号</div>
         <div class="login_account">
-          登录账号：<el-input v-model="input" placeholder="登录账号"></el-input>
+          登录账号：<el-input  placeholder="登录账号"></el-input>
         </div>
         <div class="login_password">
-          登录密码：<el-input v-model="input" placeholder="登录密码"></el-input>
+          登录密码：<el-input  placeholder="登录密码"></el-input>
         </div>
         <p><el-button type="text">分配角色</el-button></p>
         <el-button type="primary" size="large">确认</el-button>
         <div class="current_tip">已存在的账号，添加失败</div>
       </div>
     </div>
+    <div class="mask"></div>
     <!--<div class="box3">-->
       <!--<div class="assign_roles_page">-->
         <!--<div class="assign_roles_page_title">分配角色权限</div>-->
@@ -85,7 +89,15 @@
     overflow: hidden;
     box-sizing: border-box;
   }
-
+  /*.mask{*/
+    /*width:100%;*/
+    /*height:100%;*/
+    /*position: fixed;*/
+    /*top:0;*/
+    /*left:0;*/
+    /*background: rgba(0,0,0,0.3);*/
+    /*z-index: 9999999999;*/
+  /*}*/
   .location{
     font-size: 18px;
   }

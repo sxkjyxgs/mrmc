@@ -12,7 +12,7 @@
           <div class="right"><el-button type="success" icon="icon-plus">添加普通用户</el-button></div>
         </div>
         <div class="item2">
-          <el-table :data="tableData"  border style="width: 100%">
+          <el-table   border style="width: 100%">
             <el-table-column prop="username" label="账号（手机号）"  width="180" align="center" header-align="center"></el-table-column>
             <el-table-column prop="restime" label="注册时间" align="center" width="180" header-align="center"></el-table-column>
             <el-table-column prop="logintime" label="上次登录时间"  align="center"  width="180" header-align="center"></el-table-column>

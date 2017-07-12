@@ -25,16 +25,21 @@
               label="角色现有权限">
             </el-table-column>
             <el-table-column
-              prop="operation"
-              label="操作">
+              fixed="right"
+              label="操作"
+              width="200">
+              <template scope="scope">
+                <el-button type="text" size="small">权限分配</el-button>
+                <el-button type="text" size="small">删除</el-button>
+              </template>
             </el-table-column>
           </el-table>
         </div>
 
         <div class="block">
-          <el-pagination
+          <el-pagination page-size='5'
             layout="prev, pager, next"
-            :total="50">
+            :total="20">
           </el-pagination>
         </div>
       </div>
@@ -42,7 +47,7 @@
       <div class="add_account">
         <div class="add_title">添加账号角色</div>
         <div class="add_name">
-          <el-input v-model="input" placeholder="填写角色名称"></el-input>
+          <el-input  placeholder="填写角色名称"></el-input>
         </div>
         <div class="add_distribution">
           <a href="#" class="permission_url">权限分配</a>
@@ -50,31 +55,15 @@
         <el-button type="primary" size="large">确认添加</el-button>
       </div>
     </div>
-    <!--<div class="box2">-->
-      <!--<div class="permission_assignment">-->
-        <!--<div class="permission_assignment_title">分配角色权限</div>-->
-        <!--<dl>-->
-          <!--<dt><input type="checkbox" value="商品管理" />商品管理</dt>-->
-          <!--<dd><input type="checkbox" value="商品分类管理" />商品分类管理</dd>-->
-          <!--<dd><input type="checkbox" value="商品品牌管理" />商品品牌管理</dd>-->
-          <!--<dd><input type="checkbox" value="商品标签管理" />商品标签管理</dd>-->
-        <!--</dl>-->
-        <!--<dl>-->
-          <!--<dt><input type="checkbox" value="后台账号管理" />后台账号管理</dt>-->
-          <!--<dd><input type="checkbox" value="添加后台账号" />添加后台账号</dd>-->
-          <!--<dd><input type="checkbox" value="后台权限管理" />后台权限管理</dd>-->
-          <!--<dd><input type="checkbox" value="管理后台账号" />管理后台账号</dd>-->
-        <!--</dl>-->
-        <!--<div class="permission_btn">-->
-          <!--<div class="permission_cancel">取消</div>-->
-          <!--<div class="permission_confirm">确认</div>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
+    <div class="box2">
+
+    </div>
+
   </div>
 </template>
 
 <style>
+
   #box{
     position: relative;
   }
@@ -177,94 +166,37 @@
   }
 
   .box2{
-    width: 100%;
-    height: 100%;
-    position: absolute;
+    width: 300px;
+    height: 300px;
+    position: fixed;
     left: 0;
     top: 0;
-    background: rgba(0,0,0,0.5);
-    display: none;
+    background: red;
+    z-index: 999999999999999999;
   }
 
-  .box2 .permission_assignment{
-    width: 300px;
-    height: 500px;
-    background: #FFFFFF;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -150px;
-    margin-top: -300px;
-  }
-
-  .permission_assignment_title{
-    font-size: 16px;
-    line-height: 60px;
-    margin-top: 10px;
-    text-align: center;
-    border-bottom: 2px solid #303030;
-  }
-
-  .permission_assignment dl{
-    width: 70%;
-    margin-left: 20%;
-    margin-top: 20%;
-  }
-
-  .permission_btn{
-    width: 100%;
-    height: 30px;
-    overflow: hidden;
-    position: relative;
-    top: 60px;
-  }
-
-  .permission_cancel,.permission_confirm{
-    width: 100px;
-    height: 30px;
-    text-align: center;
-    line-height: 30px;
-    float: left;
-    cursor: pointer;
-  }
-
-  .permission_cancel{
-    background: #838383;
-    float: left;
-    margin-left: 20px;
-  }
-
-  .permission_confirm{
-    background: #1E9FFF;
-    float: right;
-    margin-right: 20px;
-  }
-
-  .permission_confirm:hover{
-    background: #178FE5;
-  }
 </style>
 
 <script>
+  import Vue from 'vue'
+  import Element from 'element-ui'
+  import 'element-ui/lib/theme-default/index.css'
+  Vue.use(Element)
   export default {
     data() {
       return {
         tableData: [{
           name: '2016-05-02',
-          jurisdiction: '王小虎',
-          operation: '上海市普陀区金沙江路 1518 弄'
+          jurisdiction: '王小虎'
         }, {
           name: '2016-05-04',
-          jurisdiction: '王小虎',
-          operation: '上海市普陀区金沙江路 1517 弄'
+          jurisdiction: '王小虎'
         }, {
           name: '2016-05-01',
-          jurisdiction: '王小虎',
-          operation: '上海市普陀区金沙江路 1519 弄'
+          jurisdiction: '王小虎'
         }, {
           name: '2016-05-03',
-          jurisdiction: '王小虎',
-          operation: '上海市普陀区金沙江路 1516 弄'
+          jurisdiction: '王小虎'
         }]
       }
     }
