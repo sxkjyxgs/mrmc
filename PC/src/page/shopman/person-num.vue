@@ -21,10 +21,6 @@
             <el-button type="success" style="margin: 0 auto 30px;float: right">确定</el-button>
           </div>
         </el-form>
-
-
-
-
       </div>
     </div>
   </div>

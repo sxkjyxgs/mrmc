@@ -8,18 +8,20 @@
       <div class="phone">
         <div class="phone_title">客服电话</div>
         <div class="current_phone">
-          <p>当前客服电话：<i class="current_phonenumber">18858594797</i><el-button type="danger">修改</el-button></p>
+          <p>当前客服电话：<i class="current_phonenumber">18858594797</i><el-button type="danger" @click="DisplayBlock">修改</el-button></p>
         </div>
-        <div class="change_phone">
-          <div class="change_ipt">
-            当前电话修改：
-            <input type="text" placeholder="手机号或座机号" />
-          </div>
-          <div class="change_btns">
-            <i class="canceling">取消</i>
-            <i class="changeing">修改</i>
-          </div>
-        </div>
+
+      </div>
+    </div>
+    <div class="mask"></div>
+    <div class="modify_phone">
+      <div class="modify_ipt">
+        <div class="modify_ipt_title">当前电话修改：</div>
+        <el-input placeholder="手机号或座机号"></el-input>
+      </div>
+      <div class="modify_btns">
+        <el-button @click="DisplayNone">取消</el-button>
+        <el-button type="primary">修改</el-button>
       </div>
     </div>
   </div>
@@ -34,63 +36,66 @@
     margin-top: 20px;
     position: relative;
   }
-
   .current_phone{
     margin-top: 30px;
   }
-
   .current_phone button{
     margin-left: 30px;
   }
-
-  .change_phone{
-    width: 450px;
-    height: 150px;
-    border: 1px solid #303030;
-    position: absolute;
+  .modify_phone{
+    width: 500px;
+    padding: 30px;
+    background: #FFFFFF;
+    position: fixed;
     left: 50%;
-    top: 50%;
-    margin-left: -225px;
-    margin-top: -75px;
-    display: none;
+    top: 200px;
+    margin-left: -280px;
+    z-index: 999;
+    text-align: center;
+    /*display: none;*/
   }
-
-  .change_ipt{
-    position: relative;
-    top: 40%;
+  .modify_ipt{
+    height: 36px;
+    line-height: 36px;
     width: 100%;
-    padding: 0 20px;
-    box-sizing: border-box;
+    margin-top: 40px;
+    overflow: hidden;
   }
-
-  .change_ipt input{
-    width: 280px;
-    float: right;
-    height: 20px;
-    font-size: 16px;
-  }
-
-  .change_btns{
-    position: relative;
-    top: 55%;
-    width: 100%;
-    padding: 0 100px;
-    box-sizing: border-box;
-  }
-
-  .change_btns i{
-    padding: 4px 15px;
-    color: #FFFFFF;
-    background: #303030;
-  }
-
-  .change_btns .canceling{
+  .modify_ipt_title{
     float: left;
-    cursor: pointer;
+    line-height: 36px;
   }
-
-  .change_btns .changeing{
+  .modify_ipt .el-input{
+    width: 75%;
+    float: left;
+    margin-left: 20px;
+  }
+  .modify_btns{
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+  .modify_btns .el-button:nth-child(1){
+    float: left;
+    margin-left: 25%;
+  }
+  .modify_btns .el-button:nth-child(2){
     float: right;
-    cursor: pointer;
+    margin-right: 25%;
   }
 </style>
+
+<script>
+  export default{
+    methods: {
+      DisplayBlock:function(){
+        $('.mask').css('display','block');
+        $('.modify_phone').css('display','block');
+      },
+
+      DisplayNone:function(){
+        $('.mask').css('display','none');
+        $('.modify_phone').css('display','none');
+      }
+    }
+  }
+</script>

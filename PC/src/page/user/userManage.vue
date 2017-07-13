@@ -9,7 +9,7 @@
       <div class="contents">
         <div class="item1">
           <div class="left">用户信息查看</div>
-          <div class="right"><el-button type="success" icon="icon-plus">添加普通用户</el-button></div>
+          <div class="right"><el-button type="success" icon="icon-plus" @click="DisplayBlock">添加普通用户</el-button></div>
         </div>
         <div class="item2">
           <el-table   border style="width: 100%">
@@ -23,26 +23,22 @@
           </el-table>
         </div>
       </div>
-      <div class="content">
-        <div class="titles">
-          添加普通用户
+      <div class="mask"></div>
+      <div class="add_regular_users">
+        <div class="add_regular_users_title">添加普通用户</div>
+        <div class="add_regular_users_tip">谨慎操作，如此添加用户，用户不需注册即可直接用账号密码登录app。</div>
+        <div class="add_regular_users_account">
+          <div class="add_regular_users_account_title">账号</div>
+          <el-input placeholder="未注册过的手机号"></el-input>
         </div>
-        <div class="dange">谨慎操作，如此添加用户，用户不需注册即可直接用账号密码登录app。</div>
-        <div class="form">
-          <el-form  label-width="100px" class="demo-ruleForm">
-            <el-form-item label="账号:" prop="resname">
-              <el-input  placeholder="未注册的手机号"></el-input>
-            </el-form-item>
-            <el-form-item label="密码:" prop="pass">
-              <el-input type="password"  placeholder="请输入密码"></el-input>
-            </el-form-item>
-            <el-form-item>
-              <el-button>取消</el-button>
-              <el-button type="primary" class="right" style="margin-right: 50px;">重置</el-button>
-            </el-form-item>
-          </el-form>
+        <div class="add_regular_users_password">
+          <div class="add_regular_users_password_title">密码</div>
+          <el-input value="123456"></el-input>
         </div>
-
+        <div class="add_regular_users_btns">
+          <el-button @click="DisplayNone">取消</el-button>
+          <el-button type="primary">添加普通用户</el-button>
+        </div>
       </div>
     </div>
   </div>
@@ -55,6 +51,17 @@
   Vue.use(Element)
   export default {
     name: 'userManage',
+    methods: {
+      DisplayBlock:function(){
+        $('.mask').css('display','block');
+        $('.add_regular_users').css('display','block');
+      },
+
+      DisplayNone:function(){
+        $('.mask').css('display','none');
+        $('.add_regular_users').css('display','none');
+      }
+    },
     data() {
       return {
         tableData: [{
@@ -100,26 +107,57 @@
 
 </script>
 <style>
-  .contents{
+  .add_regular_users{
+    width: 500px;
+    padding: 30px;
+    background: #FFFFFF;
+    position: fixed;
+    left: 50%;
+    margin-left: -280px;
+    top: 200px;
+    text-align: center;
+    z-index: 999;
+  }
+  .add_regular_users_title{
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 32px;
+  }
+  .add_regular_users_tip{
+    color: #ff3366;
+    font-size: 12px;
+    line-height: 24px;
+  }
+  .add_regular_users_account,.add_regular_users_password{
+    width: 70%;
+    margin: 0 auto;
     margin-top: 30px;
+    overflow: hidden;
   }
-  .left{
+  .add_regular_users_account_title,.add_regular_users_password_title{
     float: left;
+    line-height: 36px;
+    width: 20%;
+    text-align: center;
   }
-  .right{
+  .add_regular_users_account .el-input{
+    width: 75%;
     float: right;
   }
-  .item2{
-    padding:20px;
-    box-sizing: border-box;
+  .add_regular_users_password .el-input{
+    width: 75%;
+    float: right;
   }
-  .broad{
-    margin-bottom:30px;
+  .add_regular_users_btns{
+    margin: 0 auto;
+    margin-top: 40px;
   }
-  .item1{
-    padding:20px;
+  .add_regular_users_btns .el-button:nth-child(1){
+    float: left;
+    margin-left: 25%;
   }
-  .dange{
-    padding:20px 20px 0 20px;
+  .add_regular_users_btns .el-button:nth-child(2){
+    float: right;
+    margin-right: 25%;
   }
 </style>

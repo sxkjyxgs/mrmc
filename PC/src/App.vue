@@ -38,8 +38,8 @@ export default {
     }
   },
   created: function(){
-    this.$router.push('/User');
-
+    this.$router.push('/ShopmanManage');
+//    ShopmanTeamShow
   },
   methods: {
 

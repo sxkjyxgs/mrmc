@@ -36,7 +36,7 @@
       </div>
       <div class="add_user" >
         <div class="titles">
-          添加普通用户
+          添加运费模板
         </div>
 
           <el-form  label-width="100px" class="demo-ruleForm" style="padding-top:30px;">
@@ -60,6 +60,10 @@
                   prop="freight"
                   label="运费">
                 </el-table-column>
+                <el-table-column
+                  prop="operation"
+                  label="操作">
+                </el-table-column>
               </el-table>
             </div>
             <div class="free_setting">
@@ -68,8 +72,8 @@
             </div>
 
             <div class="bill_demo_btn">
-              <el-button>取消1</el-button>
-              <el-button type="primary">添加1</el-button>
+              <el-button>取消</el-button>
+              <el-button type="primary">添加</el-button>
             </div>
           </el-form>
 
@@ -93,14 +97,17 @@
         tableData: [{
           non_default_area:'1',
           freight:'2016-05-20  20:50',
+          operation:'修改  删除'
         },
           {
             non_default_area:'2',
             freight:'2016-05-20  20:50',
+            operation:'修改  删除'
           },
           {
             non_default_area:'3',
             freight:'2016-05-20  20:50',
+            operation:'修改  删除'
           }
         ]
       }

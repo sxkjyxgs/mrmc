@@ -12,7 +12,7 @@
           <div class="apply_time">
 
             <div class="block">
-              <el-button type="success">添加团队</el-button>
+              <el-button type="success" @click="DisplayBlock">添加团队</el-button>
             </div>
           </div>
           <div class="apply_information">
@@ -44,6 +44,7 @@
 
         </div>
       </div>
+    </div>
     </div>
   </div>
 </template>

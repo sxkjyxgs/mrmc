@@ -7,7 +7,7 @@
       </el-breadcrumb>
 
       <div class="account_list">
-        <div class="account_list_title mid">后台账号列表</div>
+        <div class="account_list_title mid" @click="DisplayBlock">后台账号列表</div>
         <div class="distribution_form">
           <el-table
             :data="tableData"
@@ -32,7 +32,7 @@
               label="角色">
             </el-table-column>
             <el-table-column label="操作" fixed="right">
-              <template scope="scope">
+              <template>
                 <el-button type="text" size="small">修改密码</el-button>
                 <el-button type="text" size="small">分配角色</el-button>
                 <el-button type="text" size="small">注销账号</el-button>
@@ -63,20 +63,18 @@
       </div>
     </div>
     <div class="mask"></div>
-    <!--<div class="box3">-->
-      <!--<div class="assign_roles_page">-->
-        <!--<div class="assign_roles_page_title">分配角色权限</div>-->
-        <!--<ul>-->
-          <!--<li><input type="checkbox" value="" />主管理员</li>-->
-          <!--<li><input type="checkbox" value="" />客服</li>-->
-          <!--<li><input type="checkbox" value="" />管理员</li>-->
-        <!--</ul>-->
-        <!--<div class="assign_btn">-->
-          <!--<div class="assign_cancel">取消</div>-->
-          <!--<div class="assign_confirm">确认</div>-->
-        <!--</div>-->
-      <!--</div>-->
-    <!--</div>-->
+    <div class="assign_roles">
+      <div class="assign_roles_title">分配角色</div>
+      <ul>
+        <li><el-checkbox label="主管理员" name="type"></el-checkbox></li>
+        <li><el-checkbox label="客服" name="type"></el-checkbox></li>
+        <li><el-checkbox label="管理员" name="type"></el-checkbox></li>
+      </ul>
+      <div class="assign_role_btn">
+        <el-button @click="DisplayNone">取消</el-button>
+        <el-button type="primary">确定</el-button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -89,91 +87,68 @@
     overflow: hidden;
     box-sizing: border-box;
   }
-  /*.mask{*/
-    /*width:100%;*/
-    /*height:100%;*/
-    /*position: fixed;*/
-    /*top:0;*/
-    /*left:0;*/
-    /*background: rgba(0,0,0,0.3);*/
-    /*z-index: 9999999999;*/
-  /*}*/
   .location{
     font-size: 18px;
   }
-
   .location a{
     font-size: 18px;
     color: #303030;
     text-decoration: none;
   }
-
   .location a:hover{
     text-decoration: underline;
   }
-
   .account_list{
     margin-top: 30px;
     overflow: hidden;
   }
-
   .distribution_form{
     width: 80%;
     margin-left: 10%;
   }
-
   .table tr td{
     text-align: center;
     border-color: #303030 !important;
   }
-
   .operation a{
     color: #303030;
   }
-
   .operation a:hover{
     text-decoration: underline;
     color: #303030;
   }
-
   .operation a:first-child{
     margin-right: 5px;
   }
-
   .operation a:last-child{
     margin-left: 5px;
   }
-
   .account_list_title{
     text-align: center;
     font-size: 16px;
     line-height: 60px;
     margin-top: 10px;
   }
-
   .add_background_account{
     height: auto;
     border-top: 0;
     text-align: center;
     overflow: hidden;
   }
-
   .add_background_account_title{
     text-align: center;
     font-size: 16px;
     line-height: 60px;
     margin-top: 10px;
   }
-
   .login_account,.login_password{
     width: 500px;
-    margin-left: 35%;
     font-size: 16px;
+    margin: 0 auto;
     margin-top: 30px;
     line-height: 30px;
     text-align: left;
   }
-
   .login_account input,.login_password input{
     width: 400px;
     height: 30px;
@@ -183,42 +158,25 @@
   .login_account .el-input{
     float: right;
   }
-
   .login_password .el-input{
     float: right;
   }
-
   .add_background_account p{
     width: 500px;
-    margin-left: 35%;
+    margin: 0 auto;
     font-size: 16px;
-    margin-top: 30px;
+    margin-top: 10px;
     line-height: 30px;
     text-align: left;
     box-sizing: border-box;
   }
-
   .add_background_account p .el-button--text span{
     font-size: 16px;
     line-height: 32px;
   }
-
-  .add_confirm_btn{
-    width: 500px;
-    height: 30px;
-    text-align: center;
-    color: #FFFFFF;
-    background: #1E9FFF;
-    margin-left: 35%;
-    line-height: 30px;
-    border-radius: 5px;
-    cursor: pointer;
+  .add_background_account .el-button{
+    margin: 0 auto;
   }
-
-  .add_confirm_btn:hover{
-    background: #178FE5;
-  }
-
   .current_tip{
     height: 30px;
     text-align: center;
@@ -226,83 +184,61 @@
     color: red;
     /*display: none;*/
   }
-
-  /*.box3{*/
-    /*width: 100%;*/
-    /*height: 100%;*/
-    /*position: absolute;*/
-    /*left: 0;*/
-    /*top: 0;*/
-    /*background: rgba(0,0,0,0.5);*/
-    /*display: none;*/
-  /*}*/
-
-  /*.box3 .assign_roles_page{*/
-    /*width: 300px;*/
-    /*height: 350px;*/
-    /*background: #FFFFFF;*/
-    /*position: absolute;*/
-    /*left: 50%;*/
-    /*top: 50%;*/
-    /*margin-left: -150px;*/
-    /*margin-top: -300px;*/
-  /*}*/
-
-  /*.assign_roles_page_title{*/
-    /*font-size: 16px;*/
-    /*line-height: 60px;*/
-    /*margin-top: 10px;*/
-    /*text-align: center;*/
-  /*}*/
-
-  /*.assign_roles_page ul{*/
-    /*overflow: hidden;*/
-    /*margin-top: 40px;*/
-  /*}*/
-
-  /*.assign_roles_page ul li{*/
-    /*list-style: none;*/
-    /*line-height: 30px;*/
-    /*padding-left: 70px;*/
-  /*}*/
-
-  /*.assign_btn{*/
-    /*width: 100%;*/
-    /*height: 30px;*/
-    /*overflow: hidden;*/
-    /*position: relative;*/
-    /*top: 80px;*/
-  /*}*/
-
-  /*.assign_cancel,.assign_confirm{*/
-    /*width: 100px;*/
-    /*height: 30px;*/
-    /*text-align: center;*/
-    /*line-height: 30px;*/
-    /*float: left;*/
-    /*cursor: pointer;*/
-  /*}*/
-
-  /*.assign_cancel{*/
-    /*background: #838383;*/
-    /*float: left;*/
-    /*margin-left: 20px;*/
-  /*}*/
-
-  /*.assign_confirm{*/
-    /*background: #1E9FFF;*/
-    /*float: right;*/
-    /*margin-right: 20px;*/
-  /*}*/
-
-  /*.assign_confirm:hover{*/
-    /*background: #178FE5;*/
-  /*}*/
-
+  .assign_roles{
+    text-align: center;
+    width: 300px;
+    padding: 30px;
+    background: #ffffff;
+    position: fixed;
+    left: 50%;
+    margin-left: -180px;
+    top: 100px;
+    z-index: 999;
+    display: none;
+  }
+  .assign_roles_title{
+    font-size: 16px;
+    font-weight: bold;
+    color: #303030;
+    text-align: center;
+    line-height: 32px;
+  }
+  .assign_roles ul{
+    margin-top: 20px;
+  }
+  .assign_roles ul li{
+    width: 25%;
+    height: 28px;
+    text-align: left;
+    margin: 0 auto;
+  }
+  .assign_role_btn{
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  .assign_role_btn .el-button:nth-child(1){
+    float: left;
+    margin-left: 20%;
+  }
+  .assign_role_btn .el-button:nth-child(2){
+    float: right;
+    margin-right: 20%;
+  }
 </style>
 
 <script>
   export default {
+    methods: {
+      DisplayBlock:function(){
+        $('.mask').css('display','block');
+        $('.assign_roles').css('display','block');
+      },
+
+      DisplayNone:function(){
+        $('.mask').css('display','none');
+        $('.assign_roles').css('display','none');
+      }
+    },
     data() {
     return {
       tableData: [{

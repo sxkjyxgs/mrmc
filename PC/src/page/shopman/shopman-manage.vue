@@ -12,7 +12,7 @@
           <div class="apply_time">
 
             <div class="block">
-              <el-button type="success">添加无团队店主</el-button>
+              <el-button type="success" @click="DisplayBlock">添加无团队店主</el-button>
             </div>
           </div>
           <div class="apply_information">
@@ -55,7 +55,63 @@
         </div>
       </div>
     </div>
+    <div class="mask"></div>
+    <div class="add_shopman">
+      <div class="add_shopman_title">添加店主</div>
+      <div class="add_shopman_btns">
+        <el-button @click="DisplayNone">取消</el-button>
+        <el-button type="primary">修改</el-button>
+      </div>
+    </div>
   </div>
 </template>
+
+<style>
+  .add_shopman{
+    width: 500px;
+    padding: 30px;
+    background: #FFFFFF;
+    position: fixed;
+    left: 50%;
+    margin-left: -280px;
+    top: 100px;
+    text-align: center;
+    z-index: 999;
+  }
+  .add_shopman_title{
+    font-size: 16px;
+    color: #303030;
+    font-weight: bold;
+    line-height: 32px;
+  }
+  .add_shopman_btns{
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+  .add_shopman_btns .el-button:nth-child(1){
+    float: left;
+    margin-left: 25%;
+  }
+  .add_shopman_btns .el-button:nth-child(2){
+    float: right;
+    margin-right: 25%;
+  }
+</style>
+
+<script>
+  export default{
+    methods: {
+      DisplayBlock:function(){
+        $('.mask').css('display','block');
+        $('.add_shopman').css('display','block');
+      },
+
+      DisplayNone:function(){
+        $('.mask').css('display','none');
+        $('.add_shopman').css('display','none');
+      }
+    }
+  }
+</script>
 
 
