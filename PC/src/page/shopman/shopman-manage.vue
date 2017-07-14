@@ -99,7 +99,7 @@
       </div>
       <div class="add_shopman_btns">
         <el-button @click="DisplayNone">取消</el-button>
-        <el-button type="primary">修改</el-button>
+        <el-button type="primary">添加</el-button>
       </div>
     </div>
   </div>
@@ -168,14 +168,20 @@
   }
   .add_s_title{
     width: 100%;
-    margin: 30px 0;
+    margin: 30px 0 0 0;
   }
   .required_,.optional_{
     width: 60%;
     margin: 0 auto;
     text-align: left;
-    line-height: 56px;
+    line-height: 28px;
     font-size: 14px;
+    font-weight: bold;
+    background: #ff3366;
+    color: #FFFFFF;
+    margin-top: 30px;
+    padding-left: 10px;
+    box-sizing: border-box;
   }
   .id_img_title{
     margin-left: 20%;

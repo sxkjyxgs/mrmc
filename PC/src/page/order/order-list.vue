@@ -96,8 +96,8 @@
                 <div class="right AddPic">
                   <p>订单总额：<span>200.00</span></p>
                   <p>包含运费：<span>11.00</span></p>
-                  <el-button>改价</el-button>
-                  <el-button>取消订单</el-button>
+                  <el-button @click="DisplayBlock">改价</el-button>
+                  <el-button @click="DisplayBlock2">取消订单</el-button>
                   <el-button>订单详情</el-button>
                 </div>
             </div>
@@ -150,7 +150,7 @@
               <div class="right AddPic">
                 <p>订单总额：<span>200.00</span></p>
                 <p>包含运费：<span>11.00</span></p>
-                <el-button>发货</el-button>
+                <el-button @click="DisplayBlock3">发货</el-button>
                 <el-button>取消订单</el-button>
                 <el-button>订单详情</el-button>
               </div>
@@ -375,6 +375,31 @@
         </ul>
       </div>
     </div>
+    <div class="mask"></div>
+    <div class="change_price">
+      <div class="change_nowprice">
+        <div class="change_nowprice_title">修改当前订单价格</div>
+        <el-input placeholder=""></el-input>
+      </div>
+      <div class="deliver_goods_btns">
+        <el-button @click="DisplayNone">取消</el-button>
+        <el-button type="primary">订单改价</el-button>
+      </div>
+    </div>
+    <div class="cancel_order">
+      <div class="deliver_remind">取消订单？</div>
+      <div class="deliver_goods_btns">
+        <el-button @click="DisplayNone2">保留订单</el-button>
+        <el-button type="primary">取消订单</el-button>
+      </div>
+    </div>
+    <div class="deliver_goods">
+      <div class="deliver_remind">将此订单发货？</div>
+      <div class="deliver_goods_btns">
+        <el-button type="primary" @click="DisplayNone3">发货</el-button>
+        <el-button>取消此订单</el-button>
+      </div>
+    </div>
   </div>
 </template>
 <style>
@@ -447,6 +472,91 @@
   .order-list li{
     margin-bottom:20px;
   }
+  .change_price,
+  .cancel_order,
+  .deliver_goods{
+    width: 500px;
+    padding: 30px;
+    background: #FFFFFF;
+    position: fixed;
+    top: 200px;
+    left: 50%;
+    margin-left: -280px;
+    z-index: 999;
+    text-align: center;
+    display: none;
+  }
+  .deliver_remind{
+    width: 100%;
+    height: 50px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 50px;
+    overflow: hidden;
+  }
+  .deliver_goods_btns{
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+  .deliver_goods_btns .el-button:nth-child(1){
+    float: left;
+    margin-left: 25%;
+  }
+  .deliver_goods_btns .el-button:nth-child(2){
+    float: right;
+    margin-right: 25%;
+  }
+  .change_nowprice{
+    width: 80%;
+    margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    overflow: hidden;
+  }
+  .change_nowprice_title{
+    float: left;
+    line-height: 36px;
+  }
+  .change_price .el-input{
+    width: 70%;
+    float: right;
+  }
 </style>
+
+<script>
+  export default{
+    methods: {
+      DisplayBlock:function(){
+        $('.mask').css('display','block');
+        $('.change_price').css('display','block');
+      },
+
+      DisplayNone:function(){
+        $('.mask').css('display','none');
+        $('.change_price').css('display','none');
+      },
+
+      DisplayBlock2:function(){
+        $('.mask').css('display','block');
+        $('.cancel_order').css('display','block');
+      },
+
+      DisplayNone2:function(){
+        $('.mask').css('display','none');
+        $('.cancel_order').css('display','none');
+      },
+
+      DisplayBlock3:function(){
+        $('.mask').css('display','block');
+        $('.deliver_goods').css('display','block');
+      },
+
+      DisplayNone3:function(){
+        $('.mask').css('display','none');
+        $('.deliver_goods').css('display','none');
+      },
+    }
+  }
+</script>
 
 

@@ -190,6 +190,7 @@
     margin-left: -430px;
     z-index: 999;
     text-align: center;
+    display: none;
   }
   .add_template_title,.add_noDefaultarea_title{
     font-size: 16px;
