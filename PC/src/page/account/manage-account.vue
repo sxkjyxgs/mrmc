@@ -57,7 +57,7 @@
         <div class="login_password">
           登录密码：<el-input  placeholder="登录密码"></el-input>
         </div>
-        <p><el-button type="text">分配角色</el-button></p>
+        <p><el-button type="text" @click="DisplayBlock">分配角色</el-button></p>
         <el-button type="primary" size="large">确认</el-button>
         <div class="current_tip">已存在的账号，添加失败</div>
       </div>

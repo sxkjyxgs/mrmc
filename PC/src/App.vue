@@ -38,7 +38,7 @@ export default {
     }
   },
   created: function(){
-    this.$router.push('/Orderlist');
+    this.$router.push('/User');
   },
   methods: {
 
