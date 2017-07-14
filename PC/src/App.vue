@@ -38,8 +38,7 @@ export default {
     }
   },
   created: function(){
-    this.$router.push('/ShopmanManage');
-//    ShopmanTeamShow
+    this.$router.push('/User');
   },
   methods: {
 

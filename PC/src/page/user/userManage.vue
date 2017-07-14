@@ -117,6 +117,7 @@
     top: 200px;
     text-align: center;
     z-index: 999;
+    display: none;
   }
   .add_regular_users_title{
     font-size: 16px;

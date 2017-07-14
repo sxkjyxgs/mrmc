@@ -7,7 +7,7 @@
           运费模板
         </div>
         <div class="item1">
-          <div class="right"><el-button type="success" icon="icon-plus">添加运费模板</el-button></div>
+          <div class="right"><el-button type="success" icon="icon-plus" @click="DisplayBlock">添加运费模板</el-button></div>
         </div>
         <div class="item2">
           <el-table
@@ -34,52 +34,69 @@
           </el-table>
         </div>
       </div>
-      <div class="add_user" >
-        <div class="titles">
-          添加运费模板
-        </div>
-
-          <el-form  label-width="100px" class="demo-ruleForm" style="padding-top:30px;">
-            <el-form-item label="模板名称" prop="resname">
-              <el-input  ></el-input>
-            </el-form-item>
-            <el-form-item label="默认运费（元）" prop="pass">
-              <el-input  type="number" placeholder="输入数字（仅限数字）"></el-input>
-            </el-form-item>
-              <el-button type="primary">添加费默认运费地区</el-button>
-            <div>
-              <el-table
-                :data="tableData"
-                border
-                style="width: 100%">
-                <el-table-column
-                  prop="non_default_area"
-                  label="非默认运费地区">
-                </el-table-column>
-                <el-table-column
-                  prop="freight"
-                  label="运费">
-                </el-table-column>
-                <el-table-column
-                  prop="operation"
-                  label="操作">
-                </el-table-column>
-              </el-table>
-            </div>
-            <div class="free_setting">
-              <div class="free_setting_left">免邮设置<el-radio class="radio"  label="1" name="yes">不免邮</el-radio></div>
-              <div class="free_setting_right"><el-radio class="radio" label="2" >订单满额免邮</el-radio><el-input  placeholder="免邮金额"></el-input></div>
-            </div>
-
-            <div class="bill_demo_btn">
-              <el-button>取消</el-button>
-              <el-button type="primary">添加</el-button>
-            </div>
-          </el-form>
-
-
-
-
+    </div>
+    <div class="mask"></div>
+    <div class="add_template">
+      <div class="add_template_title">添加运费模板</div>
+      <div class="template_name">
+        <div class="template_name_title">模板名称</div>
+        <el-input placeholder=""></el-input>
+      </div>
+      <div class="template_freight">
+        <div class="template_freight_title">默认运费（元）</div>
+        <el-input placeholder=""></el-input>
+      </div>
+      <div class="add_noDefaultarea_btn"><el-button type="primary" @click="DisplayBlock2">添加非默认运费地区</el-button></div>
+      <div class="freight_table">
+        <el-table
+          :data="tableData"
+          border
+          style="width: 100%">
+          <el-table-column
+            prop="noDefault_area"
+            label="非默认运费地区">
+          </el-table-column>
+          <el-table-column
+            prop="freight"
+            label="运费">
+          </el-table-column>
+          <el-table-column
+            prop="operation"
+            label="操作">
+          </el-table-column>
+        </el-table>
+      </div>
+      <div class="set_up">
+        <div class="freight_set_up">免邮设置</div>
+        <el-radio label="不免邮"></el-radio>
+        <el-radio label="订单满额免邮"></el-radio>
+        <el-input placeholder="免邮金额"></el-input>
+      </div>
+      <div class="add_template_btns">
+        <el-button @click="DisplayNone">取消</el-button>
+        <el-button type="primary">添加</el-button>
+      </div>
+    </div>
+    <div class="add_noDefaultarea">
+      <div class="add_noDefaultarea_title">添加非默认运费地区</div>
+      <div class="add_noDefaultarea_list_title">非默认运费地区选择</div>
+      <div class="add_noDefaultarea_list">
+        <dl>
+          <dt><el-checkbox label="浙江省" name="type"></el-checkbox></dt>
+          <dd><el-checkbox label="杭州市" name="type"></el-checkbox></dd>
+          <dd><el-checkbox label="舟山市" name="type"></el-checkbox></dd>
+        </dl>
+        <dl>
+          <dt><el-checkbox label="辽宁省" name="type"></el-checkbox></dt>
+          <dd><el-checkbox label="葫芦岛市" name="type"></el-checkbox></dd>
+          <dd><el-checkbox label="大连市" name="type"></el-checkbox></dd>
+        </dl>
+      </div>
+      <div class="add_noDefaultarea_freight">运费</div>
+      <div class="add_noDefaultarea_free"><el-input v-model="input" placeholder="免邮金额"></el-input>元</div>
+      <div class="add_noDefaultarea_btns">
+        <el-button @click="DisplayNone2">取消</el-button>
+        <el-button type="primary">添加</el-button>
       </div>
     </div>
   </div>
@@ -92,20 +109,42 @@
   Vue.use(Element)
   export default {
     name: 'userManage',
+    methods: {
+      DisplayBlock:function(){
+        $('.mask').css('display','block');
+        $('.add_template').css('display','block');
+      },
+
+      DisplayNone:function(){
+        $('.mask').css('display','none');
+        $('.add_template').css('display','none');
+      },
+
+      DisplayBlock2:function(){
+        $('.mask').css('display','block');
+        $('.mask').css('z-index','9999');
+        $('.add_noDefaultarea').css('display','block');
+      },
+
+      DisplayNone2:function(){
+        $('.mask').css('z-index','9');
+        $('.add_noDefaultarea').css('display','none');
+      },
+    },
     data() {
       return {
         tableData: [{
-          non_default_area:'1',
+          noDefault_area:'1',
           freight:'2016-05-20  20:50',
           operation:'修改  删除'
         },
           {
-            non_default_area:'2',
+            noDefault_area:'2',
             freight:'2016-05-20  20:50',
             operation:'修改  删除'
           },
           {
-            non_default_area:'3',
+            noDefault_area:'3',
             freight:'2016-05-20  20:50',
             operation:'修改  删除'
           }
@@ -132,95 +171,153 @@
   .item1{
     padding:20px;
   }
-
   .dange{
     padding:20px 20px 0 20px;
   }
-
-  .add_user{
-    margin: 100px auto 0;
-    overflow: hidden;
-    width:600px;
-    border:1px solid #ff3366;
-    border-radius: 7px;
-  }
-
-  .add_user_title{
-    width: 100%;
-    height: 60px;
-    font-size: 16px;
-    background: #ffffff;
-    line-height: 60px;
-    text-align: center;
-    color: #303030;
-  }
-
-  .form{
-    text-align: center;
-  }
-
-  .el-form{
-    width: 80%;
-    display: block;
-    margin:auto!important;
-  }
-
-  .el-form .el-button{
-    float: right;
-    margin-bottom: 30px;
-  }
-
   table tr td{
     text-align: center !important;
   }
-
   table tr th{
     text-align: center !important;
   }
-
-  .free_setting{
+  .add_template{
+    width: 800px;
+    padding: 30px;
+    background: #FFFFFF;
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    margin-left: -430px;
+    z-index: 999;
+    text-align: center;
+  }
+  .add_template_title,.add_noDefaultarea_title{
+    font-size: 16px;
+    line-height: 32px;
+  }
+  .template_name,
+  .template_freight
+  {
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 30px;
     overflow: hidden;
   }
-
-  .free_setting_left{
+  .template_name_title,
+  .template_freight_title
+  {
+    width: 25%;
+    text-align: left;
+    line-height: 36px;
+    float: left;
+  }
+  .template_name .el-input,
+  .template_freight .el-input
+  {
+    width: 70%;
+    float: right;
+  }
+  .add_noDefaultarea_btn{
+    width: 70%;
+    margin: 30px auto;
+    text-align: right;
+  }
+  .add_noDefaultarea_btn .el-button{
+    margin-right: 0;
+  }
+  .freight_table{
+    width: 70%;
+    margin: 0 auto;
+  }
+  .set_up{
+    width: 70%;
+    margin: 0 auto;
+    line-height: 36px;
+    margin-top: 30px;
+    overflow: hidden;
+  }
+  .freight_set_up,
+  .set_up .el-radio,
+  .set_up .el-input{
+    float: left;
+    width: 25%;
+    text-align: center;
+    margin: 0;
+  }
+  .add_template_btns{
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+  .add_template_btns .el-button:nth-child(1){
+    float: left;
+    margin-left: 35%;
+  }
+  .add_template_btns .el-button:nth-child(2){
+    float: right;
+    margin-right: 35%;
+  }
+  .add_noDefaultarea{
+    width: 400px;
+    padding: 30px;
+    background: #ffffff;
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    margin-left: -230px;
+    text-align: center;
+    z-index: 99999;
+    display: none;
+  }
+  .add_noDefaultarea_list_title,
+  .add_noDefaultarea_freight
+  {
+    width: 60%;
+    text-align: left;
+    margin-top: 30px;
+  }
+  .add_noDefaultarea_list{
+    width: 60%;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+  .add_noDefaultarea_list dl{
     width: 50%;
     float: left;
-    line-height: 32px;
     margin-top: 30px;
   }
-
-  .free_setting_left .el-radio{
-
-    margin-left: 10%;
+  .add_noDefaultarea_list dl dt{
+    height: 28px;
+    line-height: 28px;
+    text-align: left;
   }
-
-  .free_setting_right{
-    width: 45%;
-    float: right;
-    padding-left: 5%;
-    line-height: 32px;
+  .add_noDefaultarea_list dl dd{
+    height: 28px;
+    line-height: 28px;
+    text-align: left;
+    margin-left: 20px;
+  }
+  .add_noDefaultarea_free{
+    width: 60%;
+    margin: 0 auto;
+    text-align: left;
+    line-height: 36px;
     margin-top: 30px;
   }
-
-  .free_setting_right .el-input{
-    width: 100px;
-    float: right;
-  }
-
-  .bill_demo_btn{
-    width: 100%;
-    height: auto;
-    margin-top: 30px;
-    overflow: hidden;
-  }
-
-  .bill_demo_btn .el-button:nth-child(1){
+  .add_noDefaultarea_free .el-input{
+    width: 50%;
     float: left;
-    margin-left: 30%;
+    margin-right: 10px;
   }
-
-  .bill_demo_btn .el-button:nth-child(2){
+  .add_noDefaultarea_btns{
+    margin: 0 auto;
+    margin-top: 40px;
+  }
+  .add_noDefaultarea_btns .el-button:nth-child(1){
+    float: left;
+    margin-left: 25%;
+  }
+  .add_noDefaultarea_btns .el-button:nth-child(2){
     float: right;
-    margin-right: 30%;
+    margin-right: 25%;
   }
 </style>

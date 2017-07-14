@@ -58,6 +58,45 @@
     <div class="mask"></div>
     <div class="add_shopman">
       <div class="add_shopman_title">添加店主</div>
+      <div class="add_shopman_account">
+        <div class="add_shopman_account_title">账号</div>
+        <el-input placeholder=""></el-input>
+      </div>
+      <div class="add_level">
+        <div class="add_level_title">分配级别</div>
+        <el-select v-model="value" placeholder="请选择">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value">
+          </el-option>
+        </el-select>
+      </div>
+      <div class="add_s_title">添加个人店主</div>
+      <div class="required_">必填个人店主资料</div>
+      <div class="true_name">
+        <div class="true_name_title">真实姓名</div>
+        <el-input placeholder="请填写真实姓名"></el-input>
+      </div>
+      <div class="id_num">
+        <div class="id_num_title">身份证号</div>
+        <el-input placeholder="请填写身份证号"></el-input>
+      </div>
+      <div class="id_img_title">身份证照片</div>
+      <div class="id_img_upload">
+        <div>请上传身份证正面图片</div>
+        <div>请上传身份证反面图片</div>
+      </div>
+      <div class="optional_">选填个人店主资料</div>
+      <div class="zfb_account">
+        <div class="zfb_account_title">支付宝账号</div>
+        <el-input placeholder="请填写支付宝账号"></el-input>
+      </div>
+      <div class="wx_account">
+        <div class="wx_account_title">微信支付账号</div>
+        <el-input placeholder="请填写微信支付账号"></el-input>
+      </div>
       <div class="add_shopman_btns">
         <el-button @click="DisplayNone">取消</el-button>
         <el-button type="primary">修改</el-button>
@@ -68,21 +107,100 @@
 
 <style>
   .add_shopman{
-    width: 500px;
+    width: 600px;
     padding: 30px;
     background: #FFFFFF;
     position: fixed;
     left: 50%;
-    margin-left: -280px;
-    top: 100px;
+    margin-left: -330px;
+    top: 40px;
     text-align: center;
     z-index: 999;
+    display: none;
   }
   .add_shopman_title{
     font-size: 16px;
     color: #303030;
     font-weight: bold;
     line-height: 32px;
+  }
+  .add_shopman_account,
+  .true_name,
+  .id_num,
+  .zfb_account,
+  .wx_account
+  {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 30px;
+    overflow: hidden;
+  }
+  .add_shopman_account_title,
+  .add_level_title,
+  .true_name_title,
+  .id_num_title,
+  .zfb_account_title,
+  .wx_account_title
+  {
+    width: 25%;
+    float: left;
+    line-height: 36px;
+    text-align: left;
+  }
+  .add_shopman_account .el-input,
+  .true_name .el-input,
+  .id_num .el-input,
+  .zfb_account .el-input,
+  .wx_account .el-input
+  {
+    float: right;
+    width: 75%;
+  }
+  .add_level{
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 30px;
+    overflow: hidden;
+  }
+  .add_level .el-select{
+    width: 75%;
+    float: right;
+  }
+  .add_s_title{
+    width: 100%;
+    margin: 30px 0;
+  }
+  .required_,.optional_{
+    width: 60%;
+    margin: 0 auto;
+    text-align: left;
+    line-height: 56px;
+    font-size: 14px;
+  }
+  .id_img_title{
+    margin-left: 20%;
+    line-height: 36px;
+    text-align: left;
+    margin-top: 30px;
+  }
+  .id_img_upload{
+    width: 60%;
+    overflow: hidden;
+    margin: 0 auto;
+  }
+  .id_img_upload div{
+    width: 150px;
+    height: 80px;
+    background: #cccccc;
+    text-align: center;
+    line-height: 80px;
+    color: #FFFFFF;
+  }
+  .id_img_upload div:nth-child(1){
+    float: left;
+  }
+  .id_img_upload div:nth-child(2){
+    float: right;
   }
   .add_shopman_btns{
     margin: 0 auto;
@@ -109,6 +227,21 @@
       DisplayNone:function(){
         $('.mask').css('display','none');
         $('.add_shopman').css('display','none');
+      }
+    },
+    data() {
+      return {
+        options: [{
+          value: '选项1',
+          label: '个人店主'
+        }, {
+          value: '选项2',
+          label: '公司店主'
+        }, {
+          value: '选项3',
+          label: '高级店主'
+        }],
+        value: ''
       }
     }
   }
