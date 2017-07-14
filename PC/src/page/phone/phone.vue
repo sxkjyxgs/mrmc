@@ -52,7 +52,7 @@
     margin-left: -280px;
     z-index: 999;
     text-align: center;
-    /*display: none;*/
+    display: none;
   }
   .modify_ipt{
     height: 36px;
