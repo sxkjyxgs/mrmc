@@ -2,8 +2,8 @@
   <div id="box">
     <div class="box">
       <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">店主管理</el-breadcrumb-item>
-        <el-breadcrumb-item>店主申请管理</el-breadcrumb-item>
+        <el-breadcrumb-item>店主管理</el-breadcrumb-item>
+        <el-breadcrumb-item  :to="{ path: '/ShopmanApply' }">店主申请管理</el-breadcrumb-item>
         <el-breadcrumb-item>申请信息详情</el-breadcrumb-item>
       </el-breadcrumb>
 

@@ -42,7 +42,7 @@
         </template>
         <el-menu-item index="PersonNum">团队人数限制</el-menu-item>
         <el-menu-item index="ShopmanCommission">系统默认提成管理</el-menu-item>
-        <el-menu-item index="ShopmanApply">店主申请管理</el-menu-item>
+        <el-menu-item index="ShopmanApplyShow">店主申请管理</el-menu-item>
         <el-menu-item index="ShopmanManage">店主管理</el-menu-item>
         <el-menu-item index="ShopmanTeam">店主团队管理</el-menu-item>
       </el-submenu>

@@ -169,7 +169,9 @@ export default [
   },
   {
     path:'/ShopmanApply',component:ShopmanApply,
-    children:[{path:'/ShowmanApplyShow',component:ShopmanApplyShow}]
+  },
+  {
+    path:'/ShopmanApplyShow',component:ShopmanApplyShow
   },
   {
     path:'/ShopmanManage',component:ShopmanManage,
