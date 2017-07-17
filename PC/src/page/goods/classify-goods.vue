@@ -244,10 +244,10 @@
         <div class="class_b_name_title">二级分类名称：</div>
         <el-input placeholder=""></el-input>
       </div>
-      <div class="class_b_img">
-        <div class="class_b_img_title">二级分类图片：</div>
-        <div class="class_b_img_box"></div>
-      </div>
+      <!--<div class="class_b_img">-->
+        <!--<div class="class_b_img_title">二级分类图片：</div>-->
+        <!--<div class="class_b_img_box"></div>-->
+      <!--</div>-->
       <div class="add_class_b_btns">
         <el-button @click="DisplayNone2">取消</el-button>
         <el-button type="primary">确定</el-button>

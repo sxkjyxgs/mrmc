@@ -5,8 +5,8 @@
         <el-breadcrumb-item>店主管理</el-breadcrumb-item>
         <el-breadcrumb-item>团队人数限制</el-breadcrumb-item>
       </el-breadcrumb>
-      <div class="add_user" >
-        <div class="titles">
+      <div class="population_restriction" >
+        <div class="population_restriction_titles">
           下面两个设置人数相同
         </div>
 
@@ -25,5 +25,18 @@
     </div>
   </div>
 </template>
+
+<style>
+  .population_restriction{
+    width: 40%;
+    margin: 0 auto;
+  }
+  .population_restriction_titles{
+    font-size: 16px;
+    line-height: 32px;
+    text-align: center;
+    margin-top: 30px;
+  }
+</style>
 
 
