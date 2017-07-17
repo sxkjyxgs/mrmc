@@ -194,7 +194,6 @@
     width: 75%;
   }
   .el-form{
-    overflow: hidden;
     height: 36px;
   }
   .el-form .el-form-item{
