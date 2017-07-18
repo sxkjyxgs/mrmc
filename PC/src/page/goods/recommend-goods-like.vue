@@ -72,7 +72,7 @@
                 </el-upload>
               </el-form-item>
               <el-form-item>
-                <el-button type="success">添加</el-button>
+                <el-button type="primary" @click="open2">添加</el-button>
               </el-form-item>
             </el-form>
           </div>
@@ -112,7 +112,7 @@
                 <el-input type="age" auto-complete="off" placeholder="输入商品名称查找商品"></el-input>
               </el-form-item>
               <el-form-item>
-                <el-button type="success">添加</el-button>
+                <el-button type="primary" @click="open2">添加</el-button>
               </el-form-item>
             </el-form>
           </div>
@@ -148,4 +148,28 @@
     padding-top:30px;
   }
 </style>
+
+<script>
+  export default {
+    methods: {
+      open2() {
+        this.$confirm('此操作将添加此商品, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '删除成功!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });
+        });
+      }
+    }
+  }
+</script>
 

@@ -77,9 +77,9 @@
               <div class="right AddPic">
                 <p>订单总额：<span>200.00</span></p>
                 <p>包含运费：<span>11.00</span></p>
-                <el-button>审核驳回</el-button>
-                <el-button>审核同意</el-button>
-                <el-button>退款成功</el-button>
+                <el-button @click="open2">审核驳回</el-button>
+                <el-button @click="open3">审核同意</el-button>
+                <el-button @click="open4">退款成功</el-button>
                 <el-button>订单详情</el-button>
               </div>
             </div>
@@ -135,9 +135,9 @@
               <div class="right AddPic">
                 <p>订单总额：<span>200.00</span></p>
                 <p>包含运费：<span>11.00</span></p>
-                <el-button>审核驳回</el-button>
-                <el-button>审核同意</el-button>
-                <el-button>退款成功</el-button>
+                <el-button @click="open2">审核驳回</el-button>
+                <el-button @click="open3">审核同意</el-button>
+                <el-button @click="open4">退款成功</el-button>
                 <el-button>订单详情</el-button>
               </div>
             </div>
@@ -147,6 +147,66 @@
     </div>
   </div>
 </template>
+
+<script>
+  export default {
+    methods: {
+      open2() {
+        this.$confirm('此操作将驳回审核, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '已驳回审核!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消驳回'
+          });
+        });
+      },
+
+      open3() {
+        this.$confirm('此操作将同意审核, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '已同意审核!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消同意'
+          });
+        });
+      },
+
+      open4() {
+        this.$confirm('此操作将退款, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '退款成功!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消退款'
+          });
+        });
+      }
+    }
+  }
+</script>
 
 
 

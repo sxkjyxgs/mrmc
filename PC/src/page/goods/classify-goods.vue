@@ -24,7 +24,7 @@
                  </li>
                  <li>
                    <el-button :plain="true" type="info">修改</el-button>
-                   <el-button :plain="true" type="info">删除</el-button>
+                   <el-button @click="open2">删除</el-button>
                    <el-button :plain="true" type="info">下移</el-button>
                  </li>
                </ul>
@@ -35,42 +35,42 @@
                  <li>
                    <span class="margin30">礼袋</span>
                    <el-button :plain="true" type="info">修改</el-button>
-                   <el-button :plain="true" type="info">删除</el-button>
+                   <el-button @click="open2">删除</el-button>
                    <el-button :plain="true" type="info">上移</el-button>
                    <el-button :plain="true" type="info">下移</el-button>
                  </li>
                  <li>
                    <span class="margin30">礼袋</span>
                    <el-button :plain="true" type="info">修改</el-button>
-                   <el-button :plain="true" type="info">删除</el-button>
+                   <el-button @click="open2">删除</el-button>
                    <el-button :plain="true" type="info">上移</el-button>
                    <el-button :plain="true" type="info">下移</el-button>
                  </li>
                  <li>
                    <span class="margin30">礼袋</span>
                    <el-button :plain="true" type="info">修改</el-button>
-                   <el-button :plain="true" type="info">删除</el-button>
+                   <el-button @click="open2">删除</el-button>
                    <el-button :plain="true" type="info">上移</el-button>
                    <el-button :plain="true" type="info">下移</el-button>
                  </li>
                  <li>
                    <span class="margin30">礼袋</span>
                    <el-button :plain="true" type="info">修改</el-button>
-                   <el-button :plain="true" type="info">删除</el-button>
+                   <el-button @click="open2">删除</el-button>
                    <el-button :plain="true" type="info">上移</el-button>
                    <el-button :plain="true" type="info">下移</el-button>
                  </li>
                  <li>
                    <span class="margin30">礼袋</span>
                    <el-button :plain="true" type="info">修改</el-button>
-                   <el-button :plain="true" type="info">删除</el-button>
+                   <el-button @click="open2">删除</el-button>
                    <el-button :plain="true" type="info">上移</el-button>
                    <el-button :plain="true" type="info">下移</el-button>
                  </li>
                  <li>
                    <span class="margin30">礼袋</span>
                    <el-button :plain="true" type="info">修改</el-button>
-                   <el-button :plain="true" type="info">删除</el-button>
+                   <el-button @click="open2">删除</el-button>
                    <el-button :plain="true" type="info">上移</el-button>
                    <el-button :plain="true" type="info">下移</el-button>
                  </li>
@@ -94,7 +94,7 @@
                 </li>
                 <li>
                   <el-button :plain="true" type="info">修改</el-button>
-                  <el-button :plain="true" type="info">删除</el-button>
+                  <el-button @click="open2">删除</el-button>
                   <el-button :plain="true" type="info">上移</el-button>
                   <el-button :plain="true" type="info">下移</el-button>
                 </li>
@@ -106,42 +106,42 @@
                 <li>
                   <span class="margin30">礼袋</span>
                   <el-button :plain="true" type="info">修改</el-button>
-                  <el-button :plain="true" type="info">删除</el-button>
+                  <el-button @click="open2">删除</el-button>
                   <el-button :plain="true" type="info">上移</el-button>
                   <el-button :plain="true" type="info">下移</el-button>
                 </li>
                 <li>
                   <span class="margin30">礼袋</span>
                   <el-button :plain="true" type="info">修改</el-button>
-                  <el-button :plain="true" type="info">删除</el-button>
+                  <el-button @click="open2">删除</el-button>
                   <el-button :plain="true" type="info">上移</el-button>
                   <el-button :plain="true" type="info">下移</el-button>
                 </li>
                 <li>
                   <span class="margin30">礼袋</span>
                   <el-button :plain="true" type="info">修改</el-button>
-                  <el-button :plain="true" type="info">删除</el-button>
+                  <el-button @click="open2">删除</el-button>
                   <el-button :plain="true" type="info">上移</el-button>
                   <el-button :plain="true" type="info">下移</el-button>
                 </li>
                 <li>
                   <span class="margin30">礼袋</span>
                   <el-button :plain="true" type="info">修改</el-button>
-                  <el-button :plain="true" type="info">删除</el-button>
+                  <el-button @click="open2">删除</el-button>
                   <el-button :plain="true" type="info">上移</el-button>
                   <el-button :plain="true" type="info">下移</el-button>
                 </li>
                 <li>
                   <span class="margin30">礼袋</span>
                   <el-button :plain="true" type="info">修改</el-button>
-                  <el-button :plain="true" type="info">删除</el-button>
+                  <el-button @click="open2">删除</el-button>
                   <el-button :plain="true" type="info">上移</el-button>
                   <el-button :plain="true" type="info">下移</el-button>
                 </li>
                 <li>
                   <span class="margin30">礼袋</span>
                   <el-button :plain="true" type="info">修改</el-button>
-                  <el-button :plain="true" type="info">删除</el-button>
+                  <el-button @click="open2">删除</el-button>
                   <el-button :plain="true" type="info">上移</el-button>
                   <el-button :plain="true" type="info">下移</el-button>
                 </li>
@@ -165,7 +165,7 @@
                 </li>
                 <li>
                   <el-button :plain="true" type="info">修改</el-button>
-                  <el-button :plain="true" type="info">删除</el-button>
+                  <el-button @click="open2">删除</el-button>
                   <el-button :plain="true" type="info">上移</el-button>
                   <el-button :plain="true" type="info">下移</el-button>
                 </li>
@@ -177,42 +177,42 @@
                 <li>
                   <span class="margin30">礼袋</span>
                   <el-button :plain="true" type="info">修改</el-button>
-                  <el-button :plain="true" type="info">删除</el-button>
+                  <el-button @click="open2">删除</el-button>
                   <el-button :plain="true" type="info">上移</el-button>
                   <el-button :plain="true" type="info">下移</el-button>
                 </li>
                 <li>
                   <span class="margin30">礼袋</span>
                   <el-button :plain="true" type="info">修改</el-button>
-                  <el-button :plain="true" type="info">删除</el-button>
+                  <el-button @click="open2">删除</el-button>
                   <el-button :plain="true" type="info">上移</el-button>
                   <el-button :plain="true" type="info">下移</el-button>
                 </li>
                 <li>
                   <span class="margin30">礼袋</span>
                   <el-button :plain="true" type="info">修改</el-button>
-                  <el-button :plain="true" type="info">删除</el-button>
+                  <el-button @click="open2">删除</el-button>
                   <el-button :plain="true" type="info">上移</el-button>
                   <el-button :plain="true" type="info">下移</el-button>
                 </li>
                 <li>
                   <span class="margin30">礼袋</span>
                   <el-button :plain="true" type="info">修改</el-button>
-                  <el-button :plain="true" type="info">删除</el-button>
+                  <el-button @click="open2">删除</el-button>
                   <el-button :plain="true" type="info">上移</el-button>
                   <el-button :plain="true" type="info">下移</el-button>
                 </li>
                 <li>
                   <span class="margin30">礼袋</span>
                   <el-button :plain="true" type="info">修改</el-button>
-                  <el-button :plain="true" type="info">删除</el-button>
+                  <el-button @click="open2">删除</el-button>
                   <el-button :plain="true" type="info">上移</el-button>
                   <el-button :plain="true" type="info">下移</el-button>
                 </li>
                 <li>
                   <span class="margin30">礼袋</span>
                   <el-button :plain="true" type="info">修改</el-button>
-                  <el-button :plain="true" type="info">删除</el-button>
+                  <el-button @click="open2">删除</el-button>
                   <el-button :plain="true" type="info">上移</el-button>
                   <el-button :plain="true" type="info">下移</el-button>
                 </li>
@@ -244,10 +244,6 @@
         <div class="class_b_name_title">二级分类名称：</div>
         <el-input placeholder=""></el-input>
       </div>
-      <!--<div class="class_b_img">-->
-        <!--<div class="class_b_img_title">二级分类图片：</div>-->
-        <!--<div class="class_b_img_box"></div>-->
-      <!--</div>-->
       <div class="add_class_b_btns">
         <el-button @click="DisplayNone2">取消</el-button>
         <el-button type="primary">确定</el-button>
@@ -406,6 +402,24 @@
 <script>
   export default{
     methods: {
+      open2() {
+        this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '删除成功!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });
+        });
+      },
+
       DisplayBlock:function(){
         $('.mask').css('display','block');
         $('.add_Class_a').css('display','block');

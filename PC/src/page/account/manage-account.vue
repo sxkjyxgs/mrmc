@@ -7,7 +7,7 @@
       </el-breadcrumb>
 
       <div class="account_list">
-        <div class="account_list_title mid" @click="DisplayBlock">后台账号列表</div>
+        <div class="account_list_title mid">后台账号列表</div>
         <div class="distribution_form">
           <el-table
             :data="tableData"
@@ -58,7 +58,7 @@
           登录密码：<el-input  placeholder="登录密码"></el-input>
         </div>
         <p><el-button type="text" @click="DisplayBlock">分配角色</el-button></p>
-        <el-button type="primary" size="large">确认</el-button>
+        <el-button type="primary" @click="open2">确认</el-button>
         <div class="current_tip">已存在的账号，添加失败</div>
       </div>
     </div>
@@ -229,6 +229,24 @@
 <script>
   export default {
     methods: {
+      open2() {
+        this.$confirm('此操作将添加后台账号, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '添加成功!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消添加'
+          });
+        });
+      },
+
       DisplayBlock:function(){
         $('.mask').css('display','block');
         $('.assign_roles').css('display','block');

@@ -52,7 +52,7 @@
         <div class="add_distribution">
           <i class="permission_url" @click="DisplayBlock">权限分配</i>
         </div>
-        <el-button type="primary" size="large">确认添加</el-button>
+        <el-button type="primary" @click="open2">确认添加</el-button>
       </div>
     </div>
     <div class="mask"></div>
@@ -74,6 +74,9 @@
         <el-button @click="DisplayNone">取消</el-button>
         <el-button type="primary">确定</el-button>
       </div>
+    </div>
+    <div class="reconfirm">
+
     </div>
   </div>
 </template>
@@ -209,6 +212,24 @@
   Vue.use(Element)
   export default {
     methods: {
+      open2() {
+        this.$confirm('此操作将添加账号角色, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '添加成功!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消添加'
+          });
+        });
+      },
+
       DisplayBlock:function(){
         $('.mask').css('display','block');
         $('.assign_role_permissions').css('display','block');

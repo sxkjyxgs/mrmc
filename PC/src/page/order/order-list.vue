@@ -97,7 +97,7 @@
                   <p>订单总额：<span>200.00</span></p>
                   <p>包含运费：<span>11.00</span></p>
                   <el-button @click="DisplayBlock">改价</el-button>
-                  <el-button @click="DisplayBlock2">取消订单</el-button>
+                  <el-button @click="open2">取消订单</el-button>
                   <el-button>订单详情</el-button>
                 </div>
             </div>
@@ -150,8 +150,8 @@
               <div class="right AddPic">
                 <p>订单总额：<span>200.00</span></p>
                 <p>包含运费：<span>11.00</span></p>
-                <el-button @click="DisplayBlock3">发货</el-button>
-                <el-button>取消订单</el-button>
+                <el-button @click="open3">发货</el-button>
+                <el-button @click="open2">取消订单</el-button>
                 <el-button>订单详情</el-button>
               </div>
             </div>
@@ -386,20 +386,20 @@
         <el-button type="primary">订单改价</el-button>
       </div>
     </div>
-    <div class="cancel_order">
-      <div class="deliver_remind">取消订单？</div>
-      <div class="deliver_goods_btns">
-        <el-button @click="DisplayNone2">保留订单</el-button>
-        <el-button type="primary">取消订单</el-button>
-      </div>
-    </div>
-    <div class="deliver_goods">
-      <div class="deliver_remind">将此订单发货？</div>
-      <div class="deliver_goods_btns">
-        <el-button type="primary" @click="DisplayNone3">发货</el-button>
-        <el-button>取消此订单</el-button>
-      </div>
-    </div>
+    <!--<div class="cancel_order">-->
+      <!--<div class="deliver_remind">取消订单？</div>-->
+      <!--<div class="deliver_goods_btns">-->
+        <!--<el-button @click="DisplayNone2">保留订单</el-button>-->
+        <!--<el-button type="primary">取消订单</el-button>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="deliver_goods">-->
+      <!--<div class="deliver_remind">将此订单发货？</div>-->
+      <!--<div class="deliver_goods_btns">-->
+        <!--<el-button type="primary" @click="DisplayNone3">发货</el-button>-->
+        <!--<el-button>取消此订单</el-button>-->
+      <!--</div>-->
+    <!--</div>-->
   </div>
 </template>
 <style>
@@ -536,16 +536,6 @@
         $('.change_price').css('display','none');
       },
 
-      DisplayBlock2:function(){
-        $('.mask').css('display','block');
-        $('.cancel_order').css('display','block');
-      },
-
-      DisplayNone2:function(){
-        $('.mask').css('display','none');
-        $('.cancel_order').css('display','none');
-      },
-
       DisplayBlock3:function(){
         $('.mask').css('display','block');
         $('.deliver_goods').css('display','block');
@@ -555,6 +545,42 @@
         $('.mask').css('display','none');
         $('.deliver_goods').css('display','none');
       },
+
+      open2() {
+        this.$confirm('此操作将取消订单, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '取消订单成功!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消操作'
+          });
+        });
+      },
+
+      open3() {
+        this.$confirm('此操作将发送订单, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '已发送!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消发送'
+          });
+        });
+      }
     }
   }
 </script>

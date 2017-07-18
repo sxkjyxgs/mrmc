@@ -41,7 +41,9 @@
       <div class="add_commodity_brands_title">添加商品品牌</div>
       <div class="brand_logo">
         <div class="brand_logo_title">品牌logo</div>
-        <div class="brand_logo_img"></div>
+        <div class="brand_logo_img">
+
+        </div>
       </div>
       <div class="brand_name">
         <div class="brand_name_title">品牌名称</div>
