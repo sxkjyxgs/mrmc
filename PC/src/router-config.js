@@ -52,6 +52,9 @@ import  ShopmanManage from './page/shopman/shopman-manage.vue'
 import  ShopmanManageShow from './page/shopman/shopman-manage-show.vue'
 import  ShopmanTeam from './page/shopman/shopman-team.vue'
 import  ShopmanTeamShow from './page/shopman/shopman-team-show.vue'
+import  ShopmanTeamShow2 from './page/shopman/shopman-team-show2.vue'
+import  ShopmanTeamShow3 from './page/shopman/shopman-team-show3.vue'
+
 
 import  User from './page/user/user.vue'
 import ChangePass from './page/user/changepassword.vue'
@@ -111,8 +114,9 @@ export default [
   },
   {
     path:'/ManageGoods',component:ManageGoods,
-    children:[{ path:'/AddGoods',component:AddGoods}]
+    //children:[{ path:'/AddGoods',component:AddGoods}]
   },
+  { path:'/AddGoods',component:AddGoods},
   {
     path:'/RecommendGoods',component:RecommendGoods,
   },
@@ -169,17 +173,27 @@ export default [
   },
   {
     path:'/ShopmanApply',component:ShopmanApply,
-  },
-  {
-    path:'/ShopmanApplyShow',component:ShopmanApplyShow
+    children:[{path:'/ShopmanApplyShow',component:ShopmanApplyShow}]
   },
   {
     path:'/ShopmanManage',component:ShopmanManage,
-    children:[{path:'/ShopmanManageShow',component:ShopmanManageShow}]
+    //children:[{path:'/ShopmanManageShow',component:ShopmanManageShow}]
+  },
+  {
+    path:'/ShopmanManageShow',component:ShopmanManageShow
   },
   {
     path:'/ShopmanTeam',component:ShopmanTeam,
-    children:[{path:'/ShopmanTeamShow',component:ShopmanTeamShow}]
+    //children:[{path:'/ShopmanTeamShow',component:ShopmanTeamShow}]
+  },
+  {
+    path:'/ShopmanTeamShow',component:ShopmanTeamShow
+  },
+  {
+    path:'/ShopmanTeamShow2',component:ShopmanTeamShow2
+  },
+  {
+    path:'/ShopmanTeamShow3',component:ShopmanTeamShow3
   },
   {
     path:'/ShopmanCommission',component:ShopmanCommission,
