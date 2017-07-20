@@ -150,7 +150,7 @@
               <div class="right AddPic">
                 <p>订单总额：<span>200.00</span></p>
                 <p>包含运费：<span>11.00</span></p>
-                <el-button @click="open3">发货</el-button>
+                <el-button @click="DisplayBlock3">发货</el-button>
                 <el-button @click="open2">取消订单</el-button>
                 <el-button>订单详情</el-button>
               </div>
@@ -393,13 +393,25 @@
         <!--<el-button type="primary">取消订单</el-button>-->
       <!--</div>-->
     <!--</div>-->
-    <!--<div class="deliver_goods">-->
-      <!--<div class="deliver_remind">将此订单发货？</div>-->
-      <!--<div class="deliver_goods_btns">-->
-        <!--<el-button type="primary" @click="DisplayNone3">发货</el-button>-->
-        <!--<el-button>取消此订单</el-button>-->
-      <!--</div>-->
-    <!--</div>-->
+    <div class="deliver_goods">
+      <div class="order_number">
+        <div class="order_number_title">订单编号：</div>
+        <el-input placeholder=""></el-input>
+        <el-button type="primary">搜索</el-button>
+      </div>
+      <div class="logistics_company">
+        <div class="logistics_company_title">物流公司：</div>
+        <el-input placeholder=""></el-input>
+      </div>
+      <div class="logistics_company_phone">
+        <div class="logistics_company_phone_title">物流公司电话：</div>
+        <el-input placeholder=""></el-input>
+      </div>
+      <div class="deliver_goods_btns">
+        <el-button type="primary" @click="DisplayNone3">取消</el-button>
+        <el-button>发货</el-button>
+      </div>
+    </div>
   </div>
 </template>
 <style>
@@ -521,6 +533,35 @@
     width: 70%;
     float: right;
   }
+  .order_number,
+  .logistics_company,
+  .logistics_company_phone{
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    margin-top: 30px;
+  }
+  .order_number_title,
+  .logistics_company_title,
+  .logistics_company_phone_title{
+    width: 25%;
+    float: left;
+    text-align: left;
+    line-height: 36px;
+  }
+  .order_number .el-input{
+    width: 55%;
+    float: left;
+  }
+  .order_number .el-button{
+    float: right;
+    margin-right: 0;
+  }
+  .logistics_company .el-input,
+  .logistics_company_phone .el-input{
+    width: 75%;
+    float: left;
+  }
 </style>
 
 <script>
@@ -560,24 +601,6 @@
           this.$message({
             type: 'info',
             message: '已取消操作'
-          });
-        });
-      },
-
-      open3() {
-        this.$confirm('此操作将发送订单, 是否继续?', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-        }).then(() => {
-          this.$message({
-            type: 'success',
-            message: '已发送!'
-          });
-        }).catch(() => {
-          this.$message({
-            type: 'info',
-            message: '已取消发送'
           });
         });
       }
