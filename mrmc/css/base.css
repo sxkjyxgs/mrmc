@@ -22,6 +22,7 @@ img{
 body,html{
     width: 100%;
     height: 100%;
+    overflow: hidden;
 }
 body{
     font-family: "苹方","Helvetica Neue",Helvetica,Arial,sans-serif;
@@ -56,23 +57,35 @@ header{
     color:#fff;
     line-height: 0.88rem;
     flex:0 0 auto;
+    vertical-align: middle;
 }
-.back a{
-    display: flex;
-    height:100%;
-  align-items: center;
-    box-sizing: border-box;
+.back{
+	line-height: 0.88rem;
+	position: relative;
 }
-.back a img{
+.back img{
     width:0.18rem;
     height:0.32rem;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -0.16rem;
 }
 .titles{
-    font-size: 18px;
+    font-size: 16px;
+    line-height: 0.88rem;
 }
 .middle{
     overflow: auto;
     flex-grow: 1;
+}
+.more{
+	line-height: 0.88rem;
+	padding: 0 0.2rem;
+}
+.more2{
+	line-height: 0.88rem;
+	padding: 0 0.2rem;
 }
 footer{
     height:1rem;
