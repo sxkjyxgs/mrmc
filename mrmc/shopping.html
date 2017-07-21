@@ -13,14 +13,10 @@
 </head>
 <body>
 
-    <header>
-        <div class="back">
-            <a href="###">
-                <img src="image/back.png" alt="">
-            </a>
+    <header style="text-align: center !important;display: block;">
+        <div class="titles" style="position: relative;">购物车
+        	<span class="more" style="position: absolute;right: 0;top: 0;">编辑</span>
         </div>
-        <div class="titles">购物车</div>
-        <div class="more">完成</div>
     </header>
     <section class="middle">
         <ul class="zyj_box">
@@ -38,6 +34,7 @@
                     <img src="image/down.png" alt="" class="jian">
                     <span class="number">2</span>
                     <img src="image/up.png" alt="" class="jia">
+                    <div class="quantity">数量：<span>10</span></div>
                 </div>
             </li>
             <li class="shopList">
@@ -54,6 +51,7 @@
                     <img src="image/down.png" alt="" class="jian">
                     <span class="number">2</span>
                     <img src="image/up.png" alt="" class="jia">
+                    <div class="quantity">数量：<span>10</span></div>
                 </div>
             </li>
             <li class="shopList">
@@ -86,6 +84,7 @@
                     <img src="image/down.png" alt="" class="jian">
                     <span class="number">2</span>
                     <img src="image/up.png" alt="" class="jia">
+                    <div class="quantity">数量：<span>10</span></div>
                 </div>
             </li>
             <li class="shopList">
@@ -102,6 +101,7 @@
                     <img src="image/down.png" alt="" class="jian">
                     <span class="number">2</span>
                     <img src="image/up.png" alt="" class="jia">
+                    <div class="quantity">数量：<span>10</span></div>
                 </div>
             </li>
             <li class="shopList">
@@ -133,6 +133,7 @@
                 <img src="image/down.png" alt="" class="jian">
                 <span class="number">2</span>
                 <img src="image/up.png" alt="" class="jia">
+                <div class="quantity">数量：<span>10</span></div>
             </div>
         </li>
         <li class="shopList">
@@ -149,6 +150,7 @@
                 <img src="image/down.png" alt="" class="jian">
                 <span class="number">2</span>
                 <img src="image/up.png" alt="" class="jia">
+                <div class="quantity">数量：<span>10</span></div>
             </div>
         </li>
         <li class="shopList">
@@ -167,50 +169,20 @@
         </li>
     </ul>
     </section>
-    <footer>
+    <footer style="height: 0.98rem !important;">
         <div class="bottomBox">
-            <img src="image/nocheck.png" alt="">
+            <div class="allcheck"></div>
             <div class="leftfont">全选</div>
-            <div class="allNum">
-                合计:
-                <span class="allMoney">￥800</span>
-                <span class="freight">不含运费</span>&nbsp;
-            </div>
             <div class="delete">删除</div>
-        </div>
-        <ul>
-            <li>
-                <a href="##">
-                    <img src="image/recommd%20%20n.png" alt="">
-                    <span>首页</span>
-                </a>
-            </li>
-            <li>
-                <a href="##">
-                    <img src="image/sorts%20%20n.png" alt="">
-                    <span>分类</span>
-                </a>
-            </li>
-            <li>
-                <a href="##">
-                    <img src="image/shop--n.png" alt="">
-                    <span>店铺</span>
-                </a>
-            </li>
-            <li>
-                <a href="##">
-                    <img src="image/buy--p.png" alt="">
-                    <span class="pink">购物车</span>
-                </a>
-            </li>
-            <li>
-                <a href="##">
-                    <img src="image/mine-n.png" alt="">
-                    <span>我的</span>
-                </a>
-            </li>
+            <div class="allNum">
+                <div>
+                    合计:
+                    <span class="allMoney">￥800</span>
+                </div>
+                <div class="freight">不含运费</div>&nbsp;
+            </div>
 
-        </ul>
+        </div>
     </footer>
 
 
@@ -220,10 +192,31 @@
 <script src="js/swiper.min.js"></script>
 <script src="js/zepto.js"></script>
 <script>
-   $('.check').on('click',function () {
+   	$('.check').on('click',function () {
        $(this).toggleClass('active')
-   })
-
+   	})
+   	$('.more').on('click',function(){
+   		if($('.more').html()=='编辑'){
+   			$('.more').html('完成');
+   			$('.quantity').hide();
+   			$('.sun img').show();
+   			$('.number').show();
+   			$('.allNum').hide();
+   		}else{
+   			$('.more').html('编辑');
+   			$('.quantity').show();
+   			$('.sun img').hide();
+   			$('.number').hide();
+   			$('.allNum').show();
+   		}
+   	})
+   	$('.allcheck').on('click',function(){
+   		$(this).toggleClass('active');
+   		$('.check').toggleClass('active');
+   		
+   	})
+   	
+   	
 </script>
 </body>
 </html>
