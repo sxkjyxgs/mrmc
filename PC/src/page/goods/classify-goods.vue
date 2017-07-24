@@ -12,7 +12,7 @@
          <li class="shows">
            <div class="titlee">送礼礼盒</div>
            <ul>
-             <li class="self">
+             <li class="self border-bottom">
                <div class="left left-title">一级商品</div>
                <ul class="right right-list">
                  <div class="img-box">
@@ -82,7 +82,7 @@
         <li class="shows">
           <div class="titlee">送礼礼盒</div>
           <ul>
-            <li class="self">
+            <li class="self self border-bottom">
               <div class="left left-title">一级商品</div>
               <ul class="right right-list">
                 <div class="img-box">
@@ -153,7 +153,7 @@
         <li class="shows">
           <div class="titlee">送礼礼盒</div>
           <ul>
-            <li class="self">
+            <li class="self self border-bottom">
               <div class="left left-title">一级商品</div>
               <ul class="right right-list">
                 <div class="img-box">
@@ -257,14 +257,14 @@
     padding:20px 0;
   }
   .shows{
-    width:100%;
+    width:80%;
     height:auto;
     border:1px solid #838383;
     overflow: hidden;
-    margin:50px   0;
+    margin:50px auto 0;
   }
   .self{
-    width:50%;
+    width:100%;
     float: left;
     display: flex;
   }
@@ -279,6 +279,7 @@
   .left-title{
     border-right:1px solid #838383;
     width:10%;
+    min-width:50px;
     display: flex;
     align-items: center;
     padding:20px;
@@ -297,7 +298,6 @@
     width:90%;
     box-sizing: border-box;
     padding:20px;
-    border-right:1px solid #838383;
     height:auto;
   }
   .right-list:nth-child(1){
@@ -396,6 +396,9 @@
   {
     float: right;
     margin-right: 25%;
+  }
+  .border-bottom{
+    border-bottom:1px solid #838383;
   }
 </style>
 

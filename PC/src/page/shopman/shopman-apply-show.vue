@@ -2,8 +2,8 @@
   <div id="box">
     <div class="box">
       <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">店主管理</el-breadcrumb-item>
-        <el-breadcrumb-item>店主申请管理</el-breadcrumb-item>
+        <el-breadcrumb-item >店主管理</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{ path: '/ShopmanApply' }">店主申请管理</el-breadcrumb-item>
         <el-breadcrumb-item>申请信息详情</el-breadcrumb-item>
       </el-breadcrumb>
 
@@ -56,96 +56,96 @@
   </div>
 </template>
 
-<!--<style>-->
-  <!--.apply_show{-->
-    <!--width: 100%;-->
-    <!--min-height: 500px;-->
-    <!--border: 1px solid #303030;-->
-    <!--margin-top: 30px;-->
-    <!--overflow: hidden;-->
-    <!--position: relative;-->
-  <!--}-->
+<style>
+  .apply_show{
+    width: 100%;
+    min-height: 500px;
+    border: 1px solid #303030;
+    margin-top: 30px;
+    overflow: hidden;
+    position: relative;
+  }
 
-  <!--.apply_show_title{-->
-    <!--width: 100%;-->
-    <!--padding: 0 30%;-->
-    <!--box-sizing: border-box;-->
-    <!--text-align: center;-->
-    <!--line-height: 60px;-->
-    <!--font-size: 18px;-->
-    <!--margin-top: 20px;-->
-  <!--}-->
+  .apply_show_title{
+    width: 100%;
+    padding: 0 30%;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 60px;
+    font-size: 18px;
+    margin-top: 20px;
+  }
 
-  <!--.apply_show_time,-->
-  <!--.apply_account_number,-->
-  <!--.current_level,-->
-  <!--.apply_show_information,-->
-  <!--.submited_information,-->
-  <!--.accumulated_sales,-->
-  <!--.subordinate_team,-->
-  <!--.apply_show_btn{-->
-    <!--width: 100%;-->
-    <!--padding: 0 35%;-->
-    <!--box-sizing: border-box;-->
-    <!--margin-top: 30px;-->
-    <!--font-size: 16px;-->
-  <!--}-->
+  .apply_show_time,
+  .apply_account_number,
+  .current_level,
+  .apply_show_information,
+  .submited_information,
+  .accumulated_sales,
+  .subordinate_team,
+  .apply_show_btn{
+    width: 100%;
+    padding: 0 35%;
+    box-sizing: border-box;
+    margin-top: 30px;
+    font-size: 16px;
+  }
 
-  <!--.apply_show_btn{-->
-    <!--margin-bottom: 100px;-->
-  <!--}-->
+  .apply_show_btn{
+    margin-bottom: 100px;
+  }
 
-  <!--.apply_reject_pplication,.apply_through{-->
-    <!--width: 100px;-->
-    <!--height: 30px;-->
-    <!--text-align: center;-->
-    <!--line-height: 30px;-->
-    <!--float: left;-->
-    <!--cursor: pointer;-->
-  <!--}-->
+  .apply_reject_pplication,.apply_through{
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    float: left;
+    cursor: pointer;
+  }
 
-  <!--.apply_reject_pplication{-->
-    <!--background: #838383;-->
-    <!--float: left;-->
-    <!--margin-left: 100px;-->
-    <!--color: #FFFFFF;-->
-  <!--}-->
+  .apply_reject_pplication{
+    background: #838383;
+    float: left;
+    margin-left: 100px;
+    color: #FFFFFF;
+  }
 
-  <!--.apply_through{-->
-    <!--background: #1E9FFF;-->
-    <!--float: right;-->
-    <!--margin-right: 100px;-->
-    <!--color: #FFFFFF;-->
-  <!--}-->
+  .apply_through{
+    background: #1E9FFF;
+    float: right;
+    margin-right: 100px;
+    color: #FFFFFF;
+  }
 
-  <!--.apply_through:hover{-->
-    <!--background: #178FE5;-->
-  <!--}-->
+  .apply_through:hover{
+    background: #178FE5;
+  }
 
-  <!--.clear_{-->
-    <!--overflow: hidden;-->
-  <!--}-->
+  .clear_{
+    overflow: hidden;
+  }
 
-  <!--.left_{-->
-    <!--float: left;-->
-  <!--}-->
+  .left_{
+    float: left;
+  }
 
-  <!--.right_{-->
-    <!--float: left;-->
-    <!--margin-left: 50px;-->
-  <!--}-->
+  .right_{
+    float: left;
+    margin-left: 50px;
+  }
 
-  <!--.information div{-->
-    <!--margin-top: 30px;-->
-  <!--}-->
+  .information div{
+    margin-top: 30px;
+  }
 
-  <!--.information div:first-child{-->
-    <!--margin-top: 0;-->
-  <!--}-->
+  .information div:first-child{
+    margin-top: 0;
+  }
 
-  <!--.id_opposite_img,.id_positive_img{-->
-    <!--width: 300px;-->
-    <!--height: 150px;-->
-    <!--background: red;-->
-  <!--}-->
-<!--</style>-->
+  .id_opposite_img,.id_positive_img{
+    width: 300px;
+    height: 150px;
+    background: red;
+  }
+</style>

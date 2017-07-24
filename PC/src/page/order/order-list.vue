@@ -98,7 +98,7 @@
                   <p>包含运费：<span>11.00</span></p>
                   <el-button @click="DisplayBlock">改价</el-button>
                   <el-button @click="open2">取消订单</el-button>
-                  <el-button>订单详情</el-button>
+                  <el-button @click="shows">订单详情</el-button>
                 </div>
             </div>
           </li>
@@ -152,7 +152,7 @@
                 <p>包含运费：<span>11.00</span></p>
                 <el-button @click="DisplayBlock3">发货</el-button>
                 <el-button @click="open2">取消订单</el-button>
-                <el-button>订单详情</el-button>
+                <el-button @click="shows">订单详情</el-button>
               </div>
             </div>
           </li>
@@ -205,7 +205,7 @@
                 <p>订单总额：<span>200.00</span></p>
                 <p>包含运费：<span>11.00</span></p>
                 <el-button>查看物流</el-button>
-                <el-button>订单详情</el-button>
+                <el-button @click="shows">订单详情</el-button>
               </div>
             </div>
           </li>
@@ -258,7 +258,7 @@
                 <p>订单总额：<span>200.00</span></p>
                 <p>包含运费：<span>11.00</span></p>
                 <el-button>查看物流</el-button>
-                <el-button>订单详情</el-button>
+                <el-button @click="shows">订单详情</el-button>
               </div>
             </div>
           </li>
@@ -311,7 +311,7 @@
                 <p>订单总额：<span>200.00</span></p>
                 <p>包含运费：<span>11.00</span></p>
                 <el-button>退款详情</el-button>
-                <el-button>订单详情</el-button>
+                <el-button @click="shows">订单详情</el-button>
               </div>
             </div>
           </li>
@@ -367,7 +367,7 @@
                 <p>订单总额：<span>200.00</span></p>
                 <p>包含运费：<span>11.00</span></p>
                 <el-button>退款详情</el-button>
-                <el-button :to="{ path: '/OrderNo' }">订单详情</el-button>
+                <el-button @click="shows">订单详情</el-button>
               </div>
             </div>
           </li>
@@ -586,7 +586,9 @@
         $('.mask').css('display','none');
         $('.deliver_goods').css('display','none');
       },
-
+      shows:function(){
+        this.$router.push('/OrderNo');
+      },
       open2() {
         this.$confirm('此操作将取消订单, 是否继续?', '提示', {
           confirmButtonText: '确定',

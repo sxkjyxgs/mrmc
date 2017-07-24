@@ -20,22 +20,29 @@
         </div>
         <div class="apply_form">
           <el-table
+            :data="tableData"
             border
             style="width: 100%">
             <el-table-column
-              label="团队级别">
+              prop="apply_time"
+              label="团队级别" inline-template>
+              <el-button type="text" size="mini"  @click="shows()">222</el-button>
             </el-table-column>
             <el-table-column
+              prop="apply_account"
               label="团队生成时间">
             </el-table-column>
             <el-table-column
+              prop="current_level"
               label="团长账号">
             </el-table-column>
             <el-table-column
+              prop="accumulated_sales"
               label="团队人数">
             </el-table-column>
             <el-table-column
-              label="操作">
+              label="操作" inline-template>
+              <el-button type="text" size="mini"  @click="shows()">222</el-button>
             </el-table-column>
           </el-table>
         </div>
@@ -252,6 +259,42 @@
       DisplayNone:function(){
         $('.mask').css('display','none');
         $('.add_team2').css('display','none');
+      },
+      shows:function(){
+        this.$router.push('/ShopmanTeamShow');
+      }
+    },
+    data() {
+      return {
+        tableData: [{
+          apply_time:'2017-02-15',
+          apply_account: '店长',
+          current_level:'当前级别',
+          accumulated_sales:'累计销售金',
+          subordinate_team:'所属团队',
+          inpofmation_detail: '商品管理'
+        }, {
+          apply_time:'2017-02-15',
+          apply_account: '店长',
+          current_level:'当前级别',
+          accumulated_sales:'累计销售金',
+          subordinate_team:'所属团队',
+          inpofmation_detail: '商品管理'
+        }, {
+          apply_time:'2017-02-15',
+          apply_account: '店长',
+          current_level:'当前级别',
+          accumulated_sales:'累计销售金',
+          subordinate_team:'所属团队',
+          inpofmation_detail: '商品管理'
+        }, {
+          apply_time:'2017-02-15',
+          apply_account: '店长',
+          current_level:'当前级别',
+          accumulated_sales:'累计销售金',
+          subordinate_team:'所属团队',
+          inpofmation_detail: '商品管理'
+        }]
       }
     }
   }

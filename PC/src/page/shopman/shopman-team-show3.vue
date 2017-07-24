@@ -8,9 +8,9 @@
 
       <div class="team_information">
         <div class="team_operation_btn">
-          <el-button type="primary">公司店主团队--美日美C团队</el-button>
-          <el-button type="primary">高级店主团队</el-button>
-          <el-button type="primary">公司店主团队</el-button>
+          <el-button type="primary" @click="Show1()">公司店主团队--美日美C团队</el-button>
+          <el-button type="primary" @click="Show2()">高级店主团队</el-button>
+          <el-button type="primary" @click="Show3()">公司店主团队</el-button>
         </div>
 
         <p class="team_information_title">团队信息</p>
@@ -116,6 +116,15 @@
       DisplayBlock:function(){
         $('.mask').css('display','block');
         $('.upgrade').css('display','block');
+      },
+      Show1:function(){
+        this.$router.push('/ShopmanTeamShow');
+      },
+      Show2:function(){
+        this.$router.push('/ShopmanTeamShow2');
+      },
+      Show3:function(){
+        this.$router.push('/ShopmanTeamShow3');
       }
     }
   }

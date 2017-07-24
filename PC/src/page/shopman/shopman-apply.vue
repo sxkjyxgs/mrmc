@@ -34,6 +34,7 @@
         <div class="apply_form">
           <el-table
             border
+            :data="tableData"
             style="width: 100%">
             <el-table-column
               prop="apply_time"
@@ -57,10 +58,10 @@
             </el-table-column>
             <el-table-column
               prop="inpofmation_detail"
-              label="申请信息详情">
+              label="申请信息详情" inline-template >
+              <el-button type="text" size="mini"  @click="shows()">222</el-button>
             </el-table-column>
             <el-table-column
-              prop="operation"
               label="操作">
             </el-table-column>
           </el-table>
@@ -70,6 +71,54 @@
     </div>
   </div>
 </template>
+<script>
+  import Vue from 'vue'
+  import Element from 'element-ui'
+  import 'element-ui/lib/theme-default/index.css'
+  Vue.use(Element)
+  export default {
+      methods:{
+        shows:function(){
+          this.$router.push('/ShopmanApplyShow');
+        }
+      },
+    data() {
+      return {
+        tableData: [{
+          apply_time:'2017-02-15',
+          apply_account: '店长',
+          current_level:'当前级别',
+          accumulated_sales:'累计销售金',
+          subordinate_team:'所属团队',
+          inpofmation_detail: '商品管理'
+        }, {
+          apply_time:'2017-02-15',
+          apply_account: '店长',
+          current_level:'当前级别',
+          accumulated_sales:'累计销售金',
+          subordinate_team:'所属团队',
+          inpofmation_detail: '商品管理'
+        }, {
+          apply_time:'2017-02-15',
+          apply_account: '店长',
+          current_level:'当前级别',
+          accumulated_sales:'累计销售金',
+          subordinate_team:'所属团队',
+          inpofmation_detail: '商品管理'
+        }, {
+          apply_time:'2017-02-15',
+          apply_account: '店长',
+          current_level:'当前级别',
+          accumulated_sales:'累计销售金',
+          subordinate_team:'所属团队',
+          inpofmation_detail: '商品管理'
+        }],
+        tableDatas: this.tableData
+      }
+    }
+
+  }
+</script>
 
 <style>
   .apply_{

@@ -2,15 +2,15 @@
   <div id="box">
     <div class="box">
       <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">店主管理</el-breadcrumb-item>
+        <el-breadcrumb-item>店主管理</el-breadcrumb-item>
         <el-breadcrumb-item>店主团队管理</el-breadcrumb-item>
       </el-breadcrumb>
 
       <div class="team_information">
         <div class="team_operation_btn">
-          <el-button type="primary">公司店主团队--美日美C团队</el-button>
-          <el-button type="primary">高级店主团队</el-button>
-          <el-button type="primary">公司店主团队</el-button>
+          <el-button type="primary" @click="Show1()">公司店主团队--美日美C团队</el-button>
+          <el-button type="primary" @click="Show2()">高级店主团队</el-button>
+          <el-button type="primary" @click="Show3()">公司店主团队</el-button>
         </div>
 
         <p class="team_information_title">团队信息</p>
@@ -262,7 +262,17 @@
       DisplayNone:function(){
         $('.mask').css('display','none');
         $('.add_junior_member').css('display','none');
+      },
+      Show1:function(){
+        this.$router.push('/ShopmanTeamShow');
+      },
+      Show2:function(){
+        this.$router.push('/ShopmanTeamShow2');
+      },
+      Show3:function(){
+        this.$router.push('/ShopmanTeamShow3');
       }
+
     }
   }
 </script>

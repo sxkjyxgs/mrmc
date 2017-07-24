@@ -2,7 +2,7 @@
   <div id="box">
     <div class="box">
       <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">后台账号管理</el-breadcrumb-item>
+        <el-breadcrumb-item>后台账号管理</el-breadcrumb-item>
         <el-breadcrumb-item>账号角色与权限管理</el-breadcrumb-item>
       </el-breadcrumb>
 
@@ -17,29 +17,36 @@
             border
             style="width: 100%">
             <el-table-column
-              prop="name"
-              label="角色名">
+              prop="role"
+              label="角色"
+              :span="2"
+            >
             </el-table-column>
             <el-table-column
               prop="jurisdiction"
-              label="角色现有权限">
+              label="角色现有权限"
+              :span="6"
+            >
             </el-table-column>
             <el-table-column
-              fixed="right"
+              :span="4"
               label="操作"
-              width="200">
+            >
               <template scope="scope">
-                <el-button type="text" size="small">权限分配</el-button>
-                <el-button type="text" size="small">删除</el-button>
+                <el-button type="text" size="small">查看</el-button>
+                <el-button type="text" size="small">编辑</el-button>
               </template>
             </el-table-column>
           </el-table>
         </div>
 
         <div class="block">
-          <el-pagination page-size='5'
+          <el-pagination
             layout="prev, pager, next"
-            :total="20">
+            :total="tableData.length"
+            :page-size="2"
+            @current-change="handleCurrentChange"
+          >
           </el-pagination>
         </div>
       </div>
@@ -213,6 +220,7 @@
   import 'element-ui/lib/theme-default/index.css'
   Vue.use(Element)
   export default {
+
     methods: {
       open2() {
         this.$confirm('此操作将添加账号角色, 是否继续?', '提示', {
@@ -231,7 +239,12 @@
           });
         });
       },
-
+      handleCurrentChange(val) {
+        this.tableDatas=[];
+        for(var i=2*(val-1);i<2*val;i++){
+            this.tableDatas.push(this.tableData[i]);
+        }
+      },
       DisplayBlock:function(){
         $('.mask').css('display','block');
         $('.assign_role_permissions').css('display','block');
@@ -254,23 +267,33 @@
     },
     data() {
       return {
+        currentPage: 1,
+
         tableData: [{
-          name: '2016-05-02',
-          jurisdiction: '王小虎'
+          role: '店长',
+          jurisdiction: '商品管理'
         }, {
-          name: '2016-05-04',
-          jurisdiction: '王小虎'
+          role: '店员',
+          jurisdiction: '商品管理'
         }, {
-          name: '2016-05-01',
-          jurisdiction: '王小虎'
+          role: '店长',
+          jurisdiction: '商品管理'
         }, {
+<<<<<<< HEAD
+          role: '店长',
+          jurisdiction: '商品管理'
+        }],
+        tableDatas: this.tableData
+=======
           name: '2016-05-03',
           jurisdiction: '王小虎'
         }],
         checkAll: true,
         jurisdictions: jurisdictionOptions,
         isIndeterminate: true
+>>>>>>> origin/master
       }
     }
+
   }
 </script>

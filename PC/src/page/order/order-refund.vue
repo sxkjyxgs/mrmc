@@ -80,7 +80,7 @@
                 <el-button @click="open2">审核驳回</el-button>
                 <el-button @click="open3">审核同意</el-button>
                 <el-button @click="open4">退款成功</el-button>
-                <el-button>订单详情</el-button>
+                <el-button @click="shows">订单详情</el-button>
               </div>
             </div>
           </li>
@@ -138,7 +138,7 @@
                 <el-button @click="open2">审核驳回</el-button>
                 <el-button @click="open3">审核同意</el-button>
                 <el-button @click="open4">退款成功</el-button>
-                <el-button>订单详情</el-button>
+                <el-button @click="shows">订单详情</el-button>
               </div>
             </div>
           </li>
@@ -168,7 +168,9 @@
           });
         });
       },
-
+      shows:function(){
+        this.$router.push('/OrderNo');
+      },
       open3() {
         this.$confirm('此操作将同意审核, 是否继续?', '提示', {
           confirmButtonText: '确定',

@@ -173,11 +173,14 @@ export default [
   },
   {
     path:'/ShopmanApply',component:ShopmanApply,
-    children:[{path:'/ShopmanApplyShow',component:ShopmanApplyShow}]
+
+  },
+  {
+    path:'/ShopmanApplyShow',
+    component:ShopmanApplyShow
   },
   {
     path:'/ShopmanManage',component:ShopmanManage,
-    //children:[{path:'/ShopmanManageShow',component:ShopmanManageShow}]
   },
   {
     path:'/ShopmanManageShow',component:ShopmanManageShow
