@@ -65,7 +65,7 @@
     <div class="mask"></div>
     <div class="assign_role_permissions">
       <div class="assign_role_permissions_title">分配角色权限</div>
-      <div class=guan"checkbox_box">
+      <div class="checkbox_box">
         <div class="assign_checkbox">
           <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">后台账号管理</el-checkbox>
           <div style="margin: 15px 0;"></div>
@@ -268,7 +268,6 @@
     data() {
       return {
         currentPage: 1,
-
         tableData: [{
           role: '店长',
           jurisdiction: '商品管理'
@@ -278,20 +277,10 @@
         }, {
           role: '店长',
           jurisdiction: '商品管理'
-        }, {
-<<<<<<< HEAD
-          role: '店长',
-          jurisdiction: '商品管理'
-        }],
-        tableDatas: this.tableData
-=======
-          name: '2016-05-03',
-          jurisdiction: '王小虎'
         }],
         checkAll: true,
         jurisdictions: jurisdictionOptions,
         isIndeterminate: true
->>>>>>> origin/master
       }
     }
 

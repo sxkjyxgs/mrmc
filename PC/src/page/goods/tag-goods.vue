@@ -33,7 +33,7 @@
         <div class="good_tag3">
           <div class="tag_name3">
             <div class="tag_name3_title">商品标签3：兴趣</div>
-            <el-button type="success">添加兴趣</el-button>
+            <el-button type="success" @click="DisplayBlock">添加兴趣</el-button>
           </div>
           <div class="tag_list3">
             <div class="tag_list3_title">兴趣</div>
@@ -50,6 +50,19 @@
         </div>
       </div>
     </div>
+    <div class="mask"></div>
+    <div class="add_interests">
+      <div class="add_interests_title">添加兴趣</div>
+      <div class="add_interests_ipt">
+        <div class="add_interests_name">兴趣名称</div>
+        <el-input v-model="input" placeholder="请输入内容"></el-input>
+      </div>
+
+      <div class="add_interests_btn">
+        <el-button @click="DisplayNone">取消</el-button>
+        <el-button type="primary">确定</el-button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -57,7 +70,6 @@
   li{
     list-style: none;
   }
-
   .good_tags{
     width: 100%;
     height: auto;
@@ -67,20 +79,17 @@
     box-sizing: border-box;
     margin-top: 30px;
   }
-
   .good_tag1,.good_tag2{
     width: 50%;
     margin-top: 30px;
     padding: 0 25%;
     overflow: hidden;
   }
-
   .tag_name1,.tag_name2,.tag_name3{
     float: left;
     line-height: 30px;
     font-size: 16px;
   }
-
   .tag_name3 .add_interest{
     border-radius: 5px;
     background: #1E9FFF;
@@ -90,12 +99,10 @@
     display: block;
     text-align: center;
   }
-
   .tag_list1,.tag_list2,.tag_list3{
     float: left;
     margin-left: 50px;
   }
-
   .tag_list1_title,.tag_list2_title,.tag_list3_title{
     width: 250px;
     height: 30px;
@@ -104,7 +111,6 @@
     text-align: center;
     line-height: 30px;
   }
-
   .tag_list1 ul{
     width: 250px;
     height: auto;
@@ -112,7 +118,6 @@
     padding: 0;
     overflow: hidden;
   }
-
   .tag_list1 ul li{
     width: 248px;
     height: 28px;
@@ -120,11 +125,9 @@
     line-height: 30px;
     border: 1px solid #303030;
   }
-
   .tag_list1 ul li:last-child{
     border-top: 0;
   }
-
   .tag_list2 ul{
     width: 250px;
     height: auto;
@@ -132,7 +135,6 @@
     padding: 0;
     overflow: hidden;
   }
-
   .tag_list2 ul li{
     width: 248px;
     height: 28px;
@@ -140,7 +142,6 @@
     line-height: 30px;
     border: 1px solid #303030;
   }
-
   .tag_list3 ul{
     width: 250px;
     height: auto;
@@ -148,7 +149,6 @@
     padding: 0;
     overflow: hidden;
   }
-
   .tag_list3 ul li{
     width: 248px;
     height: 36px;
@@ -157,11 +157,9 @@
     border: 1px solid #303030;
     vertical-align: middle;
   }
-
   .bordertop{
     border-top: 0 !important;
   }
-
   .tag_list3 ul li a{
     padding: 2px 10px;
     color: #FFFFFF;
@@ -172,7 +170,6 @@
     line-height: 30px;
     display: inline;
   }
-
   .tag_list3 ul li span{
     padding: 2px 10px;
     color: #FFFFFF;
@@ -180,14 +177,12 @@
     background: #303030;
     font-size: 14px;
   }
-
   .good_tag3{
     width: 70%;
     margin-top: 30px;
     padding: 0 5% 0 25%;
     overflow: hidden;
   }
-
   .tag3_tip{
     width: 250px;
     height: 88px;
@@ -198,5 +193,57 @@
     float: left;
     margin-left: 30px;
   }
-
+  .add_interests{
+    width: 600px;
+    padding: 30px;
+    background: #FFFFFF;
+    position: fixed;
+    top: 100px;
+    left: 50%;
+    margin-left: -330px;
+    z-index: 9999;
+    text-align: center;
+    display: none;
+  }
+  .add_interests_ipt{
+    width: 80%;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-top: 30px;
+  }
+  .add_interests_title{
+    font-size: 16px;
+    color: #303030;
+    text-align: center;
+    line-height: 32px;
+  }
+  .add_interests_name{
+    width: 20%;
+    float: left;
+    line-height: 36px;
+  }
+  .add_interests_ipt .el-input{
+    width: 75%;
+    float: left;
+  }
+  .add_interests_btn{
+    margin-top: 30px;
+  }
 </style>
+
+
+<script>
+  export default {
+    methods: {
+      DisplayBlock:function(){
+        $('.mask').css('display','block');
+        $('.add_interests').css('display','block');
+      },
+
+      DisplayNone:function(){
+        $('.mask').css('display','none');
+        $('.add_interests').css('display','none');
+      }
+    }
+  }
+</script>
