@@ -88,7 +88,7 @@
         <div>请上传身份证正面图片</div>
         <div>请上传身份证反面图片</div>
       </div>
-      <div class="optional_">选填个人店主资料</div>
+      <div class="optional_">必填个人店主资料</div>
       <div class="zfb_account">
         <div class="zfb_account_title">支付宝账号</div>
         <el-input placeholder="请填写支付宝账号"></el-input>

@@ -29,7 +29,10 @@
 .active{
     background: url("../image/choose.png") center center no-repeat;
     background-size: cover;
-
+}
+.active_all{
+    background: url("../image/choose.png") center center no-repeat;
+    background-size: cover;
 }
 .images{
     float: left;
@@ -75,8 +78,8 @@
     float: left;
 }
 .sun .number{
-    padding-left: 0.28rem;
-    font-size: 10px;
+    padding-left: 0.24rem;
+    font-size: 18px;
     line-height: 0.47rem;
     font-weight: 700;
     float: left;

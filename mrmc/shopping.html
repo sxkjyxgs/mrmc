@@ -173,7 +173,7 @@
         <div class="bottomBox">
             <div class="allcheck"></div>
             <div class="leftfont">全选</div>
-            <div class="delete">删除</div>
+            <div class="delete">结算</div>
             <div class="allNum">
                 <div>
                     合计:
@@ -202,21 +202,21 @@
    			$('.sun img').show();
    			$('.number').show();
    			$('.allNum').hide();
+   			$('.delete').html('删除')
    		}else{
    			$('.more').html('编辑');
    			$('.quantity').show();
    			$('.sun img').hide();
    			$('.number').hide();
    			$('.allNum').show();
+   			$('.delete').html('结算')
    		}
    	})
    	$('.allcheck').on('click',function(){
-   		$(this).toggleClass('active');
-   		$('.check').toggleClass('active');
+   		$(this).addClass('active_all');
+   		$('.check').addClass('active');
    		
    	})
-   	
-   	
 </script>
 </body>
 </html>

@@ -58,25 +58,20 @@
     <div class="mask"></div>
     <div class="assign_role_permissions">
       <div class="assign_role_permissions_title">分配角色权限</div>
-      <dl>
-        <dt><el-checkbox label="商品管理" name="type"></el-checkbox></dt>
-        <dd><el-checkbox label="商品分类管理" name="type"></el-checkbox></dd>
-        <dd><el-checkbox label="商品品牌管理" name="type"></el-checkbox></dd>
-        <dd><el-checkbox label="商品标签管理" name="type"></el-checkbox></dd>
-      </dl>
-      <dl>
-        <dt><el-checkbox label="后台账号管理" name="type"></el-checkbox></dt>
-        <dd><el-checkbox label="添加后台账号" name="type"></el-checkbox></dd>
-        <dd><el-checkbox label="后台权限管理" name="type"></el-checkbox></dd>
-        <dd><el-checkbox label="管理后台账号" name="type"></el-checkbox></dd>
-      </dl>
+      <div class=guan"checkbox_box">
+        <div class="assign_checkbox">
+          <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">后台账号管理</el-checkbox>
+          <div style="margin: 15px 0;"></div>
+          <el-checkbox-group v-model="checkedjurisdictions" @change="handleCheckedjurisdictionsChange">
+            <el-checkbox v-for="jurisdiction in jurisdictions" :label="jurisdiction" :key="jurisdiction">{{jurisdiction}}</el-checkbox>
+          </el-checkbox-group>
+        </div>
+      </div>
+
       <div class="assign_role_permissions_btn">
         <el-button @click="DisplayNone">取消</el-button>
         <el-button type="primary">确定</el-button>
       </div>
-    </div>
-    <div class="reconfirm">
-
     </div>
   </div>
 </template>
@@ -167,13 +162,13 @@
     margin: 50px 10% 0 0;
   }
   .assign_role_permissions{
-    width: 300px;
+    width: 600px;
     padding: 30px;
     background: #FFFFFF;
     position: fixed;
     top: 100px;
     left: 50%;
-    margin-left: -180px;
+    margin-left: -330px;
     z-index: 9999;
     text-align: center;
     display: none;
@@ -186,26 +181,33 @@
     line-height: 32px;
     border-bottom: 1px solid #303030;
   }
-  .assign_role_permissions dl{
-    margin-top: 20px;
-  }
-  .assign_role_permissions dl dt{
-    padding-left: 15%;
-    height: 28px;
-    text-align: left;
-  }
-  .assign_role_permissions dl dd{
-    padding-left: 30%;
-    height: 28px;
-    text-align: left;
-  }
   .assign_role_permissions_btn{
     margin: 0 auto;
     margin-top: 20px;
   }
+  .checkbox_box{
+    overflow: hidden;
+  }
+  .assign_checkbox{
+    width: 50%;
+    float: left;
+  }
+  .assign_checkbox .el-checkbox{
+    display: block;
+    text-align: left;
+    padding-left: 10%;
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  .assign_checkbox .el-checkbox-group{
+    padding-left: 15%;
+    box-sizing: border-box;
+  }
 </style>
 
 <script>
+  const jurisdictionOptions = ['后台权限管理', '后台账号管理', '后台账号操作记录'];
   import Vue from 'vue'
   import Element from 'element-ui'
   import 'element-ui/lib/theme-default/index.css'
@@ -238,6 +240,16 @@
       DisplayNone:function(){
         $('.mask').css('display','none');
         $('.assign_role_permissions').css('display','none');
+      },
+
+      handleCheckAllChange(event) {
+        this.checkedjurisdictions = event.target.checked ? jurisdictionOptions : [];
+        this.isIndeterminate = false;
+      },
+      handleCheckedjurisdictionsChange(value) {
+        let checkedCount = value.length;
+        this.checkAll = checkedCount === this.jurisdictions.length;
+        this.isIndeterminate = checkedCount > 0 && checkedCount < this.jurisdictions.length;
       }
     },
     data() {
@@ -254,7 +266,10 @@
         }, {
           name: '2016-05-03',
           jurisdiction: '王小虎'
-        }]
+        }],
+        checkAll: true,
+        jurisdictions: jurisdictionOptions,
+        isIndeterminate: true
       }
     }
   }
