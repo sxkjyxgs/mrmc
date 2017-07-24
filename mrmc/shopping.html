@@ -195,6 +195,9 @@
    	$('.check').on('click',function () {
        $(this).toggleClass('active')
    	})
+   	$('.delete').click(function(){
+   		window.location.href = "order-details.html";
+   	})
    	$('.more').on('click',function(){
    		if($('.more').html()=='编辑'){
    			$('.more').html('完成');

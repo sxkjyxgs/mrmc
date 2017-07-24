@@ -44,15 +44,18 @@ i{
     height:100%;
     display: flex;
     color:#303030;
+    overflow: hidden;
 }
 .list-img{
     margin-right:0.27rem;
+    float: left;
 }
 .list-img img{
     width:2.08rem;
     height:2.08rem;
 }
 .list-content{
+	float: left;
     height:100%;
     position: relative;
 }
