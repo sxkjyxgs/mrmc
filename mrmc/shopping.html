@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="css/shopping.css">
 </head>
 <body>
-
     <header style="text-align: center !important;display: block;">
         <div class="titles" style="position: relative;">购物车
         	<span class="more" style="position: absolute;right: 0;top: 0;">编辑</span>
@@ -192,11 +191,30 @@
 <script src="js/swiper.min.js"></script>
 <script src="js/zepto.js"></script>
 <script>
+    var u = navigator.userAgent;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
    	$('.check').on('click',function () {
-       $(this).toggleClass('active')
+       $(this).toggleClass('active');
+        if($(this).attr('class')=='check'){
+            $('.allcheck').removeClass('active_all')
+        }
+        if($('.active').length==$('.check').length){
+            $('.allcheck').addClass('active_all')
+        }
    	})
+    //结算拦截
    	$('.delete').click(function(){
-   		window.location.href = "order-details.html";
+   	    if($(this).html()=='结算'){
+   	        if(isAndroid){
+                JSBridge.cartSettle();
+            }else if(isiOS){
+                window.webkit.messageHandlers.cartSettle.postMessage(null)
+            }else{
+                window.location.href = "order-details.html";
+            }
+
+        }
    	})
    	$('.more').on('click',function(){
    		if($('.more').html()=='编辑'){
@@ -216,9 +234,13 @@
    		}
    	})
    	$('.allcheck').on('click',function(){
-   		$(this).addClass('active_all');
-   		$('.check').addClass('active');
-   		
+        if($('.active').length>=0&&$('.active').length<$('.check').length){
+            $('.allcheck').addClass('active_all');
+            $('.check').addClass('active');
+        }else if($('.active').length==$('.check').length){
+            $('.check').removeClass('active');
+            $('.allcheck').removeClass('active_all');
+        }
    	})
 </script>
 </body>

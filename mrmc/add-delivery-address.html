@@ -13,13 +13,13 @@
 
 	<body>
 
-			<!--<header>
+			<header>
 				<div class="back">
 					<img src="image/back.png" alt="">
 				</div>
 				<div class="titles">添加收货地址</div>
 				<div class="more" style="font-size: 16px;">保存</div>
-			</header>-->
+			</header>
 			<section class="middle">
 				<div class="consignee">
 					<div class="consignee-title">
@@ -82,6 +82,9 @@
 	<script src="js/jquery.min.js"></script>
 	<script src="js/jquery.area.js"></script>
 	<script>
+        var u = navigator.userAgent;
+        var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+        var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
 		var flag=true;
 		$(".set-as-default-btn").click(function(){
 		    if(flag){
@@ -94,5 +97,15 @@
                 flag=true;
 			}
 		})
+        //返回按钮
+        $('.back').click(function(){
+            if(isAndroid){
+                JSBridge.naviBack();
+            }else if(isiOS){
+                window.webkit.messageHandlers.naviBack.postMessage(null)
+            }else{
+//            window.location.href = "order-details.html";
+            }
+        })
 	</script>
 </html>

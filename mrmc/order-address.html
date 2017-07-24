@@ -12,7 +12,7 @@
 </head>
 <body>
 <!--<div class="Bigbox">-->
-<!--<header>
+<header>
     <div class="back">
         <a href="###">
             <img src="image/back.png" alt="">
@@ -20,7 +20,7 @@
     </div>
     <div class="titles">选择收货地址</div>
     <div class="more"></div>
-</header>-->
+</header>
 <section class="middle">
     <div class="address-box">
         <div class="names-phone">
@@ -51,7 +51,31 @@
 
     </div>
 </section>
-<footer><a href="javascript:;" class="new-address">新增收货地址</a></footer>
-
+<footer class="footer"><a href="javascript:;" class="new-address">新增收货地址</a></footer>
+<script>
+    var u = navigator.userAgent;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    //返回按钮
+    $('.back').click(function(){
+        if(isAndroid){
+            JSBridge.naviBack();
+        }else if(isiOS){
+            window.webkit.messageHandlers.naviBack.postMessage(null)
+        }else{
+//            window.location.href = "order-details.html";
+        }
+    })
+    //新增收货地址
+    $('.footer').click(function(){
+        if(isAndroid){
+            JSBridge.addAddress();
+        }else if(isiOS){
+            window.webkit.messageHandlers.addAddress.postMessage(null)
+        }else{
+//            window.location.href = "order-details.html";
+        }
+    })
+</script>
 </body>
 </html>

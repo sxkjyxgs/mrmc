@@ -12,7 +12,7 @@
 
 	<body>
 		<!--<div class="Bigbox">-->
-			<!--<header>
+			<header>
 				<div class="back">
 					<a href="###">
 						<img src="image/back.png" alt="">
@@ -20,7 +20,7 @@
 				</div>
 				<div class="titles">发票信息</div>
 				<div class="more"></div>
-			</header>-->
+			</header>
 			<section class="middle">
 				<div class="invoice-header">
 					<div class="invoice-headertip">
@@ -57,12 +57,15 @@
 					</div>
 				</div>
 			</section>
-			<footer>确认开具发票</footer>
+			<footer class="footer">确认开具发票</footer>
 		<!--</div>-->
 	</body>
 	<script src="js/zepto.js"></script>
 	<script>
 		$(function(){
+            var u = navigator.userAgent;
+            var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+            var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
 			$('.ipt1').focus(function(){
 				$(this).attr('placeholder',"");
 			});
@@ -79,6 +82,27 @@
 				$(this).children('.check-mark').toggle();
 				$(this).siblings().children('.check-mark').hide();
 			});
+            //返回按钮
+            $('.back').click(function(){
+                if(isAndroid){
+                    JSBridge.naviBack();
+                }else if(isiOS){
+                    window.webkit.messageHandlers.naviBack.postMessage(null)
+                }else{
+//            window.location.href = "order-details.html";
+                }
+            })
+			//确认开具发票
+			$('.footer').click(function(){
+                if(isAndroid){
+                    JSBridge.invoiceSure();
+                }else if(isiOS){
+                    window.webkit.messageHandlers.invoiceSure.postMessage(null)
+                }else{
+//                    window.location.href = "";
+                }
+			})
+
 		})
 	</script>
 </html>

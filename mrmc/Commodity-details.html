@@ -23,7 +23,7 @@
 </head>
 <body>
 <!--<div class="Bigbox">-->
-    <!--<header>
+    <header>
         <div class="back">
             <a href="###">
                 <img src="image/back.png" alt="">
@@ -35,7 +35,7 @@
 			  	<use xlink:href="#icon-fenxiang"></use>
 			</svg>
         </div>
-    </header>-->
+    </header>
     <section class="middle">
     	<a name="top"></a>
         <div class="swiper-container" id="swiper">
@@ -228,6 +228,9 @@
 <script src="js/zepto.js"></script>
 <script src="js/return_top.js"></script>
 <script>
+    var u = navigator.userAgent;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
     var swiper2Top=$("#swiper").scrollTop();
     var swiper = new Swiper('#swiper', {
         pagination: '.swiper-pagination',
@@ -291,6 +294,11 @@
     $(".save-money").click(function () {
         $(".share-box").show();
         $(".upgrade_owner").show();
+        if(isAndroid){
+            JSBridge.earnMoney();
+        }else if(isiOS){
+            window.webkit.messageHandlers.earnMoney.postMessage(null)
+        }
     })
     $('.upgrade_cancel').click(function(){
     	$('.share-box').hide();
@@ -303,6 +311,11 @@
     $(".buynow").click(function () {
         $(".share-box").show();
         $(".login").show();
+        if(isAndroid){
+            JSBridge.buyNow();
+        }else if(isiOS){
+            window.webkit.messageHandlers.buyNow.postMessage(null)
+        }
     })
     $(".cancel").click(function () {
         $(".share-box").hide();
@@ -331,6 +344,57 @@
         $('.mask').hide();
         $('.upgrade_owner').hide();
     })
+    //分享长图片 window.webkit.messageHandlers.shareLongPic.postMessage(null)
+    $('.fenxiang_btn1').click(function(){
+        if(isAndroid){
+            JSBridge.shareLongPic();
+
+        }else if(isiOS){
+            window.webkit.messageHandlers.shareLongPic.postMessage(null)
+        }
+    })
+    //分享图片   window.webkit.messageHandlers.sharePic.postMessage(null)
+    $('.fenxiang_btn2').click(function(){
+        if(isAndroid){
+            JSBridge.sharePic();
+        }else if(isiOS){
+            window.webkit.messageHandlers.sharePic.postMessage(null)
+        }
+    })
+    //视频       window.webkit.messageHandlers.shareVideo.postMessage(null)
+    $('.fenxiang_btn3').click(function(){
+        if(isAndroid){
+            JSBridge.shareVideo();
+        }else if(isiOS){
+            window.webkit.messageHandlers.shareVideo.postMessage(null)
+        }
+    })
+    //我要赚钱   window.webkit.messageHandlers.earnMoney.postMessage(null)
+    $('.fenxiang_btn3').click(function(){
+        if(isAndroid){
+            JSBridge.earnMoney();
+        }else if(isiOS){
+            window.webkit.messageHandlers.earnMoney.postMessage(null)
+        }
+    })
+    //购物车
+    $('.shopcar').click(function(){
+        if(isAndroid){
+            JSBridge.shopCart();
+        }else if(isiOS){
+            window.webkit.messageHandlers.shopCart.postMessage(null)
+        }
+    })
+    //加入购物袋 window.webkit.messageHandlers.addCart.postMessage(null)
+    $('.into-shopcar').click(function(){
+        if(isAndroid){
+            JSBridge.addCart();
+        }else if(isiOS){
+            window.webkit.messageHandlers.addCart.postMessage(null)
+        }
+    })
+    //立即购买   window.webkit.messageHandlers.buyNow.postMessage(null)
+
 </script>
 </body>
 </html>

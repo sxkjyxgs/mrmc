@@ -12,7 +12,7 @@
 </head>
 <body>
 <!--<div class="Bigbox">-->
-    <!--<header>
+    <header>
         <div class="back">
             <a href="###">
                 <img src="image/back.png" alt="">
@@ -20,12 +20,12 @@
         </div>
         <div class="titles">确认订单</div>
         <div class="more"></div>
-    </header>-->
+    </header>
     <section class="middle" style="padding-bottom:0.5rem;">
-        <div class="address-box">
+        <div class="address-box addAddress">
             <a href="###">请填写您的收货地址</a>
         </div>
-        <div class="address-box">
+        <div class="address-box selectAddress">
             <div class="names-phone">
                 <div class="left">蔡文姬</div>
                 <div class="right">17696018825</div>
@@ -114,18 +114,73 @@
         </div>
         <div class="message">
             <div class="left">发票信息</div>
-            <div class="right">
+            <div class="right invoiceMessage">
                不需要发票>
             </div>
         </div>
     </section>
     <footer>
-        <div class="right lefts"><a>提交订单</a></div>
+        <div class="right lefts commitOrder"><a>提交订单</a></div>
         <div class="right rights">
             合计：<b>￥</b><span>135.00</span><i>不含运费</i>
         </div>
 
     </footer>
 <!--</div>-->
+<script>
+    var u = navigator.userAgent;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+    //返回按钮
+    $('.back').click(function(){
+        if(isAndroid){
+            JSBridge.naviBack();
+        }else if(isiOS){
+            window.webkit.messageHandlers.naviBack.postMessage(null)
+        }else{
+//            window.location.href = "order-details.html";
+        }
+    })
+    //添加收货地址
+    $('.addAddress').click(function(){
+        if(isAndroid){
+            JSBridge.addAddress();
+        }else if(isiOS){
+            window.webkit.messageHandlers.addAddress.postMessage(null)
+        }else{
+//            window.location.href = "order-details.html";
+        }
+    })
+    //获取收货地址
+    $('.selectAddress').click(function(){
+        if(isAndroid){
+            JSBridge.selectAddress();
+        }else if(isiOS){
+            window.webkit.messageHandlers.selectAddress.postMessage(null)
+        }else{
+//            window.location.href = "order-details.html";
+        }
+    })
+    //提交订单
+    $('.commitOrder').click(function(){
+        if(isAndroid){
+            JSBridge.commitOrder();
+        }else if(isiOS){
+            window.webkit.messageHandlers.commitOrder.postMessage(null)
+        }else{
+//            window.location.href = "order-details.html";
+        }
+    })
+    //发票信息
+    $('.invoiceMessage').click(function(){
+        if(isAndroid){
+            JSBridge.invoiceMessage();
+        }else if(isiOS){
+            window.webkit.messageHandlers.invoiceMessage.postMessage(null)
+        }else{
+//            window.location.href = "order-details.html";
+        }
+    })
+</script>
 </body>
 </html>

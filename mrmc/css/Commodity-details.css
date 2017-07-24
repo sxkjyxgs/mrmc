@@ -19,11 +19,6 @@
     text-align: center;
     font-size: 18px;
     background: #fff;
-    /* Center slide text vertically */
-    /*display: -webkit-box;*/
-    /*display: -ms-flexbox;*/
-    /*display: -webkit-flex;*/
-    /*display: flex;*/
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     -webkit-justify-content: center;
@@ -401,7 +396,7 @@ footer{
 }
 
 .number{
-    width: 100%
+    width: 100%;
     height: 0.6rem;
     border: 1px solid #EFEFF4;
     overflow: hidden;
@@ -481,7 +476,6 @@ footer{
     height: 5.56rem;
     padding: 0 0.28rem;
     background: #FFFFFF;
-    border-radius: ;
     position: absolute;
     left: 1.05rem;
     top: 3.5rem;
@@ -500,7 +494,7 @@ footer{
 }
 
 .reg-number{
-    width: 100%
+    width: 100%;
     height: 0.6rem;
     border: 1px solid #EFEFF4;
     overflow: hidden;
@@ -517,7 +511,7 @@ footer{
 }
 
 .reg-yzm{
-    width: 100%
+    width: 100%;
     height: 0.6rem;
     overflow: hidden;
     margin-top: 0.3rem;
@@ -560,7 +554,7 @@ footer{
 }
 
 .reg-password{
-    width: 100%
+    width: 100%;
     height: 0.6rem;
     border: 1px solid #EFEFF4;
     overflow: hidden;

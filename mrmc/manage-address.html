@@ -12,7 +12,7 @@
 </head>
 <body>
 <!--<div class="Bigbox">-->
-    <!--<header>
+    <header>
         <div class="back">
             <a href="###">
                 <img src="image/back.png" alt="">
@@ -20,7 +20,7 @@
         </div>
         <div class="titles">管理收货地址</div>
         <div class="more"></div>
-    </header>-->
+    </header>
     <section class="middle">
         <div class="address-box">
             <div class="names-phone">
@@ -104,7 +104,7 @@
             </div>
         </div>
     </section>
-    <footer><a href="javascript:;">新增收货地址</a></footer>
+    <footer class="footer"><a href="javascript:;">新增收货地址</a></footer>
 <!--</div>-->
 <div class="mask">
    <div class="ntp">
@@ -117,6 +117,9 @@
 </div>
 <script src="js/zepto.js"></script>
 <script>
+    var u = navigator.userAgent;
+    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1; //android终端
+    var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
    $(".default-address").click(function(){
        $(".default-address").children("img").attr("src","image/circle.png");
        $(".default-address").children("span").removeClass("Default-address").html("设为默认");
@@ -129,6 +132,37 @@
    $(".cancel").click(function(){
        $(".mask").css({display:"none"})
    })
+    //编辑拦截
+    $('.edit').click(function(){
+        if(isAndroid){
+            JSBridge.editAdress();
+
+        }else if(isiOS){
+            window.webkit.messageHandlers.editAdress.postMessage(null)
+        }else{
+//                    window.location.href = "";
+        }
+    })
+    //返回按钮
+    $('.back').click(function(){
+        if(isAndroid){
+            JSBridge.naviBack();
+        }else if(isiOS){
+            window.webkit.messageHandlers.naviBack.postMessage(null)
+        }else{
+//            window.location.href = "order-details.html";
+        }
+    })
+    //新增收货
+    $('.footer').click(function () {
+        if(isAndroid){
+            JSBridge.addAdress();
+        }else if(isiOS){
+            window.webkit.messageHandlers.addAdress.postMessage(null)
+        }else{
+//                    window.location.href = "";
+        }
+    })
 </script>
 </body>
 </html>
