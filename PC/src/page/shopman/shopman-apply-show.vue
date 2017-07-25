@@ -59,11 +59,12 @@
 <style>
   .apply_show{
     width: 100%;
+    max-width:800px;
+    margin:0 auto;
     min-height: 500px;
     border: 1px solid #303030;
     margin-top: 30px;
     overflow: hidden;
-    position: relative;
   }
 
   .apply_show_title{
@@ -84,10 +85,9 @@
   .accumulated_sales,
   .subordinate_team,
   .apply_show_btn{
-    width: 100%;
-    padding: 0 35%;
+    width:400px;
+    margin:25px auto;
     box-sizing: border-box;
-    margin-top: 30px;
     font-size: 16px;
   }
 
@@ -146,6 +146,6 @@
   .id_opposite_img,.id_positive_img{
     width: 300px;
     height: 150px;
-    background: red;
+    background: #ccc;
   }
 </style>

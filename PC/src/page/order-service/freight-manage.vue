@@ -2,7 +2,7 @@
   <div id="box">
     <div class="box">
       <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">其他服务</el-breadcrumb-item>
+        <el-breadcrumb-item>其他服务</el-breadcrumb-item>
         <el-breadcrumb-item>发票管理</el-breadcrumb-item>
       </el-breadcrumb>
 
@@ -67,7 +67,7 @@
 
   .invoice_form{
     width: 80%;
-    margin-left: 10%;
+    margin:70px auto;
   }
 
   .invoice_form table tr td{

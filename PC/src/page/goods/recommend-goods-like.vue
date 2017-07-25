@@ -2,12 +2,13 @@
   <div id="box">
     <div class="box">
       <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">商品管理</el-breadcrumb-item>
+        <el-breadcrumb-item>商品管理</el-breadcrumb-item>
         <el-breadcrumb-item>系统推荐商品</el-breadcrumb-item>
       </el-breadcrumb>
       <div class="titlee" style="border:none;">系统推荐列表</div>
-      <div class="boxx" style="width:100%;">
+      <div class="boxx" style="max-width:800px;margin:0 auto;">
         <el-table
+          :data="tableData"
           border>
           <el-table-column
             label="排序"
@@ -22,20 +23,24 @@
             label="推荐模式">
           </el-table-column>
           <el-table-column
-            prop="city"
+            prop="addTime"
             label="添加时间">
           </el-table-column>
           <el-table-column
             fixed="right"
             label="操作">
             <template scope="scope">
-              <el-button  type="text" size="small">查看</el-button>
-              <el-button type="text" size="small">编辑</el-button>
+              <el-button type="text" size="small">上移</el-button>
+              <el-button type="text" size="small">下移</el-button>
+              <el-button type="text" size="small">置顶</el-button>
+              <el-button type="text" size="small">置底</el-button>
+              <el-button type="text" size="small">修改</el-button>
+              <el-button type="text" size="small">删除</el-button>
             </template>
           </el-table-column>
         </el-table>
       </div>
-      <div class="boxx">
+      <div class="boxx" style="max-width:800px;margin:0 auto;">
         <el-pagination
           layout="prev, pager, next"
           :total="50" class="right" style=" margin:0;">
@@ -121,16 +126,12 @@
     </div>
   </div>
 </template>
-<script>
-
-</script>
 <style>
   .show-img{
     border-top:1px solid #838383;
-    width:100%;
-    margin-top:50px;
+    max-width:800px;
+    margin:50px auto 0;
     display: flex;
-
   }
   .show-img li{
     width:50%;
@@ -151,6 +152,39 @@
 
 <script>
   export default {
+    data() {
+      return {
+        tableData: [
+          {
+            date:'1',
+            name: '品牌logo',
+            province: '品牌名称',
+            addTime: '品牌介绍',
+            operation: '操作'
+          },
+          {
+            date:'2',
+            name: '品牌logo',
+            province: '品牌名称',
+            addTime: '品牌介绍',
+            operation: '操作'
+          },
+          {
+            date:'3',
+            name: '品牌logo',
+            province: '品牌名称',
+            addTime: '品牌介绍',
+            operation: '操作'
+          },
+          {
+            date:'4',
+            name: '品牌logo',
+            province: '品牌名称',
+            addTime: '品牌介绍',
+            operation: '操作'
+          }]
+      }
+    },
     methods: {
       open2() {
         this.$confirm('此操作将添加此商品, 是否继续?', '提示', {

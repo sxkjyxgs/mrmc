@@ -2,7 +2,7 @@
   <div id="box">
     <div class="box">
       <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">客服电话</el-breadcrumb-item>
+        <el-breadcrumb-item>客服电话</el-breadcrumb-item>
         <el-breadcrumb-item>客服电话</el-breadcrumb-item>
       </el-breadcrumb>
       <div class="phone">

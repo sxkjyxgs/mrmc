@@ -2,7 +2,7 @@
   <div id="box">
     <div class="box">
       <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">店主管理</el-breadcrumb-item>
+        <el-breadcrumb-item>店主管理</el-breadcrumb-item>
         <el-breadcrumb-item>店主团队管理</el-breadcrumb-item>
       </el-breadcrumb>
       <div class="apply_">
@@ -42,7 +42,7 @@
             </el-table-column>
             <el-table-column
               label="操作" inline-template>
-              <el-button type="text" size="mini"  @click="shows()">222</el-button>
+              <el-button type="text" size="mini"  @click="shows()">查看团队信息</el-button>
             </el-table-column>
           </el-table>
         </div>
@@ -111,6 +111,8 @@
   .add_team,
   .add_team2{
     width: 600px;
+    height:400px;
+    overflow-y:auto;
     padding: 30px;
     background: #FFFFFF;
     position: fixed;
@@ -120,6 +122,7 @@
     z-index: 999;
     text-align: center;
     display: none;
+    border-radius:9px;
   }
   .add_team_title,
   .add_team2_title
@@ -152,14 +155,12 @@
     margin-left: 20%;
     position: relative;
     height: 28px;
+    display:flex;
   }
   .add_team_search_tip i{
     color: #ff3366;
     font-size: 14px;
     line-height: 28px;
-    position: absolute;
-    left: 0;
-    top: 0;
   }
   .teamer_information{
     margin-top: 20px;

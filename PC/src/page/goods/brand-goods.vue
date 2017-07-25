@@ -2,15 +2,15 @@
   <div id="box">
     <div class="box">
       <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">业务管理</el-breadcrumb-item>
+        <el-breadcrumb-item>业务管理</el-breadcrumb-item>
         <el-breadcrumb-item>商品品牌</el-breadcrumb-item>
       </el-breadcrumb>
 
       <div class="brand_">
-        <div class="brand_title mid">
+        <div class="titlee" style='border:0;'>
           商品品牌列表
         </div>
-        <el-button type="success" @click="DisplayBlock">添加商品品牌</el-button>
+        <el-button type="success" @click="DisplayBlock" class="right">添加商品品牌</el-button>
         <div class="brand_form">
           <el-table
             :data="tableData"
@@ -18,19 +18,30 @@
             style="width: 100%">
             <el-table-column
               prop="brand_logo"
+              :span='2'
               label="品牌logo">
             </el-table-column>
             <el-table-column
               prop="brand_name"
+              :span='2'
               label="品牌名称">
             </el-table-column>
             <el-table-column
               prop="brand_introduction"
+              :span='3'
               label="品牌介绍">
             </el-table-column>
             <el-table-column
-              prop="operation"
+              :span='5'
               label="操作">
+               <template scope="scope">
+                 <el-button type="text" size="small">上移</el-button>
+                 <el-button type="text" size="small">下移</el-button>
+                 <el-button type="text" size="small">置顶</el-button>
+                 <el-button type="text" size="small">置底</el-button>
+                 <el-button type="text" size="small">修改</el-button>
+                 <el-button type="text" size="small">删除</el-button>
+               </template>
             </el-table-column>
           </el-table>
         </div>
@@ -66,6 +77,12 @@
 </template>
 
 <style>
+  .el-button+.el-button{
+     margin:10px 10px 0px!important;
+  }
+  .el-button{
+    margin:10px 10px 0px!important;
+  }
   .brand_{
     width: 100%;
     min-height: 500px;
@@ -79,13 +96,9 @@
     font-size: 16px;
     margin-top: 20px;
   }
-  .brand_ button{
-    float: right;
-    margin: 50px 10% 20px 0;
-  }
   .brand_form{
     width: 80%;
-    margin-left: 10%;
+    margin:60px auto 0;
   }
   .brand_form table tr td{
     text-align: center;
@@ -115,6 +128,7 @@
     z-index: 999;
     text-align: center;
     display: none;
+    border-radius:9px;
   }
   .add_commodity_brands_title{
     font-size: 16px;

@@ -2,13 +2,13 @@
   <div id="box">
     <div class="box">
       <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">店主管理</el-breadcrumb-item>
+        <el-breadcrumb-item>店主管理</el-breadcrumb-item>
         <el-breadcrumb-item>店主申请管理</el-breadcrumb-item>
       </el-breadcrumb>
 
       <div class="apply_">
         <div class="titlee" style="border:0;">店主申请管理</div>
-        <div class="apply_condition">
+        <div class="apply_condition" style='width:100%;padding:0;padding-bottom:80px;'>
           <div class="apply_time">
             申请时间：
             <div class="block">
@@ -58,11 +58,16 @@
             </el-table-column>
             <el-table-column
               prop="inpofmation_detail"
-              label="申请信息详情" inline-template >
-              <el-button type="text" size="mini"  @click="shows()">222</el-button>
+              label="申请信息详情" >
+              <el-button type="text" size="mini"  @click="shows()">cc</el-button>
             </el-table-column>
             <el-table-column
+              fixed="right"
               label="操作">
+              <template scope="scope">
+                <el-button type="text" size="small">通过</el-button>
+                <el-button type="text" size="small">驳回</el-button>
+              </template>
             </el-table-column>
           </el-table>
 

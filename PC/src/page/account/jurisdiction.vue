@@ -33,8 +33,8 @@
               label="操作"
             >
               <template scope="scope">
-                <el-button type="text" size="small">查看</el-button>
-                <el-button type="text" size="small">编辑</el-button>
+                <el-button type="text" size="small">权限分配</el-button>
+                <el-button type="text" size="small">删除</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -179,6 +179,7 @@
     z-index: 9999;
     text-align: center;
     display: none;
+    border-radius:9px;
   }
   .assign_role_permissions_title{
     font-size: 16px;

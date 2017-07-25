@@ -2,10 +2,12 @@
   <div id="box">
     <div class="box">
       <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">后台账号管理</el-breadcrumb-item>
+        <el-breadcrumb-item>后台账号管理</el-breadcrumb-item>
         <el-breadcrumb-item>账号角色与权限管理</el-breadcrumb-item>
       </el-breadcrumb>
-
+      <div class="titlee" style='border:0;'>
+          商品标签
+      </div>
       <div class="good_tags">
         <div class="good_tag1">
           <div class="tag_name1">商品标签1：性别</div>
@@ -33,7 +35,7 @@
         <div class="good_tag3">
           <div class="tag_name3">
             <div class="tag_name3_title">商品标签3：兴趣</div>
-            <el-button type="success" @click="DisplayBlock">添加兴趣</el-button>
+            <el-button type="success right" @click="DisplayBlock">添加兴趣</el-button>
           </div>
           <div class="tag_list3">
             <div class="tag_list3_title">兴趣</div>
@@ -43,9 +45,6 @@
               <li class="bordertop">小吃甜点<a href="#">修改</a><span>删除</span></li>
               <li class="bordertop">小吃甜点<a href="#">修改</a><span>删除</span></li>
             </ul>
-          </div>
-          <div class="tag3_tip">
-            提示：兴趣列表中至少一个兴趣！
           </div>
         </div>
       </div>

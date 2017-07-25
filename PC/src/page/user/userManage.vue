@@ -2,7 +2,7 @@
   <div class="userManage">
     <div class="box">
       <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">用户信息处理</el-breadcrumb-item>
+        <el-breadcrumb-item>用户信息处理</el-breadcrumb-item>
         <el-breadcrumb-item>用户信息查看</el-breadcrumb-item>
       </el-breadcrumb>
 
@@ -12,14 +12,14 @@
           <div class="right"><el-button type="success" icon="icon-plus" @click="DisplayBlock">添加普通用户</el-button></div>
         </div>
         <div class="item2">
-          <el-table   border style="width: 100%">
-            <el-table-column prop="username" label="账号（手机号）"  width="180" align="center" header-align="center"></el-table-column>
-            <el-table-column prop="restime" label="注册时间" align="center" width="180" header-align="center"></el-table-column>
-            <el-table-column prop="logintime" label="上次登录时间"  align="center"  width="180" header-align="center"></el-table-column>
-            <el-table-column prop="UserType" label="用户层级"  align="center" width="180" header-align="center"></el-table-column>
-            <el-table-column prop="number" label="下单总数"  align="center" width="180"  header-align="center"></el-table-column>
-            <el-table-column prop="money" label="下单总额" align="center" width="180"  header-align="center"></el-table-column>
-            <el-table-column prop="moneys" label="用户当前奖励金"align="center" header-align="center"></el-table-column>
+          <el-table   border style="max-width:900px;margin:0 auto;">
+            <el-table-column prop="username" label="账号（手机号）"  :span='3' align="center" header-align="center"></el-table-column>
+            <el-table-column prop="restime" label="注册时间" align="center" :span='2' header-align="center"></el-table-column>
+            <el-table-column prop="logintime" label="上次登录时间"  align="center"  :span='3' header-align="center"></el-table-column>
+            <el-table-column prop="UserType" label="用户层级"  align="center":span='1' header-align="center"></el-table-column>
+            <el-table-column prop="number" label="下单总数"  align="center" :span='1' header-align="center"></el-table-column>
+            <el-table-column prop="money" label="下单总额" align="center" :span='1'  header-align="center"></el-table-column>
+            <el-table-column prop="moneys" label="用户当前奖励金"align="center" header-align="center" :span='3'></el-table-column>
           </el-table>
         </div>
       </div>

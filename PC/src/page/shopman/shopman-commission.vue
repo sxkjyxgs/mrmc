@@ -2,7 +2,7 @@
   <div id="box">
     <div class="box">
       <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">店主管理</el-breadcrumb-item>
+        <el-breadcrumb-item>店主管理</el-breadcrumb-item>
         <el-breadcrumb-item>提成管理</el-breadcrumb-item>
       </el-breadcrumb>
 
@@ -11,15 +11,25 @@
         <div class="commission_form">
           <el-table
             border
+            :data="tableData"
             style="width: 100%">
             <el-table-column
+              :span='4'
+              prop="brand_logo"
               label="店主级别">
             </el-table-column>
             <el-table-column
+              :span='4'
+              prop="brand_name"
               label="级别提成">
             </el-table-column>
             <el-table-column
+              fixed="right"
+              :span='4'
               label="操作">
+              <template scope="scope">
+                <el-button type="text" size="small">修改</el-button>
+              </template>
             </el-table-column>
           </el-table>
         </div>
@@ -27,6 +37,35 @@
     </div>
   </div>
 </template>
+<script>
+  export default {
+    data() {
+      return {
+        tableData: [{
+          brand_logo: '品牌logo',
+          brand_name: '品牌名称',
+          brand_introduction: '品牌介绍',
+          operation: '操作'
+        }, {
+          brand_logo: '品牌logo',
+          brand_name: '品牌名称',
+          brand_introduction: '品牌介绍',
+          operation: '操作'
+        }, {
+          brand_logo: '品牌logo',
+          brand_name: '品牌名称',
+          brand_introduction: '品牌介绍',
+          operation: '操作'
+        }, {
+          brand_logo: '品牌logo',
+          brand_name: '品牌名称',
+          brand_introduction: '品牌介绍',
+          operation: '操作'
+        }]
+      }
+    }
+  }
+</script>
 <style>
   .commission_{
     width: 100%;

@@ -3,7 +3,7 @@
     <div class="box">
       <el-breadcrumb separator="/">
         <el-breadcrumb-item>店主管理</el-breadcrumb-item>
-        <el-breadcrumb-item :to="{ path: '/' }">店主管理</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{ path: '/ShopmanManage'}">店主管理</el-breadcrumb-item>
         <el-breadcrumb-item>店主资料</el-breadcrumb-item>
       </el-breadcrumb>
 

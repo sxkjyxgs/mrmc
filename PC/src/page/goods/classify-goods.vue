@@ -3,9 +3,12 @@
     <div class="box">
       <div style="width:100%;float:left;">
         <el-breadcrumb separator="/" class="left">
-          <el-breadcrumb-item :to="{ path: '/' }">业务管理</el-breadcrumb-item>
+          <el-breadcrumb-item>业务管理</el-breadcrumb-item>
           <el-breadcrumb-item>商品分类</el-breadcrumb-item>
         </el-breadcrumb>
+        <div class="titlee" style='border:0;'>
+                  商品分类
+        </div>
         <el-button type="success" class="right" @click="DisplayBlock">添加一级商品分类</el-button>
       </div>
       <ul class="boxx">
@@ -255,6 +258,7 @@
   .boxx{
     width:100%;
     padding:20px 0;
+    margin-top: 40px;
   }
   .shows{
     width:80%;
@@ -327,6 +331,7 @@
     z-index: 999;
     margin-left: -280px;
     display: none;
+    border-radius:9px;
   }
   .add_class_a_title,
   .add_class_b_title{

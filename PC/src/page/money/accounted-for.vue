@@ -2,7 +2,7 @@
   <div id="box">
     <div class="box">
       <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">支付系统</el-breadcrumb-item>
+        <el-breadcrumb-item>支付系统</el-breadcrumb-item>
         <el-breadcrumb-item>入账</el-breadcrumb-item>
       </el-breadcrumb>
       <div class="titlee" style="border:0;">入账</div>

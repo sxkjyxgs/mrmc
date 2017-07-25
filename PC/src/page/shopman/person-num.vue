@@ -28,7 +28,7 @@
 
 <style>
   .population_restriction{
-    width: 40%;
+    min-width:600px;
     margin: 0 auto;
   }
   .population_restriction_titles{

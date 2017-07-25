@@ -1,7 +1,10 @@
 <template>
   <div class="userManage">
     <div class="box">
-      <div class="broad">其他服务>>运费模板</div>
+       <el-breadcrumb separator="/">
+        <el-breadcrumb-item>其他服务</el-breadcrumb-item>
+        <el-breadcrumb-item>运费模板</el-breadcrumb-item>
+      </el-breadcrumb>
       <div class="contents">
         <div class="titlee" style="border:0;">
           运费模板
@@ -164,6 +167,7 @@
   .item2{
     padding:20px;
     box-sizing: border-box;
+    margin-top: 30px;
   }
   .broad{
     margin-bottom:30px;
@@ -182,6 +186,8 @@
   }
   .add_template{
     width: 800px;
+    height:400px;
+    overflow-y:auto;
     padding: 30px;
     background: #FFFFFF;
     position: fixed;
@@ -191,6 +197,7 @@
     z-index: 999;
     text-align: center;
     display: none;
+    border-radius:9px;
   }
   .add_template_title,.add_noDefaultarea_title{
     font-size: 16px;

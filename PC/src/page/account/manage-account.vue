@@ -2,7 +2,7 @@
   <div id="box">
     <div class="box">
       <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">后台账号管理</el-breadcrumb-item>
+        <el-breadcrumb-item>后台账号管理</el-breadcrumb-item>
         <el-breadcrumb-item>管理后台账号</el-breadcrumb-item>
       </el-breadcrumb>
 
@@ -16,23 +16,26 @@
             <el-table-column
               prop="account"
               label="账号"
-              width="180">
+              :span='3'>
             </el-table-column>
             <el-table-column
               prop="add_time"
               label="添加时间"
-              width="180">
+              :span='3'>
             </el-table-column>
             <el-table-column
               prop="add_person"
-              label="添加人">
+              label="添加人"
+              :span='3'
+              >
             </el-table-column>
             <el-table-column
               prop="role"
+              :span='3'
               label="角色">
             </el-table-column>
-            <el-table-column label="操作" fixed="right">
-              <template>
+            <el-table-column label="操作" fixed="right" :span='3'>
+              <template scope="scope">
                 <el-button type="text" size="small">修改密码</el-button>
                 <el-button type="text" size="small">分配角色</el-button>
                 <el-button type="text" size="small">注销账号</el-button>
@@ -195,6 +198,7 @@
     top: 100px;
     z-index: 999;
     display: none;
+    border-radius:9px;
   }
   .assign_roles_title{
     font-size: 16px;

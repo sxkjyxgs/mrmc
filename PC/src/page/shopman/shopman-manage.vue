@@ -55,7 +55,11 @@
               label="累计销售金额">
             </el-table-column>
             <el-table-column
+              fixed="right"
               label="操作">
+              <template scope="scope">
+                <el-button type="text" size="small">升级</el-button>
+              </template>
             </el-table-column>
           </el-table>
 
@@ -113,17 +117,23 @@
 </template>
 
 <style>
+  .apply_form{
+    margin-top: 20px;
+  }
   .add_shopman{
     width: 600px;
+    height:400px;
+    overflow-y:auto;
     padding: 30px;
     background: #FFFFFF;
     position: fixed;
     left: 50%;
     margin-left: -330px;
-    top: 40px;
+    top: 80px;
     text-align: center;
     z-index: 999;
     display: none;
+    border-radius:9px;
   }
   .add_shopman_title{
     font-size: 16px;

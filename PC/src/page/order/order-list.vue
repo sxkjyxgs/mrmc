@@ -8,7 +8,7 @@
 
       <div class="apply_">
         <div class="titlee" style="border:0;">列表订单</div>
-        <div class="apply_condition">
+        <div class="apply_condition" style="width:100%;padding:0;overflow:hidden;margin-bottom:40px;">
           <div class="apply_time">
             下单时间：
             <div class="block">
