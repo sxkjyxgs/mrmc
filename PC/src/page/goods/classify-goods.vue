@@ -226,8 +226,8 @@
       </ul>
     </div>
     <div class="mask"></div>
-    <div class="add_Class_a">
-      <div class="add_class_a_title">添加一级分类</div>
+    <div class="add_Class_a popup">
+      <div class="add_class_a_title popup_title">添加一级分类</div>
       <div class="class_a_name">
         <div class="class_a_name_title">一级分类名称：</div>
         <el-input placeholder=""></el-input>
@@ -241,8 +241,8 @@
         <el-button type="primary">确定</el-button>
       </div>
     </div>
-    <div class="add_Class_b">
-      <div class="add_class_b_title">添加二级分类</div>
+    <div class="add_Class_b popup">
+      <div class="add_class_b_title popup_title">添加二级分类</div>
       <div class="class_b_name">
         <div class="class_b_name_title">二级分类名称：</div>
         <el-input placeholder=""></el-input>
@@ -318,26 +318,6 @@
   }
   .margin30{
     margin-right:30px;
-  }
-  .add_Class_a,
-  .add_Class_b{
-    width: 500px;
-    padding: 30px;
-    background: #FFFFFF;
-    position: fixed;
-    top: 200px;
-    left: 50%;
-    text-align: center;
-    z-index: 999;
-    margin-left: -280px;
-    display: none;
-    border-radius:9px;
-  }
-  .add_class_a_title,
-  .add_class_b_title{
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 32px;
   }
   .class_a_name,
   .class_b_name{

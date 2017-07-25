@@ -39,8 +39,8 @@
                  <el-button type="text" size="small">下移</el-button>
                  <el-button type="text" size="small">置顶</el-button>
                  <el-button type="text" size="small">置底</el-button>
-                 <el-button type="text" size="small">修改</el-button>
-                 <el-button type="text" size="small">删除</el-button>
+                 <el-button type="text" size="small" @click="DisplayBlock2">修改</el-button>
+                 <el-button type="text" size="small" @click="open2()">删除</el-button>
                </template>
             </el-table-column>
           </el-table>
@@ -48,13 +48,12 @@
       </div>
     </div>
     <div class="mask"></div>
-    <div class="add_commodity_brand">
-      <div class="add_commodity_brands_title">添加商品品牌</div>
+
+    <div class="add_commodity_brand popup">
+      <div class="add_commodity_brands_title popup_title">添加商品品牌</div>
       <div class="brand_logo">
         <div class="brand_logo_title">品牌logo</div>
-        <div class="brand_logo_img">
-
-        </div>
+        <div class="brand_logo_img"></div>
       </div>
       <div class="brand_name">
         <div class="brand_name_title">品牌名称</div>
@@ -70,6 +69,30 @@
       </div>
       <div class="add_commodity_brand_btn">
         <el-button @click="DisplayNone">取消</el-button>
+        <el-button type="primary">确认</el-button>
+      </div>
+    </div>
+
+    <div class="change_brand popup">
+      <div class="popup_title">修改商品信息</div>
+      <div class="popup_form">
+        <div class="popup_form_title">品牌logo</div>
+        <div class="brand_logo_img"></div>
+      </div>
+      <div class="popup_form">
+        <div class="popup_form_title">品牌名称</div>
+        <el-input></el-input>
+      </div>
+      <div class="popup_form">
+        <div class="popup_form_title">品牌介绍</div>
+        <el-input
+          type="textarea"
+          :rows="2"
+          v-model="textarea">
+        </el-input>
+      </div>
+      <div class="add_commodity_brand_btn">
+        <el-button @click="DisplayNone2">取消</el-button>
         <el-button type="primary">确认</el-button>
       </div>
     </div>
@@ -117,26 +140,6 @@
     margin: 0 5px;
     color: #303030;
   }
-  .add_commodity_brand{
-    width: 500px;
-    padding: 30px;
-    background: #FFFFFF;
-    position: fixed;
-    top: 100px;
-    left: 50%;
-    margin-left: -280px;
-    z-index: 999;
-    text-align: center;
-    display: none;
-    border-radius:9px;
-  }
-  .add_commodity_brands_title{
-    font-size: 16px;
-    line-height: 32px;
-    color: #303030;
-    text-align: center;
-    font-weight: bold;
-  }
   .brand_logo,.brand_name,.brand_introduce{
     width: 70%;
     margin: 0 auto;
@@ -182,6 +185,23 @@
 <script>
   export default {
     methods: {
+      open2() {
+        this.$confirm('此操作将删除该商品, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '删除成功!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });
+        });
+      },
       DisplayBlock:function(){
         $('.mask').css('display','block');
         $('.add_commodity_brand').css('display','block');
@@ -190,6 +210,15 @@
       DisplayNone:function(){
         $('.mask').css('display','none');
         $('.add_commodity_brand').css('display','none');
+      },
+      DisplayBlock2:function(){
+        $('.mask').css('display','block');
+        $('.change_brand').css('display','block');
+      },
+
+      DisplayNone2:function(){
+        $('.mask').css('display','none');
+        $('.change_brand').css('display','none');
       }
     },
     data() {

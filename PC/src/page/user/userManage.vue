@@ -24,8 +24,8 @@
         </div>
       </div>
       <div class="mask"></div>
-      <div class="add_regular_users">
-        <div class="add_regular_users_title">添加普通用户</div>
+      <div class="add_regular_users popup">
+        <div class="add_regular_users_title popup_title">添加普通用户</div>
         <div class="add_regular_users_tip">谨慎操作，如此添加用户，用户不需注册即可直接用账号密码登录app。</div>
         <div class="add_regular_users_account">
           <div class="add_regular_users_account_title">账号</div>
@@ -107,23 +107,6 @@
 
 </script>
 <style>
-  .add_regular_users{
-    width: 500px;
-    padding: 30px;
-    background: #FFFFFF;
-    position: fixed;
-    left: 50%;
-    margin-left: -280px;
-    top: 200px;
-    text-align: center;
-    z-index: 999;
-    display: none;
-  }
-  .add_regular_users_title{
-    font-size: 16px;
-    font-weight: bold;
-    line-height: 32px;
-  }
   .add_regular_users_tip{
     color: #ff3366;
     font-size: 12px;

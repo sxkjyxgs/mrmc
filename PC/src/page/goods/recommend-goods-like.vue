@@ -34,8 +34,8 @@
               <el-button type="text" size="small">下移</el-button>
               <el-button type="text" size="small">置顶</el-button>
               <el-button type="text" size="small">置底</el-button>
-              <el-button type="text" size="small">修改</el-button>
-              <el-button type="text" size="small">删除</el-button>
+              <el-button type="text" size="small" @click="DisplayBlock">修改</el-button>
+              <el-button type="text" size="small" @click="open3()">删除</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -124,6 +124,18 @@
         </li>
       </ul>
     </div>
+
+    <div class="mask"></div>
+    <div class="popup change_recommendlike">
+      <div class="popup_title">修改系统推荐商品</div>
+      <div class="popup_form">
+
+      </div>
+      <div class="popup_btn">
+        <el-button @click="DisplayNone">取消</el-button>
+        <el-button type="primary">确定</el-button>
+      </div>
+    </div>
   </div>
 </template>
 <style>
@@ -202,6 +214,32 @@
             message: '已取消删除'
           });
         });
+      },
+      open3() {
+        this.$confirm('此操作将删除该推荐商品, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '删除成功!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });
+        });
+      },
+      DisplayBlock:function(){
+        $('.mask').css('display','block');
+        $('.change_recommendlike').css('display','block');
+      },
+
+      DisplayNone:function(){
+        $('.mask').css('display','none');
+        $('.change_recommendlike').css('display','none');
       }
     }
   }

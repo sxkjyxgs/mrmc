@@ -140,10 +140,12 @@
         <el-button type="primary" @click="open2">确定</el-button>
       </div>
     </div>
+
     <div class="mask"></div>
-    <div class="add_specifications">
-      <div class="add_specifications_ipt">
-        <div class="add_specifications_ipt_title">规格名称</div>
+
+    <div class="add_specifications popup">
+      <div class="popup_form">
+        <div class="popup_form_title">规格名称</div>
         <el-input v-model="input" placeholder="请输入内容"></el-input>
       </div>
 
@@ -158,9 +160,9 @@
       </div>
     </div>
 
-    <div class="modify_specifications">
-      <div class="add_specifications_ipt">
-        <div class="add_specifications_ipt_title">规格名称</div>
+    <div class="modify_specifications popup">
+      <div class="popup_form">
+        <div class="popup_form_title">规格名称</div>
         <el-input v-model="input" placeholder="请输入内容"></el-input>
       </div>
 
@@ -169,11 +171,13 @@
         <el-checkbox v-model="checked">黄色</el-checkbox>
       </div>
 
-      <div class="add_specifications_btn">
+      <div class="popup_btn">
         <el-button @click="open3">删除此规格</el-button>
         <el-button type="primary" @click="DisplayNone2">修改</el-button>
       </div>
     </div>
+
+
   </div>
 </template>
 
@@ -233,20 +237,37 @@
   .add_goods_commission .add_goods_commission_ipt,
   .add_goods_hierarchycommission .add_goods_hierarchycommission_table,
   .add_goods_freight .el-select{
-    float: right;
+    float: left;
     width: 70%;
+  }
+
+  .add_goods_img .upload-demo{
+    width: 70%;
+    float: left;
   }
 
   .add_goods_words .el-textarea{
     margin-top: 15px;
   }
 
+  .add_goods_words .el-textarea:nth-child(2){
+    margin-top: 0;
+  }
+
+  .add_goods_words .el-textarea:nth-child(3){
+    margin-left: 25%;
+  }
+
+  .add_goods_words .el-textarea:nth-child(4){
+    margin-left: 25%;
+  }
+
   .add_goods_classify .el-select{
     width: 33%;
-    float: right;
+    float: left;
   }
   .add_goods_classify .el-select:nth-child(2){
-    margin-left: 4%;
+    margin-right: 4%;
   }
 
   .add_goods_commission_ipt .el-input{
@@ -290,19 +311,6 @@
   .add_goods_btn .el-button:nth-child(2){
     float: right;
     margin-right: 20%;
-  }
-
-  .add_specifications,
-  .modify_specifications{
-    width: 600px;
-    padding: 30px;
-    background: #FFFFFF;
-    position: fixed;
-    top: 200px;
-    left: 50%;
-    margin-left: -330px;
-    z-index: 999;
-    display: none;
   }
 
   .add_specifications_ipt{

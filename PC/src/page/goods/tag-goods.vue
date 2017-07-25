@@ -50,8 +50,8 @@
       </div>
     </div>
     <div class="mask"></div>
-    <div class="add_interests">
-      <div class="add_interests_title">添加兴趣</div>
+    <div class="add_interests popup">
+      <div class="add_interests_title popup_title">添加兴趣</div>
       <div class="add_interests_ipt">
         <div class="add_interests_name">兴趣名称</div>
         <el-input v-model="input" placeholder="请输入内容"></el-input>
@@ -192,29 +192,11 @@
     float: left;
     margin-left: 30px;
   }
-  .add_interests{
-    width: 600px;
-    padding: 30px;
-    background: #FFFFFF;
-    position: fixed;
-    top: 100px;
-    left: 50%;
-    margin-left: -330px;
-    z-index: 9999;
-    text-align: center;
-    display: none;
-  }
   .add_interests_ipt{
     width: 80%;
     overflow: hidden;
     margin: 0 auto;
     margin-top: 30px;
-  }
-  .add_interests_title{
-    font-size: 16px;
-    color: #303030;
-    text-align: center;
-    line-height: 32px;
   }
   .add_interests_name{
     width: 20%;

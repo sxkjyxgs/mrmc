@@ -39,8 +39,8 @@
       </div>
     </div>
     <div class="mask"></div>
-    <div class="add_template">
-      <div class="add_template_title">添加运费模板</div>
+    <div class="add_template popup">
+      <div class="add_template_title popup_title">添加运费模板</div>
       <div class="template_name">
         <div class="template_name_title">模板名称</div>
         <el-input placeholder=""></el-input>
@@ -80,8 +80,8 @@
         <el-button type="primary">添加</el-button>
       </div>
     </div>
-    <div class="add_noDefaultarea">
-      <div class="add_noDefaultarea_title">添加非默认运费地区</div>
+    <div class="add_noDefaultarea popup">
+      <div class="add_noDefaultarea_title popup_title">添加非默认运费地区</div>
       <div class="add_noDefaultarea_list_title">非默认运费地区选择</div>
       <div class="add_noDefaultarea_list">
         <dl>
@@ -183,25 +183,6 @@
   }
   table tr th{
     text-align: center !important;
-  }
-  .add_template{
-    width: 800px;
-    height:400px;
-    overflow-y:auto;
-    padding: 30px;
-    background: #FFFFFF;
-    position: fixed;
-    top: 100px;
-    left: 50%;
-    margin-left: -430px;
-    z-index: 999;
-    text-align: center;
-    display: none;
-    border-radius:9px;
-  }
-  .add_template_title,.add_noDefaultarea_title{
-    font-size: 16px;
-    line-height: 32px;
   }
   .template_name,
   .template_freight

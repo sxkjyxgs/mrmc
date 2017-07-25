@@ -65,8 +65,8 @@
               fixed="right"
               label="操作">
               <template scope="scope">
-                <el-button type="text" size="small">通过</el-button>
-                <el-button type="text" size="small">驳回</el-button>
+                <el-button type="text" size="small" @click="open2()">通过</el-button>
+                <el-button type="text" size="small" @click="open3()">驳回</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -83,6 +83,40 @@
   Vue.use(Element)
   export default {
       methods:{
+        open2() {
+          this.$confirm('此操作将通过改申请, 是否继续?', '提示', {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            type: 'warning'
+          }).then(() => {
+            this.$message({
+              type: 'success',
+              message: '成功通过审核!'
+            });
+          }).catch(() => {
+            this.$message({
+              type: 'info',
+              message: '已取消通过'
+            });
+          });
+        },
+        open3() {
+          this.$confirm('此操作将驳回该申请, 是否继续?', '提示', {
+            confirmButtonText: '确定',
+            cancelButtonText: '取消',
+            type: 'warning'
+          }).then(() => {
+            this.$message({
+              type: 'success',
+              message: '驳回成功!'
+            });
+          }).catch(() => {
+            this.$message({
+              type: 'info',
+              message: '已取消驳回'
+            });
+          });
+        },
         shows:function(){
           this.$router.push('/ShopmanApplyShow');
         }

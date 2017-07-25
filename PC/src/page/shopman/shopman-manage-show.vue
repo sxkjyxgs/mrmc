@@ -52,8 +52,8 @@
       </div>
     </div>
     <div class="mask"></div>
-    <div class="supplement_information">
-      <div class="supplement_information_title">请补充下面的店主资料，将此人升级到公司店主</div>
+    <div class="supplement_information popup">
+      <div class="supplement_information_title popup_title">请补充下面的店主资料，将此人升级到公司店主</div>
       <div class="corporate_name">
         <div class="corporate_name_title">公司名称</div>
         <el-input placeholder="请填写公司名称"></el-input>
@@ -278,18 +278,6 @@
   }
   .operation_btn{
     margin-top: 30px;
-  }
-  .supplement_information{
-    width: 500px;
-    padding: 30px;
-    background: #FFFFFF;
-    position: fixed;
-    left: 50%;
-    margin-left: -280px;
-    top: 100px;
-    text-align: center;
-    z-index: 999;
-    display: none;
   }
   .supplement_information_title{
     font-size: 16px;

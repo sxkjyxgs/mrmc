@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="mask"></div>
-    <div class="modify_phone">
+    <div class="modify_phone popup">
       <div class="modify_ipt">
         <div class="modify_ipt_title">当前电话修改：</div>
         <el-input placeholder="手机号或座机号"></el-input>
@@ -41,18 +41,6 @@
   }
   .current_phone button{
     margin-left: 30px;
-  }
-  .modify_phone{
-    width: 500px;
-    padding: 30px;
-    background: #FFFFFF;
-    position: fixed;
-    left: 50%;
-    top: 200px;
-    margin-left: -280px;
-    z-index: 999;
-    text-align: center;
-    display: none;
   }
   .modify_ipt{
     height: 36px;

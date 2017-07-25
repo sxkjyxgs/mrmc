@@ -33,8 +33,8 @@
               label="操作"
             >
               <template scope="scope">
-                <el-button type="text" size="small">权限分配</el-button>
-                <el-button type="text" size="small">删除</el-button>
+                <el-button type="text" size="small" @click="DisplayBlock">权限分配</el-button>
+                <el-button type="text" size="small" @click="open3">删除</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -63,8 +63,8 @@
       </div>
     </div>
     <div class="mask"></div>
-    <div class="assign_role_permissions">
-      <div class="assign_role_permissions_title">分配角色权限</div>
+    <div class="assign_role_permissions popup">
+      <div class="assign_role_permissions_title popup_title">分配角色权限</div>
       <div class="checkbox_box">
         <div class="assign_checkbox">
           <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">后台账号管理</el-checkbox>
@@ -75,7 +75,7 @@
         </div>
       </div>
 
-      <div class="assign_role_permissions_btn">
+      <div class="popup_btn">
         <el-button @click="DisplayNone">取消</el-button>
         <el-button type="primary">确定</el-button>
       </div>
@@ -122,7 +122,7 @@
   .add_distribution i{
     text-decoration: none;
     cursor: pointer;
-    color: #ff3366;
+    color: #20a0ff;
   }
   .el-button{
     margin: auto;
@@ -168,7 +168,17 @@
     float: right;
     margin: 50px 10% 0 0;
   }
-  .assign_role_permissions{
+  .mask{
+    width:100%;
+    height:100%;
+    position: fixed;
+    top:0;
+    left:0;
+    background: rgba(0,0,0,0.5);
+    z-index: 9;
+    display: none;
+  }
+  .popup{
     width: 600px;
     padding: 30px;
     background: #FFFFFF;
@@ -176,20 +186,18 @@
     top: 100px;
     left: 50%;
     margin-left: -330px;
-    z-index: 9999;
+    z-index: 999;
     text-align: center;
     display: none;
     border-radius:9px;
   }
-  .assign_role_permissions_title{
+  .popup_title{
     font-size: 16px;
-    font-weight: bold;
     color: #303030;
     text-align: center;
     line-height: 32px;
-    border-bottom: 1px solid #303030;
   }
-  .assign_role_permissions_btn{
+  .popup_btn{
     margin: 0 auto;
     margin-top: 20px;
   }
@@ -237,6 +245,23 @@
           this.$message({
             type: 'info',
             message: '已取消添加'
+          });
+        });
+      },
+      open3() {
+        this.$confirm('此操作将永久删除该数据, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '删除成功!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
           });
         });
       },

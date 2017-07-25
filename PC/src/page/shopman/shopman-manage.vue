@@ -67,8 +67,8 @@
       </div>
     </div>
     <div class="mask"></div>
-    <div class="add_shopman">
-      <div class="add_shopman_title">添加店主</div>
+    <div class="add_shopman popup">
+      <div class="add_shopman_title popup_title">添加店主</div>
       <div class="add_shopman_account">
         <div class="add_shopman_account_title">账号</div>
         <el-input placeholder=""></el-input>
@@ -119,27 +119,6 @@
 <style>
   .apply_form{
     margin-top: 20px;
-  }
-  .add_shopman{
-    width: 600px;
-    height:400px;
-    overflow-y:auto;
-    padding: 30px;
-    background: #FFFFFF;
-    position: fixed;
-    left: 50%;
-    margin-left: -330px;
-    top: 80px;
-    text-align: center;
-    z-index: 999;
-    display: none;
-    border-radius:9px;
-  }
-  .add_shopman_title{
-    font-size: 16px;
-    color: #303030;
-    font-weight: bold;
-    line-height: 32px;
   }
   .add_shopman_account,
   .true_name,

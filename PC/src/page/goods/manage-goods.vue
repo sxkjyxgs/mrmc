@@ -59,11 +59,21 @@
               <el-button type="text" size="small">下移</el-button>
               <el-button type="text" size="small">置顶</el-button>
               <el-button type="text" size="small">置底</el-button>
-              <el-button type="text" size="small">修改</el-button>
-              <el-button type="text" size="small">删除</el-button>
+              <el-button type="text" size="small" @click="DisplayBlock">修改</el-button>
+              <el-button type="text" size="small" @click="open2()">删除</el-button>
             </template>
           </el-table-column>
         </el-table>
+      </div>
+    </div>
+
+    <div class="mask"></div>
+
+    <div class="change_brand_information popup">
+      <div class="popup_title">修改商品信息</div>
+      <div class="popup_btn">
+        <el-button @click="DisplayNone">取消</el-button>
+        <el-button type="primary">确定</el-button>
       </div>
     </div>
   </div>
@@ -125,9 +135,35 @@
 <script>
   export default {
     methods:{
+      open2() {
+        this.$confirm('此操作将删除该商品信息, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '删除成功!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });
+        });
+      },
       shows:function(){
         this.$router.push('/AddGoods');
-      }
+      },
+      DisplayBlock:function(){
+        $('.mask').css('display','block');
+        $('.change_brand_information').css('display','block');
+      },
+
+      DisplayNone:function(){
+        $('.mask').css('display','none');
+        $('.change_brand_information').css('display','none');
+      },
     },
     data() {
       return {

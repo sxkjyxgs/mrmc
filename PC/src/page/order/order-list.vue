@@ -376,7 +376,7 @@
       </div>
     </div>
     <div class="mask"></div>
-    <div class="change_price">
+    <div class="change_price popup">
       <div class="change_nowprice">
         <div class="change_nowprice_title">修改当前订单价格</div>
         <el-input placeholder=""></el-input>
@@ -386,14 +386,7 @@
         <el-button type="primary">订单改价</el-button>
       </div>
     </div>
-    <!--<div class="cancel_order">-->
-      <!--<div class="deliver_remind">取消订单？</div>-->
-      <!--<div class="deliver_goods_btns">-->
-        <!--<el-button @click="DisplayNone2">保留订单</el-button>-->
-        <!--<el-button type="primary">取消订单</el-button>-->
-      <!--</div>-->
-    <!--</div>-->
-    <div class="deliver_goods">
+    <div class="deliver_goods popup">
       <div class="order_number">
         <div class="order_number_title">订单编号：</div>
         <el-input placeholder=""></el-input>
@@ -483,20 +476,6 @@
   }
   .order-list li{
     margin-bottom:20px;
-  }
-  .change_price,
-  .cancel_order,
-  .deliver_goods{
-    width: 500px;
-    padding: 30px;
-    background: #FFFFFF;
-    position: fixed;
-    top: 200px;
-    left: 50%;
-    margin-left: -280px;
-    z-index: 999;
-    text-align: center;
-    display: none;
   }
   .deliver_remind{
     width: 100%;

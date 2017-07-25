@@ -76,8 +76,37 @@
       </div>
     </div>
     <div class="mask"></div>
-    <div class="upgrade">
-
+    <div class="upgrade popup">
+      <div class="popup_title">全团升级</div>
+      <div class="popup_form">
+        <div class="popup_form_title">账号：</div>
+        <div class="account_left">18858594797</div>
+      </div>
+      <div style="margin: 30px 0;color:#ff3366;">必填公司店主资料</div>
+      <div class="popup_form">
+        <div class="popup_form_title">公司名称</div>
+        <el-input v-model="input" placeholder="请输入内容"></el-input>
+      </div>
+      <div class="popup_form">
+        <div class="popup_form_title">公司注册号</div>
+        <el-input v-model="input" placeholder="请输入内容"></el-input>
+      </div>
+      <div class="popup_form">
+        <div class="popup_form_title">公司营业执照</div>
+        <el-upload
+          class="upload-demo"
+          action="https://jsonplaceholder.typicode.com/posts/"
+          :on-preview="handlePreview"
+          :on-remove="handleRemove"
+          :file-list="fileList">
+          <el-button size="small" type="primary">点击上传</el-button>
+          <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+        </el-upload>
+      </div>
+      <div class="popup_btn">
+        <el-button @click="DisplayNone">取消</el-button>
+        <el-button type="primary">确定</el-button>
+      </div>
     </div>
   </div>
 </template>
@@ -86,36 +115,29 @@
   .junior_league_menber .el-button{
     margin-top: 30px;
   }
-  .mask{
-    width:100%;
-    height:100%;
-    position: fixed;
-    top:0;
-    left:0;
-    background: rgba(0,0,0,0.5);
-    z-index: 333;
-    display: none;
-  }
-  .upgrade{
-    width:600px;
-    padding:30px;
-    box-sizing: border-box;
-    position: fixed;
-    left: 50%;
-    margin-left: -300px;
-    top: 100px;
-    background: #fff;
-    z-index: 999;
-    display: none;
+  .account_left{
+    width: 70%;
+    float: left;
+    line-height: 36px;
+    text-align: left;
   }
 </style>
 
 <script>
   export default{
+    data() {
+      return {
+        fileList: [{name: 'food.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}, {name: 'food2.jpeg', url: 'https://fuss10.elemecdn.com/3/63/4e7f3a15429bfda99bce42a18cdd1jpeg.jpeg?imageMogr2/thumbnail/360x360/format/webp/quality/100'}]
+      };
+    },
     methods: {
       DisplayBlock:function(){
         $('.mask').css('display','block');
         $('.upgrade').css('display','block');
+      },
+      DisplayNone:function(){
+        $('.mask').css('display','none');
+        $('.upgrade').css('display','none');
       },
       Show1:function(){
         this.$router.push('/ShopmanTeamShow');
@@ -125,6 +147,12 @@
       },
       Show3:function(){
         this.$router.push('/ShopmanTeamShow3');
+      },
+      handleRemove(file, fileList) {
+        console.log(file, fileList);
+      },
+      handlePreview(file) {
+        console.log(file);
       }
     }
   }

@@ -49,8 +49,8 @@
       </div>
     </div>
     <div class="mask"></div>
-    <div class="add_team">
-      <div class="add_team_title">添加团队-选择团长</div>
+    <div class="add_team popup">
+      <div class="add_team_title popup_title">添加团队-选择团长</div>
       <div class="add_team_search">
         <div class="add_team_search_title">团长：</div>
         <el-input placeholder="输入团长账号（需是无团队的高级店主或公司店主）"></el-input>
@@ -74,8 +74,8 @@
       <div class="already_team">您已指定139281982918做团长</div>
       <el-button type="primary" @click="DisplayBlock2">下一步</el-button>
     </div>
-    <div class="add_team2">
-      <div class="add_team2_title">添加团队-2团长下级团员添加</div>
+    <div class="add_team2 popup">
+      <div class="add_team2_title popup_title">添加团队-2团长下级团员添加</div>
       <div class="add_tip2">您正在创建高级店主团队</div>
       <div class="add_small_title">下级团员---公司团员添加</div>
       <div class="add_team_search">
@@ -108,28 +108,6 @@
 </template>
 
 <style>
-  .add_team,
-  .add_team2{
-    width: 600px;
-    height:400px;
-    overflow-y:auto;
-    padding: 30px;
-    background: #FFFFFF;
-    position: fixed;
-    top: 100px;
-    left: 50%;
-    margin-left: -330px;
-    z-index: 999;
-    text-align: center;
-    display: none;
-    border-radius:9px;
-  }
-  .add_team_title,
-  .add_team2_title
-  {
-    font-size: 16px;
-    line-height: 32px;
-  }
   .add_team_search{
     width: 80%;
     margin: 0 auto;

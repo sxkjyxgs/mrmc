@@ -73,7 +73,7 @@
       </div>
     </div>
     <div class="mask"></div>
-    <div class="add_junior_member">
+    <div class="add_junior_member popup">
       <p>添加下级团员</p>
       <el-form ref="form" label-width="80px">
         <el-form-item label="活动名称">
@@ -170,18 +170,6 @@
     background: #ff3366;
     text-align: center;
     font-weight: bold;
-  }
-  .add_junior_member{
-    width:600px;
-    padding:30px;
-    box-sizing: border-box;
-    position: fixed;
-    left: 50%;
-    margin-left: -300px;
-    top: 200px;
-    background: #fff;
-    z-index: 999;
-    display: none;
   }
   .add_junior_member p{
     font-size: 16px;

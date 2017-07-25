@@ -31,7 +31,7 @@
               <td>级别：高级店主</td>
               <td>累计销售金:￥122232.23</td>
               <td>上月销售金：￥2434.23</td>
-              <td><a href="#">添加下级团员</a></td>
+              <td></td>
             </tr>
           </table>
           <div class="junior_league_menber">
