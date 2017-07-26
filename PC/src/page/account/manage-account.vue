@@ -107,10 +107,8 @@
     float: left;
     line-height: 36px;
   }
-  .popup_form .el-input{
-    width: 70%;
-    float: left;
-  }
+  .popup_form .el-input,
+  .popup_form .el-select,
   .popup_form .el-textarea{
     width: 70%;
     float: left;

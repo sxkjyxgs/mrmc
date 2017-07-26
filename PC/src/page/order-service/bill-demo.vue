@@ -64,8 +64,11 @@
             label="运费">
           </el-table-column>
           <el-table-column
-            prop="operation"
             label="操作">
+            <template scope="scope">
+              <el-button type="text" size="small">权限分配</el-button>
+              <el-button type="text" size="small">删除</el-button>
+            </template>
           </el-table-column>
         </el-table>
       </div>

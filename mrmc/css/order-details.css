@@ -10,6 +10,10 @@
     display: flex;
     flex-direction: column;
 }
+
+.selectAddress{
+	display: none;
+}
 i{
     font-style: normal;
 }
@@ -29,6 +33,7 @@ i{
 }
 .names-phone{
     margin-bottom:0.2rem;
+    overflow: hidden;
 }
 .lists{
     display: flex;
@@ -99,9 +104,14 @@ i{
 	padding:0.2rem 0;
 	text-align: right;
 }
-.message{
+.message1{
     width:100%;
     padding:0.36rem 0;
+}
+.message2{
+    width:100%;
+    padding:0.36rem 0;
+    margin-bottom: 0.5rem;
 }
 input{
     border:none;

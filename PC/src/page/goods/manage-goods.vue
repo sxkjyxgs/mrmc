@@ -71,6 +71,29 @@
 
     <div class="change_brand_information popup">
       <div class="popup_title">修改商品信息</div>
+
+      <div class="popup_form">
+        <div class="popup_form_title">商品名称</div>
+        <el-input v-model="input" placeholder=""></el-input>
+      </div>
+
+      <div class="popup_form">
+        <div class="popup_form_title">商品库存</div>
+        <el-input v-model="input" placeholder=""></el-input>
+      </div>
+
+      <div class="popup_form">
+        <div class="popup_form_title">运费模板</div>
+        <el-select v-model="value" placeholder="请选择">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value">
+          </el-option>
+        </el-select>
+      </div>
+
       <div class="popup_btn">
         <el-button @click="DisplayNone">取消</el-button>
         <el-button type="primary">确定</el-button>

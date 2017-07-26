@@ -180,6 +180,8 @@
   }
   .popup{
     width: 600px;
+    max-height: 400px;
+    overflow-y: scroll;
     padding: 30px;
     background: #FFFFFF;
     position: fixed;

@@ -253,26 +253,47 @@ footer{
     z-index:9;
     display: none;
     border-radius: 5px;
+    overflow: hidden;
 }
 
 .share p{
-    font-size:14px;
+    font-size:12px;
     color: #000000;
     line-height: 0.7rem;
+}
+
+.share div{
+	float: left;
+	width: 1.5rem;
+	height: 1.5rem;
+}
+
+.share div{
+	margin-right: 0.25rem;
+	box-sizing: border-box;
+}
+
+.share div:nth-of-type(3n){
+	margin-right: 0;
+}
+
+.share div p{
+	text-align: center;
 }
 
 .share .icon{
 	font-size: 0.9rem;
 	padding: 0 0.3rem;
-	margin-top: 0.35rem;
+	margin-top: 0.05rem;
+	margin: 0 a;
 }
 
 .share .kongjian{
-	padding: 0 0.4rem !important;
+	/*padding: 0 0.4rem !important;*/
 }
 
 .share .copyurl{
-	padding: 0 0.4rem !important;
+	/*padding: 0 0.4rem !important;*/
 }
 
 .upgrade_owner{

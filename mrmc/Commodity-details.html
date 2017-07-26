@@ -139,21 +139,36 @@
     
     <div class="share">
         <p>分享商品到</p>
-        <svg class="icon qqfriend" aria-hidden="true">
-		  	<use xlink:href="#icon-qqhaoyou"></use>
-		</svg>
-		<svg class="icon kongjian" aria-hidden="true">
-		  	<use xlink:href="#icon-QQkongjian"></use>
-		</svg>
-		<svg class="icon friend" aria-hidden="true">
-		  	<use xlink:href="#icon-fenxianggeiweixinhaoyou"></use>
-		</svg>
-		<svg class="icon circle" aria-hidden="true">
-		  	<use xlink:href="#icon-pengyouquan2"></use>
-		</svg>
-		<svg class="icon copyurl" aria-hidden="true">
-		  	<use xlink:href="#icon-fuzhilianjie"></use>
-		</svg>
+        <div>
+        	<svg class="icon qqfriend" aria-hidden="true">
+			  	<use xlink:href="#icon-qqhaoyou"></use>
+			</svg>
+			<p>QQ好友</p>
+        </div>
+        <div>
+        	<svg class="icon kongjian" aria-hidden="true">
+			  	<use xlink:href="#icon-QQkongjian"></use>
+			</svg>
+			<p>QQ空间</p>
+        </div>
+		<div>
+			<svg class="icon friend" aria-hidden="true">
+			  	<use xlink:href="#icon-fenxianggeiweixinhaoyou"></use>
+			</svg>
+			<p>微信好友</p>
+		</div>
+		<div>
+			<svg class="icon circle" aria-hidden="true">
+			  	<use xlink:href="#icon-pengyouquan2"></use>
+			</svg>
+			<p>朋友圈</p>
+		</div>
+		<div>
+			<svg class="icon copyurl" aria-hidden="true">
+			  	<use xlink:href="#icon-fuzhilianjie"></use>
+			</svg>
+			<p>复制链接</p>
+		</div>
     </div>
     
     <div class="upgrade_owner">
@@ -255,13 +270,20 @@
             $(".showTitle").removeClass("active").eq(swiper3.activeIndex).addClass("active");
         }
     });
+    
+    var arr1 = [];
+    var arr2 = [];
+    var arr3 = [];
+    var arr4 = [];
     $(".colors").click(function(){
         $(".colors").removeClass("pink");
         $(this).addClass("pink");
+        arr1.push($(this).html());
     })
     $(".weight").click(function(){
         $(".weight").removeClass("pink");
         $(this).addClass("pink");
+        arr2.push($(this).html());
     })
     $(".down").click(function(){
         var num=$(".pic-number").html();
@@ -271,35 +293,40 @@
             newnum=0;
             $(".pic-number").html(newnum);
         }
-
     })
     $(".add").click(function(){
         var num=$(".pic-number").html();
         num++;
         var newnum=num;
         $(".pic-number").html(newnum);
+        arr3.push($(".pic-number").html());
     })
+    
     $("#shop-num").click(function(){
         $(".mask").css({display:"block"});
         $('.share-box').show();
     })
+   
     $(".oks").click(function(){
         $(".mask").css({display:"none"});
         $('.share-box').hide();
+        arr4.push(arr1);
+        arr4.push(arr2);
+        arr4.push(arr3);
+        console.log(arr4);
+        sessionStorage.setItem('key','arr4');
     })
     $(".more").click(function () {
-        $(".share-box").show();
-        $(".share").show();
-    })
-    $(".save-money").click(function () {
-        $(".share-box").show();
-        $(".upgrade_owner").show();
         if(isAndroid){
-            JSBridge.earnMoney();
+            JSBridge.share();
         }else if(isiOS){
-            window.webkit.messageHandlers.earnMoney.postMessage(null)
+            window.webkit.messageHandlers.share.postMessage(null);
+        }else{
+            $(".share-box").show();
+            $(".share").show();
         }
     })
+                          
     $('.upgrade_cancel').click(function(){
     	$('.share-box').hide();
     	$('.upgrade_owner').hide();
@@ -307,16 +334,17 @@
     $('.go_upgrade').click(function(){
     	$('.share-box').show();
     	$('.go-download').show();
-    })
+    })                      
     $(".buynow").click(function () {
-        $(".share-box").show();
-        $(".login").show();
         if(isAndroid){
-            JSBridge.buyNow();
-        }else if(isiOS){
             window.webkit.messageHandlers.buyNow.postMessage(null)
+        }else if(isiOS){
+            JSBridge.buyNow();
+        }else{
+            $(".share-box").show();
+            $(".login").show();
         }
-    })
+    })                        
     $(".cancel").click(function () {
         $(".share-box").hide();
         $(".login").hide();
@@ -348,17 +376,16 @@
     $('.fenxiang_btn1').click(function(){
         if(isAndroid){
             JSBridge.shareLongPic();
-
         }else if(isiOS){
-            window.webkit.messageHandlers.shareLongPic.postMessage(null)
+            window.webkit.messageHandlers.shareLongPic.postMessage(null);
         }
     })
     //分享图片   window.webkit.messageHandlers.sharePic.postMessage(null)
     $('.fenxiang_btn2').click(function(){
         if(isAndroid){
-            JSBridge.sharePic();
+            window.webkit.messageHandlers.sharePic.postMessage(null);
         }else if(isiOS){
-            window.webkit.messageHandlers.sharePic.postMessage(null)
+            window.webkit.messageHandlers.sharePic.postMessage(null);
         }
     })
     //视频       window.webkit.messageHandlers.shareVideo.postMessage(null)
@@ -366,23 +393,29 @@
         if(isAndroid){
             JSBridge.shareVideo();
         }else if(isiOS){
-            window.webkit.messageHandlers.shareVideo.postMessage(null)
+            
+            window.webkit.messageHandlers.shareVideo.postMessage(null);
         }
     })
     //我要赚钱   window.webkit.messageHandlers.earnMoney.postMessage(null)
-    $('.fenxiang_btn3').click(function(){
+    $('.save-money').click(function(){
         if(isAndroid){
             JSBridge.earnMoney();
         }else if(isiOS){
-            window.webkit.messageHandlers.earnMoney.postMessage(null)
+            window.webkit.messageHandlers.earnMoney.postMessage(null);
+        }else{
+            $(".share-box").show();
+            $(".upgrade_owner").show();
         }
     })
+                          
     //购物车
     $('.shopcar').click(function(){
         if(isAndroid){
             JSBridge.shopCart();
         }else if(isiOS){
-            window.webkit.messageHandlers.shopCart.postMessage(null)
+            window.webkit.messageHandlers.shopCart.postMessage(null);
+            
         }
     })
     //加入购物袋 window.webkit.messageHandlers.addCart.postMessage(null)
@@ -390,11 +423,53 @@
         if(isAndroid){
             JSBridge.addCart();
         }else if(isiOS){
-            window.webkit.messageHandlers.addCart.postMessage(null)
+            window.webkit.messageHandlers.addCart.postMessage(null);
         }
     })
-    //立即购买   window.webkit.messageHandlers.buyNow.postMessage(null)
-
+                          
+    //立即购买
+    $('.buynow').click(function(){
+        if(isAndroid){
+            JSBridge.buyNow();
+        }else if(isiOS){
+            window.webkit.messageHandlers.buyNow.postMessage(null);
+        }
+    })
+                          
+    //返回
+    $('.back').click(function(){
+        if(isAndroid){
+            JSBridge.naviBack();
+        }else if(isiOS){
+            window.webkit.messageHandlers.naviBack.postMessage(null);
+        }
+    })
+    
+    function addCartWithId(userId) {
+    	$('.into-shopcar').click(function(){
+    		var color = sessionStorage.getItem("key");
+	    	if(color == null){
+	    		$('.share-box').show();
+	    		$('.mask').show();
+	    	}else if(color != null){
+	    		alert(1)
+	    	}
+    	})
+    	
+        //alert('你好 ' + msg + ', 我也很高兴见到你')
+        document.getElementById('name').innerHTML = '你好 ' + msg + ', 我也很高兴见到你'
+    }
+    addCartWithId()
+                          
+	function buyNowWithJson() {               
+        //1判断有没有选规格                
+        if(isAndroid){
+            JSBridge.naviBack(json);
+       	}else if(isiOS){
+           	window.webkit.messageHandlers.naviBack.postMessage(json);
+        }
+    }
+    buyNowWithJson();
 </script>
 </body>
 </html>
