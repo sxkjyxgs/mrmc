@@ -58,7 +58,7 @@
               fixed="right"
               label="操作">
               <template scope="scope">
-                <el-button type="text" size="small">升级</el-button>
+                <el-button type="text" size="small" @click="open2()">升级</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -221,6 +221,23 @@
 <script>
   export default{
     methods: {
+      open2() {
+        this.$confirm('此操作将升级该账号, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '升级成功!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消升级'
+          });
+        });
+      },
       DisplayBlock:function(){
         $('.mask').css('display','block');
         $('.add_shopman').css('display','block');

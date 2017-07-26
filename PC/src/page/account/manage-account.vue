@@ -37,7 +37,7 @@
             <el-table-column label="操作" fixed="right" :span='3'>
               <template scope="scope">
                 <el-button type="text" size="small" @click="DisplayBlock2">修改密码</el-button>
-                <el-button type="text" size="small" @click="DisplayBlock">分配角色</el-button>
+                <el-button type="text" size="small" @click="DisplayBlock3">分配角色</el-button>
                 <el-button type="text" size="small" @click="open3()">注销账号</el-button>
               </template>
             </el-table-column>
@@ -82,6 +82,10 @@
 
     <div class="popup change_password">
       <div class="popup_title">修改密码</div>
+      <div class="popup_form">
+        <div class="popup_form_title">旧密码</div>
+        <el-input v-model="input" placeholder="请输入内容"></el-input>
+      </div>
       <div class="popup_form">
         <div class="popup_form_title">新密码</div>
         <el-input v-model="input" placeholder="请输入内容"></el-input>
@@ -292,6 +296,15 @@
       DisplayNone2:function(){
         $('.mask').css('display','none');
         $('.change_password').css('display','none');
+      },
+      DisplayBlock3:function(){
+        $('.mask').css('display','block');
+        $('.assign_roles').css('display','block');
+      },
+
+      DisplayNone3:function(){
+        $('.mask').css('display','none');
+        $('.assign_roles').css('display','none');
       }
     },
     data() {

@@ -129,7 +129,16 @@
     <div class="popup change_recommendlike">
       <div class="popup_title">修改系统推荐商品</div>
       <div class="popup_form">
-
+        <div class="popup_form_title">商品名称</div>
+        <el-input v-model="input" placeholder="请输入内容"></el-input>
+      </div>
+      <div class="popup_form">
+        <div class="popup_form_title">推荐模式</div>
+        <el-input v-model="input" placeholder="请输入内容"></el-input>
+      </div>
+      <div class="popup_form">
+        <div class="popup_form_title">添加时间</div>
+        <el-input v-model="input" placeholder="请输入内容"></el-input>
       </div>
       <div class="popup_btn">
         <el-button @click="DisplayNone">取消</el-button>

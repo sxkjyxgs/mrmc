@@ -46,7 +46,7 @@
         <el-input placeholder=""></el-input>
       </div>
       <div class="template_freight">
-        <div class="template_freight_title">默认运费（元）</div>
+        <div class="template_freight_title">默认运费</div>
         <el-input placeholder=""></el-input>
       </div>
       <div class="add_noDefaultarea_btn"><el-button type="primary" @click="DisplayBlock2">添加非默认运费地区</el-button></div>
@@ -66,8 +66,8 @@
           <el-table-column
             label="操作">
             <template scope="scope">
-              <el-button type="text" size="small">权限分配</el-button>
-              <el-button type="text" size="small">删除</el-button>
+              <el-button type="text" size="small" @click="DisplayBlock3">修改</el-button>
+              <el-button type="text" size="small" @click="open2()">删除</el-button>
             </template>
           </el-table-column>
         </el-table>
@@ -105,6 +105,22 @@
         <el-button type="primary">添加</el-button>
       </div>
     </div>
+
+    <div class="change_freight popup">
+      <div class="popup_title">修改运费模板</div>
+      <div class="popup_form">
+        <div class="popup_form_title">模板名称</div>
+        <el-input v-model="input" placeholder="请输入内容"></el-input>
+      </div>
+      <div class="popup_form">
+        <div class="popup_form_title">默认运费</div>
+        <el-input v-model="input" placeholder="请输入内容"></el-input>
+      </div>
+      <div class="popup_btn">
+        <el-button @click="DisplayNone3">取消</el-button>
+        <el-button type="primary">修改</el-button>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -116,6 +132,23 @@
   export default {
     name: 'userManage',
     methods: {
+      open2() {
+        this.$confirm('此操作将永久删除该条记录, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '删除成功!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });
+        });
+      },
       DisplayBlock:function(){
         $('.mask').css('display','block');
         $('.add_template').css('display','block');
@@ -136,6 +169,16 @@
         $('.mask').css('z-index','9');
         $('.add_noDefaultarea').css('display','none');
       },
+      DisplayBlock3:function(){
+        $('.mask').css('display','block');
+        $('.mask').css('z-index','9999');
+        $('.change_freight').css('display','block');
+      },
+
+      DisplayNone3:function(){
+        $('.mask').css('z-index','9');
+        $('.change_freight').css('display','none');
+      }
     },
     data() {
       return {
@@ -161,6 +204,9 @@
 
 </script>
 <style>
+  .change_freight{
+    z-index: 9999;
+  }
   .left{
     float: left;
   }
@@ -228,11 +274,21 @@
     margin-top: 30px;
     overflow: hidden;
   }
-  .freight_set_up,
-  .set_up .el-radio,
+  .freight_set_up{
+    float: left;
+    width: 20%;
+    text-align: center;
+    margin: 0;
+  }
   .set_up .el-input{
     float: left;
-    width: 25%;
+    width: 20%;
+    text-align: center;
+    margin: 0;
+  }
+  .set_up .el-radio{
+    float: left;
+    width: 30%;
     text-align: center;
     margin: 0;
   }

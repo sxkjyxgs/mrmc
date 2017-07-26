@@ -33,7 +33,7 @@
               label="操作"
             >
               <template scope="scope">
-                <el-button type="text" size="small" @click="DisplayBlock">权限分配</el-button>
+                <el-button type="text" size="small" @click="DisplayBlock2">权限分配</el-button>
                 <el-button type="text" size="small" @click="open3">删除</el-button>
               </template>
             </el-table-column>
@@ -191,7 +191,6 @@
     z-index: 999;
     text-align: center;
     display: none;
-    border-radius:9px;
   }
   .popup_title{
     font-size: 16px;
@@ -279,6 +278,15 @@
       },
 
       DisplayNone:function(){
+        $('.mask').css('display','none');
+        $('.assign_role_permissions').css('display','none');
+      },
+      DisplayBlock2:function(){
+        $('.mask').css('display','block');
+        $('.assign_role_permissions').css('display','block');
+      },
+
+      DisplayNone2:function(){
         $('.mask').css('display','none');
         $('.assign_role_permissions').css('display','none');
       },
