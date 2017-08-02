@@ -16,6 +16,7 @@ body{
 .middle{
 	background: #EFEFF4;
 	position: relative;
+
 }
 
 .consignee,.contact-number,.add_adderss,.set-as-default{
@@ -25,16 +26,17 @@ body{
 	background: #FFFFFF;
 	padding: 0 0.28rem;
 	box-sizing: border-box;
+
 }
 
 .consignee{
 	margin-top: 0.3rem;
+	font-size: 16px;
 }
 
 .consignee-title{
 	width: 25%;
 	float: left;
-	font-size: 14px;
 	color: #303030;
 	line-height: 1rem;
 }
@@ -50,12 +52,13 @@ body{
 	height: 0.32rem;
 	border: none;
 	margin-top: 0.35rem;
+	font-size: 16px;
 }
 
 .contact-number-title{
 	width: 25%;
 	float: left;
-	font-size: 14px;
+	font-size: 16px;
 	color: #303030;
 	line-height: 1rem;
 }
@@ -71,11 +74,12 @@ body{
 	height: 0.32rem;
 	border: none;
 	margin-top: 0.35rem;
+	font-size: 16px;
 }
 
 .add_adderss-title{
 	float: left;
-	font-size: 14px;
+	font-size: 16px;
 	color: #303030;
 	line-height: 1rem;
 }
@@ -91,6 +95,7 @@ body{
 	text-align: right;
 	border: none;
 	color: #838383;
+	font-size: 16px;
 }
 
 .detailed-address{
@@ -100,6 +105,7 @@ body{
 	overflow: hidden;
 	box-sizing: border-box;
 	background: #FFFFFF;
+	font-size: 16px;
 }
 
 .detailed-address textarea{
@@ -107,7 +113,7 @@ body{
 	height: 100%;
 	border: none;
 	resize : none;
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 0.38rem;
 	padding: 0.16rem 0;
 	box-sizing: border-box;
@@ -126,7 +132,7 @@ body{
 
 .set-as-default-title{
 	float: left;
-	font-size: 14px;
+	font-size: 16px;
 	color: #303030;
 	line-height: 0.72rem;
 }

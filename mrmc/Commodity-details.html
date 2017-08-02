@@ -64,7 +64,7 @@
             </div>
         </div>
         <div id="shop-num">
-            选择购买规格和数量
+            请选择规格：<span>红色</span><span>红色</span><span>红色</span>
         </div>
         <div class="swiper-container" id="swiper2">
             <div class="swiper-wrapper">
@@ -79,8 +79,70 @@
                     <div class="fenxiang_btn1">分享长图片</div>
                     <div class="fenxiang_btn2">分享图片</div>
                 </div>
-                <div class="swiper-slide">Slide 2</div>
                 <div class="swiper-slide">
+                    <ul class="showList">
+                        <li>
+                            <div class="titles">净含量</div>
+                            <div class="cons">500g</div>
+                        </li>
+                        <li>
+                            <div class="titles">品牌</div>
+                            <div class="cons">西域美农</div>
+                        </li>
+                        <li>
+                            <div class="titles">级别</div>
+                            <div class="cons"></div>
+                        </li>
+                        <li>
+                            <div class="titles">系列</div>
+                            <div class="cons">和田大枣250*2袋组合</div>
+                        </li>
+                        <li>
+                            <div class="titles">保质期</div>
+                            <div class="cons">270天</div>
+                        </li>
+                        <li>
+                            <div class="titles">包装方式</div>
+                            <div class="cons">散装</div>
+                        </li>
+                        <li>
+                            <div class="titles">配料表</div>
+                            <div class="cons">茶、糖</div>
+                        </li>
+                        <li>
+                            <div class="titles">储藏方式</div>
+                            <div class="cons">阴凉干燥处低温保存</div>
+                        </li>
+                        <li>
+                            <div class="titles">食品添加剂</div>
+                            <div class="cons">无</div>
+                        </li>
+                        <li>
+                            <div class="titles">生产许可证编号</div>
+                            <div class="cons">陕西美农网络科技有限公司</div>
+                        </li>
+                        <li>
+                            <div class="titles">厂址</div>
+                            <div class="cons">陕西省咸阳市武功县台资工业园</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="swiper-slide">
+                    <!--<div>-->
+                        <!--<div class="video_box">-->
+                            <!--<video src=""></video>-->
+                        <!--</div>-->
+                        <!--<div class="video_box">-->
+                            <!--<video src=""></video>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <div>
+                        <div class="novideo_box">
+                            <img src="image/icon_video.png" alt="">
+                        </div>
+                        <div class="no_content">Sorry,该商品没有提供视频。</div>
+                    </div>
+
                 	<div class="fenxiang_btn3">分享视频</div>
                 </div>
             </div>
@@ -99,7 +161,7 @@
         <div class="into-shopcar">加入购物车</div>
         <div class="buynow">立即购买</div>
     </footer>
-
+    <div class="masks"></div>
     <div class="mask">
         <div class="box-show">
             <div class="shop-showBox">
@@ -108,7 +170,7 @@
                     <li>
                         <div class="left">规格</div>
                         <div class="right">
-                            <span class="colors pink">红色</span>
+                            <span class="colors">红色</span>
                             <span class="colors">红色</span>
                             <span class="colors">红色</span>
                         </div>
@@ -116,17 +178,19 @@
                     <li>
                         <div class="left">规格</div>
                         <div class="right">
-                            <span class="weight pink">15g</span>
+                            <span class="weight">15g</span>
                             <span class="weight">15g</span>
                             <span class="weight">15g</span>
                         </div>
                     </li>
                 </ul>
-                <p>选择商品数量</p>
-                <div class="chang-num">
-                    <div class="down"><img src="image/down.png" alt=""></div>
-                    <span class="pic-number">1</span>
-                    <div class="add"><img src="image/up.png" alt=""></div>
+                <div class="chang-nums">
+                    <div>选择商品数量</div>
+                    <div class="chang-num">
+                        <div class="down"><img src="image/down.png" alt=""></div>
+                        <span class="pic-number">1</span>
+                        <div class="add"><img src="image/up.png" alt=""></div>
+                    </div>
                 </div>
             </div>
             <div class="oks">确定</div>
@@ -136,7 +200,7 @@
     <div class="share-box">
 
     </div>
-    
+
     <div class="share">
         <p>分享商品到</p>
         <div>
@@ -178,11 +242,9 @@
     		<a href="#" class="go_upgrade">去升级</a>
     	</div>
     </div>
-
     <div class="go-download">
         <p>您需下载美日美C 客户端APP 变成店主，即可分享商品赚的佣金！<a href="#">去下载</a></p>
     </div>
-
     <div class="login">
         <div class="login_title">
             登录即可购买商品
@@ -271,37 +333,42 @@
         }
     });
     
-    var arr1 = [];
-    var arr2 = [];
-    var arr3 = [];
-    var arr4 = [];
+    var ShopCart= {};
     $(".colors").click(function(){
         $(".colors").removeClass("pink");
         $(this).addClass("pink");
-        arr1.push($(this).html());
+        if($(this)[0].className=='colors pink'){
+            ShopCart.colors=$(this).html();
+            console.log(ShopCart.colors)
+        }
     })
     $(".weight").click(function(){
         $(".weight").removeClass("pink");
         $(this).addClass("pink");
-        arr2.push($(this).html());
+        if($(this)[0].className=='weight pink'){
+            ShopCart.weight=$(this).html();
+            console.log(ShopCart.weight)
+        }
     })
+
     $(".down").click(function(){
         var num=$(".pic-number").html();
         num--;
         var newnum=num;
-        if(newnum==0){
+        if(newnum<=0){
             newnum=0;
+            $(".pic-number").html('0');
+        }else{
             $(".pic-number").html(newnum);
         }
+
     })
     $(".add").click(function(){
         var num=$(".pic-number").html();
         num++;
         var newnum=num;
         $(".pic-number").html(newnum);
-        arr3.push($(".pic-number").html());
     })
-    
     $("#shop-num").click(function(){
         $(".mask").css({display:"block"});
         $('.share-box').show();
@@ -310,12 +377,16 @@
     $(".oks").click(function(){
         $(".mask").css({display:"none"});
         $('.share-box').hide();
-        arr4.push(arr1);
-        arr4.push(arr2);
-        arr4.push(arr3);
-        console.log(arr4);
-        sessionStorage.setItem('key','arr4');
+        $(".masks").hide();
+        ShopCart.number=$(".pic-number").html();
+        if(ShopCart.colors!=undefined&&ShopCart.weight!=undefined&&ShopCart.number!=undefined){
+
+        }else{
+            $('.masks').show();
+            $('.mask').show();
+        }
     })
+
     $(".more").click(function () {
         if(isAndroid){
             JSBridge.share();
@@ -372,7 +443,7 @@
         $('.mask').hide();
         $('.upgrade_owner').hide();
     })
-    //分享长图片 window.webkit.messageHandlers.shareLongPic.postMessage(null)
+    //分享长图片
     $('.fenxiang_btn1').click(function(){
         if(isAndroid){
             JSBridge.shareLongPic();
@@ -380,7 +451,7 @@
             window.webkit.messageHandlers.shareLongPic.postMessage(null);
         }
     })
-    //分享图片   window.webkit.messageHandlers.sharePic.postMessage(null)
+    //分享图片
     $('.fenxiang_btn2').click(function(){
         if(isAndroid){
             window.webkit.messageHandlers.sharePic.postMessage(null);
@@ -388,7 +459,7 @@
             window.webkit.messageHandlers.sharePic.postMessage(null);
         }
     })
-    //视频       window.webkit.messageHandlers.shareVideo.postMessage(null)
+    //视频
     $('.fenxiang_btn3').click(function(){
         if(isAndroid){
             JSBridge.shareVideo();
@@ -397,7 +468,7 @@
             window.webkit.messageHandlers.shareVideo.postMessage(null);
         }
     })
-    //我要赚钱   window.webkit.messageHandlers.earnMoney.postMessage(null)
+    //我要赚钱
     $('.save-money').click(function(){
         if(isAndroid){
             JSBridge.earnMoney();
@@ -413,26 +484,16 @@
     $('.shopcar').click(function(){
         if(isAndroid){
             JSBridge.shopCart();
-        }else if(isiOS){
+        }else if(isiOS) {
             window.webkit.messageHandlers.shopCart.postMessage(null);
-            
         }
-    })
-    //加入购物袋 window.webkit.messageHandlers.addCart.postMessage(null)
-    $('.into-shopcar').click(function(){
-        if(isAndroid){
-            JSBridge.addCart();
-        }else if(isiOS){
-            window.webkit.messageHandlers.addCart.postMessage(null);
-        }
-    })
-                          
+   })
     //立即购买
     $('.buynow').click(function(){
         if(isAndroid){
-            JSBridge.buyNow();
+            JSBridge.buyNow(ShopCart);
         }else if(isiOS){
-            window.webkit.messageHandlers.buyNow.postMessage(null);
+            window.webkit.messageHandlers.buyNow.postMessage(ShopCart);
         }
     })
                           
@@ -444,27 +505,31 @@
             window.webkit.messageHandlers.naviBack.postMessage(null);
         }
     })
-    
+    $('.masks').click(function(){
+        $('.masks').hide();
+        $('.mask').hide();
+    })
+    $('.into-shopcar').click(function(){
+        if(isAndroid){
+            JSBridge.addCart();
+        }else if(isiOS){
+            window.webkit.messageHandlers.addCart.postMessage(null);
+        }
+
+    })
     function addCartWithId(userId) {
-    	$('.into-shopcar').click(function(){
-    		var color = sessionStorage.getItem("key");
-	    	if(color == null){
-	    		$('.share-box').show();
-	    		$('.mask').show();
-	    	}else if(color != null){
-	    		alert(成功加入购物车)
-	    	}
-    	})
-    	
-    	
-    	
-        //alert('你好 ' + msg + ', 我也很高兴见到你')
-        document.getElementById('name').innerHTML = '你好 ' + msg + ', 我也很高兴见到你'
+        var shopcart = sessionStorage.getItem("shopcart");
+        if(shopcart!=null){
+            sessionStorage.removeItem("shopcart");
+        }else{
+            $('.masks').show();
+            $('.mask').show();
+        }
     }
-    addCartWithId()
+
                           
-	function buyNowWithJson() {               
-        //1判断有没有选规格                
+	function buyNowWithJson() {
+        //1判断有没有选规格
         if(isAndroid){
             JSBridge.naviBack(json);
        	}else if(isiOS){

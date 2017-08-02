@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- 头部导航 -->
-    <Head></Head>
+    <Heads></Heads>
     <main>
           <!-- 左侧导航 -->
         <div class="main-left">
@@ -22,7 +22,7 @@
 import Vue from 'vue'
 import Element from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
-import Head from 'components/Head.vue'
+import Heads from 'components/Heads.vue'
 import NavBar from 'components/NavBar.vue'
 import $ from 'jquery'
 
@@ -30,7 +30,7 @@ Vue.use(Element)
 
 export default {
   name: 'app',
-  components:{Head,NavBar},
+  components:{Heads,NavBar},
   data: function (){
     return {
       active:true,
@@ -38,19 +38,7 @@ export default {
     }
   },
   created: function(){
-    this.$router.push('/User');
-  },
-  methods: {
-
-  },
-  watch: {
-     '$route': function (to,from) {
-         if(to.path == 'activePublic'){
-           this.active = true ;
-         }else if(to.path == '/activeManage'){
-             this.active = false ;
-         }
-     }
+    this.$router.push('/ManageAccount');
   }
 }
 </script>

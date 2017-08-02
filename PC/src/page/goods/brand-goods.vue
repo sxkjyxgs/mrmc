@@ -17,17 +17,18 @@
             border
             style="width: 100%">
             <el-table-column
-              prop="brand_logo"
+              prop="picture"
               :span='2'
               label="品牌logo">
+              <img src="" alt="">
             </el-table-column>
             <el-table-column
-              prop="brand_name"
+              prop="name"
               :span='2'
               label="品牌名称">
             </el-table-column>
             <el-table-column
-              prop="brand_introduction"
+              prop="details"
               :span='3'
               label="品牌介绍">
             </el-table-column>
@@ -64,7 +65,7 @@
         <el-input
           type="textarea"
           :rows="2"
-          v-model="textarea">
+        >
         </el-input>
       </div>
       <div class="add_commodity_brand_btn">
@@ -88,7 +89,7 @@
         <el-input
           type="textarea"
           :rows="2"
-          v-model="textarea">
+          >
         </el-input>
       </div>
       <div class="add_commodity_brand_btn">
@@ -99,9 +100,87 @@
   </div>
 </template>
 
+
+
+<script>
+  export default {
+    data() {
+      return {
+        tableData: [],
+        TableDataUrl:this.GLOBAL.baseUrl+'productBrand/findProductBrandList',
+        currentChange:1
+      }
+    },
+    created: function(){
+      this.getTable()//定义方法
+    },
+    methods: {
+      //获取列表信息
+      getTable:function(){
+        var tableList=[];
+        var sumPage;
+        $.ajax({
+          type:'POST',
+          data:{'common':this.GLOBAL.common,'size':10,'nowpage':this.currentChange},
+          async:false,
+          url:this.TableDataUrl,
+          success:function (data) {console.log(data)
+            if(data.result){
+
+              tableList=data.data.productBrandList;
+              this.tableData=tableList;
+              console.log(this.tableData);
+            }else{
+              swal({title:'',text:data.msg})
+            }
+          }
+        })
+        this.tableData=tableList;
+        console.log(this.tableData)
+//        this.SumPage=sumPage;
+      },
+      open2() {
+        this.$confirm('此操作将删除该商品, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '删除成功!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });
+        });
+      },
+      DisplayBlock:function(){
+        $('.mask').css('display','block');
+        $('.add_commodity_brand').css('display','block');
+      },
+
+      DisplayNone:function(){
+        $('.mask').css('display','none');
+        $('.add_commodity_brand').css('display','none');
+      },
+      DisplayBlock2:function(){
+        $('.mask').css('display','block');
+        $('.change_brand').css('display','block');
+      },
+
+      DisplayNone2:function(){
+        $('.mask').css('display','none');
+        $('.change_brand').css('display','none');
+      }
+    },
+
+  }
+</script>
 <style>
   .el-button+.el-button{
-     margin:10px 10px 0px!important;
+    margin:10px 10px 0px!important;
   }
   .el-button{
     margin:10px 10px 0px!important;
@@ -181,70 +260,3 @@
     margin-right: 30%;
   }
 </style>
-
-<script>
-  export default {
-    methods: {
-      open2() {
-        this.$confirm('此操作将删除该商品, 是否继续?', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-        }).then(() => {
-          this.$message({
-            type: 'success',
-            message: '删除成功!'
-          });
-        }).catch(() => {
-          this.$message({
-            type: 'info',
-            message: '已取消删除'
-          });
-        });
-      },
-      DisplayBlock:function(){
-        $('.mask').css('display','block');
-        $('.add_commodity_brand').css('display','block');
-      },
-
-      DisplayNone:function(){
-        $('.mask').css('display','none');
-        $('.add_commodity_brand').css('display','none');
-      },
-      DisplayBlock2:function(){
-        $('.mask').css('display','block');
-        $('.change_brand').css('display','block');
-      },
-
-      DisplayNone2:function(){
-        $('.mask').css('display','none');
-        $('.change_brand').css('display','none');
-      }
-    },
-    data() {
-      return {
-        tableData: [{
-          brand_logo: '品牌logo',
-          brand_name: '品牌名称',
-          brand_introduction: '品牌介绍',
-          operation: '操作'
-        }, {
-          brand_logo: '品牌logo',
-          brand_name: '品牌名称',
-          brand_introduction: '品牌介绍',
-          operation: '操作'
-        }, {
-          brand_logo: '品牌logo',
-          brand_name: '品牌名称',
-          brand_introduction: '品牌介绍',
-          operation: '操作'
-        }, {
-          brand_logo: '品牌logo',
-          brand_name: '品牌名称',
-          brand_introduction: '品牌介绍',
-          operation: '操作'
-        }]
-      }
-    }
-  }
-</script>

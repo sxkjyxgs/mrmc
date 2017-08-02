@@ -7,7 +7,7 @@
       <div class="form">
         <el-form :model="ruleForm2" :rules="rules2" ref="ruleForm2" label-width="100px" class="demo-ruleForm">
           <el-form-item label="当前密码:" prop="nowpass">
-            <el-input v-model="ruleForm2.nowpass" placeholder="请输入原密码"></el-input>
+            <el-input v-model="ruleForm2.nowpass" placeholder="请输入原密码" type="password"></el-input>
           </el-form-item>
           <el-form-item label="密码:" prop="pass">
             <el-input type="password" v-model="ruleForm2.pass" auto-complete="off" placeholder="请输入修改后的密码"></el-input>
@@ -53,11 +53,13 @@
           callback(new Error('请再次输入密码'));
         } else if (value !== this.ruleForm2.pass) {
           callback(new Error('两次输入密码不一致!'));
+          this.ruleForm2.checkPass='';
         } else {
           callback();
         }
       };
       return {
+        changePass:this.GLOBAL.baseUrl+'account/modifyAccountLoginPassword',
         ruleForm2: {
           pass: '',
           checkPass: '',
@@ -77,15 +79,41 @@
       };
     },
     methods: {
-      submitForm(formName) {
-        this.$refs[formName].validate((valid) => {
-          if (valid) {
-            alert('submit!');
-          } else {
-            console.log('error submit!!');
-            return false;
+      submitForm() {
+          if(this.ruleForm2.pass!=''&&this.ruleForm2.nowpass!=''&&this.ruleForm2.checkPass!=''){
+              if(this.ruleForm2.pass==this.ruleForm2.nowpass){
+                  swal({title:'',text:'当前密码与修改密码相同'});
+                  this.ruleForm2.pass='';
+                  this.ruleForm2.checkPass='';
+              }else{
+                var data={
+                  'oldPassword':this.ruleForm2.nowpass,
+                  'newPassword':this.ruleForm2.pass,
+                  'common':this.GLOBAL.common,
+                  'account':'admin'
+                }
+                var that=this;
+                $.ajax({
+                  type:'POST',
+                  url:this.changePass,
+                  data:data,
+                  success:function(data){
+                 if(data.result){
+                   that.ruleForm2.pass='';
+                   that.ruleForm2.nowpass='';
+                   that.ruleForm2.checkPass='';
+                 }
+                    swal({title:'',text:data.msg})
+                  }
+                })
+              }
+
+
+          }else{
+              swal({title:'',text:'密码不能为空'})
           }
-        });
+
+
       },
       resetForm(formName) {
         this.$refs[formName].resetFields();
@@ -94,11 +122,11 @@
   }
 </script>
 <style>
+  /*.form{*/
+    /*padding:30px 30px 0 0;*/
+  /*}*/
   .form{
-    padding:30px 30px 0 0;
-  }
-  .form .el-form{
-    width:100%;
-    margin:0;
+    width:300px;
+    margin:0 auto;
   }
 </style>

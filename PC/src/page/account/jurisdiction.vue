@@ -23,7 +23,7 @@
             >
             </el-table-column>
             <el-table-column
-              prop="jurisdiction"
+              prop="menuName"
               label="角色现有权限"
               :span="6"
             >
@@ -34,7 +34,7 @@
             >
               <template scope="scope">
                 <el-button type="text" size="small" @click="DisplayBlock2">权限分配</el-button>
-                <el-button type="text" size="small" @click="open3">删除</el-button>
+                <el-button type="text" size="small" @click="open3(scope.row)">删除</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -43,8 +43,7 @@
         <div class="block">
           <el-pagination
             layout="prev, pager, next"
-            :total="tableData.length"
-            :page-size="2"
+            :total="SumPage"
             @current-change="handleCurrentChange"
           >
           </el-pagination>
@@ -67,11 +66,12 @@
       <div class="assign_role_permissions_title popup_title">分配角色权限</div>
       <div class="checkbox_box">
         <div class="assign_checkbox">
-          <el-checkbox :indeterminate="isIndeterminate" v-model="checkAll" @change="handleCheckAllChange">后台账号管理</el-checkbox>
-          <div style="margin: 15px 0;"></div>
-          <el-checkbox-group v-model="checkedjurisdictions" @change="handleCheckedjurisdictionsChange">
-            <el-checkbox v-for="jurisdiction in jurisdictions" :label="jurisdiction" :key="jurisdiction">{{jurisdiction}}</el-checkbox>
-          </el-checkbox-group>
+          <ul  >
+            <li v-for="item in jurData">
+               <span v-text="item.name"></span>
+            </li>
+            <li v-text="jurData"></li>
+          </ul>
         </div>
       </div>
 
@@ -82,7 +82,181 @@
     </div>
   </div>
 </template>
+<script>
+  import Vue from 'vue'
+  import Element from 'element-ui'
+  import 'element-ui/lib/theme-default/index.css'
+  Vue.use(Element)
+  export default {
+    data() {
+      return {
+        tableData:[],
+        jurData:[],
+        TableDataUrl:this.GLOBAL.baseUrl+'role/findAuthorityByRoleList',
+        JurListUrl:this.GLOBAL.baseUrl+'authority/findAuthorityList',
+        DelectList:this.GLOBAL.baseUrl+'role/removeRoleByIdL',
+        currentChange:1,
+        SumPage:'',
 
+      }
+    },
+    created: function(){
+      this.getJurisdiction()
+      this.getTable()//定义方法
+
+    },
+    methods: {
+      //获取列表信息
+      getTable:function(){
+        var tableList=[];
+        var sumPage;
+        $.ajax({
+          type:'POST',
+          data:{'common':this.GLOBAL.common,'size':10,'nowpage':this.currentChange},
+          async:false,
+          url:this.TableDataUrl,
+          success:function (data) {
+            if(data.result){
+                tableList=data.data.list;
+                sumPage=data.data.count;
+            }
+          }
+        })
+        this.tableData=tableList;
+        this.SumPage=sumPage;
+      },
+      //分页
+      handleCurrentChange(val) {
+        this.currentChange=val;
+        this.getTable()
+      },
+      //获取权限列表
+      getJurisdiction:function(){
+        var list=[];
+        $.ajax({
+            type:'POST',
+            data:{'common':this.GLOBAL.common},
+            url:this.JurListUrl,
+            async:false,
+            success:function (data) {
+                if(data.result){
+                  list=data.data.authorityList;
+                  var parentList=[];
+                  var ChildList=[];
+                  //寻找子元素
+                  for(var i=0;i<list.length;i++){
+                    for(var j=0;j<list.length;j++){
+                      if(list[j].parentId==list[i].id){
+                        ChildList.push(list[j]);
+                      }
+                    }
+                  }
+                  //寻找父元素--删除子元素就是父元素啦
+                  for(var i=0;i<ChildList.length;i++){
+                    for(var j=0;j<list.length;j++)
+                    {
+                      if(list[j].id==ChildList[i].id){
+                        list.splice(j,1);
+                        j=j-1;
+                      }
+                    }
+                  }
+                  parentList=list;
+                  //把子元素push到父元素
+                  for(var i=0;i<parentList.length;i++){
+                    parentList[i].data=[];
+                    for(var j=0;j<ChildList.length;j++){
+                      if(ChildList[j].parentId==parentList[i].id){
+                        parentList[i].data.push(ChildList[j])
+                      }
+                    }
+                  }
+                  this.jurData=parentList;
+                  console.log(this.jurData);
+                }else{
+                    swal({title:'',text:data.msg})
+                }
+
+            }
+        })
+      },
+      open2(){
+        this.$confirm('此操作将添加账号角色, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '添加成功!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消添加'
+          });
+        });
+      },
+      //删除
+      open3(row) {
+        this.$confirm('此操作将永久删除该数据, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          var that=this;
+          $.ajax({
+            type:'GET',
+            data:{'common':this.GLOBAL.common,'id':row.id},
+            url:this.DelectList,
+            success:function (data) {
+              if(data.result){
+                that.$message({
+                  type: 'success',
+                  message: '删除成功!'
+                });
+              }else{
+                that.$message({
+                  type: 'info',
+                  message: '删除失败!'
+                });
+              }
+            }
+          })
+
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });
+        });
+      },
+      DisplayBlock:function(){
+        $('.mask').css('display','block');
+        $('.assign_role_permissions').css('display','block');
+      },
+
+      DisplayNone:function(){
+        $('.mask').css('display','none');
+        $('.assign_role_permissions').css('display','none');
+      },
+      DisplayBlock2:function(){
+        $('.mask').css('display','block');
+        $('.assign_role_permissions').css('display','block');
+      },
+
+      DisplayNone2:function(){
+        $('.mask').css('display','none');
+        $('.assign_role_permissions').css('display','none');
+      },
+
+
+
+    }
+
+
+  }
+</script>
 <style>
   #box{
     position: relative;
@@ -168,6 +342,11 @@
     float: right;
     margin: 50px 10% 0 0;
   }
+  .assign_checkbox li{
+    width:100%;
+    height:30px;
+    background: pink;
+  }
   .mask{
     width:100%;
     height:100%;
@@ -208,117 +387,6 @@
   .assign_checkbox{
     width: 50%;
     float: left;
-  }
-  .assign_checkbox .el-checkbox{
-    display: block;
-    text-align: left;
-    padding-left: 10%;
-    box-sizing: border-box;
-    margin: 0;
-  }
-
-  .assign_checkbox .el-checkbox-group{
-    padding-left: 15%;
-    box-sizing: border-box;
+    height:auto;
   }
 </style>
-
-<script>
-  const jurisdictionOptions = ['后台权限管理', '后台账号管理', '后台账号操作记录'];
-  import Vue from 'vue'
-  import Element from 'element-ui'
-  import 'element-ui/lib/theme-default/index.css'
-  Vue.use(Element)
-  export default {
-
-    methods: {
-      open2() {
-        this.$confirm('此操作将添加账号角色, 是否继续?', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-        }).then(() => {
-          this.$message({
-            type: 'success',
-            message: '添加成功!'
-          });
-        }).catch(() => {
-          this.$message({
-            type: 'info',
-            message: '已取消添加'
-          });
-        });
-      },
-      open3() {
-        this.$confirm('此操作将永久删除该数据, 是否继续?', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-        }).then(() => {
-          this.$message({
-            type: 'success',
-            message: '删除成功!'
-          });
-        }).catch(() => {
-          this.$message({
-            type: 'info',
-            message: '已取消删除'
-          });
-        });
-      },
-      handleCurrentChange(val) {
-        this.tableDatas=[];
-        for(var i=2*(val-1);i<2*val;i++){
-            this.tableDatas.push(this.tableData[i]);
-        }
-      },
-      DisplayBlock:function(){
-        $('.mask').css('display','block');
-        $('.assign_role_permissions').css('display','block');
-      },
-
-      DisplayNone:function(){
-        $('.mask').css('display','none');
-        $('.assign_role_permissions').css('display','none');
-      },
-      DisplayBlock2:function(){
-        $('.mask').css('display','block');
-        $('.assign_role_permissions').css('display','block');
-      },
-
-      DisplayNone2:function(){
-        $('.mask').css('display','none');
-        $('.assign_role_permissions').css('display','none');
-      },
-
-      handleCheckAllChange(event) {
-        this.checkedjurisdictions = event.target.checked ? jurisdictionOptions : [];
-        this.isIndeterminate = false;
-      },
-      handleCheckedjurisdictionsChange(value) {
-        let checkedCount = value.length;
-        this.checkAll = checkedCount === this.jurisdictions.length;
-        this.isIndeterminate = checkedCount > 0 && checkedCount < this.jurisdictions.length;
-      }
-    },
-    data() {
-      return {
-        currentPage: 1,
-        tableData: [{
-          role: '店长',
-          jurisdiction: '商品管理'
-        }, {
-          role: '店员',
-          jurisdiction: '商品管理'
-        }, {
-          role: '店长',
-          jurisdiction: '商品管理'
-        }],
-        checkAll: true,
-        jurisdictions: jurisdictionOptions,
-        isIndeterminate: true
-      }
-    }
-
-  }
-</script>

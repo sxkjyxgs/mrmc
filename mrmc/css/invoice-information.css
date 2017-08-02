@@ -25,7 +25,7 @@ footer{
 	float: left;
 	width: 25%;
 	line-height: 1.02rem;
-	font-size: 14px;
+	font-size: 16px;
 	color: #303030;
 }
 
@@ -40,6 +40,7 @@ footer{
 	height: 0.32rem;
 	border: none;
 	margin-top: 0.35rem;
+	font-size: 16px;
 }
 
 .invoice-header-ipt input[type='text']{
@@ -56,6 +57,7 @@ footer{
 	height: 0.32rem;
 	border: none;
 	margin-top: 0.35rem;
+	font-size: 16px;
 }
 
 .duty-paragraph-ipt input[type='text']{
@@ -77,6 +79,7 @@ footer{
 	margin-top: 0.3rem;
 	background: #FFFFFF;
 	border-bottom: 1px solid #EFEFF4;
+	font-size: 16px;
 }
 
 .invoice-content-list{
@@ -97,6 +100,7 @@ footer{
 .invoice-content-list1 i{
 	font-style: normal;
 	padding-left: 0.3rem;
+	font-size: 16px;
 }
 
 .invoice-content-list2{
@@ -108,6 +112,7 @@ footer{
 .invoice-content-list2 i{
 	font-style: normal;
 	padding-left: 0.3rem;
+	font-size: 16px;
 }
 
 .invoice-content-list3{
@@ -119,6 +124,7 @@ footer{
 .invoice-content-list3 i{
 	font-style: normal;
 	padding-left: 0.3rem;
+	font-size: 16px;
 }
 
 .choosr_circle{

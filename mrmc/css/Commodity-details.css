@@ -13,7 +13,7 @@
     overflow: hidden;
 }
 #swiper3{
-    height:6rem;
+    height:auto;
 }
 .swiper-slide {
     text-align: center;
@@ -71,9 +71,17 @@
 }
 #shop-num{
     width:100%;
-    padding:0.27rem 0.3rem;
-    text-align: center;
+    padding:0 0.3rem;
+    height:1.6rem;
+    line-height: 1rem;
+    border-top:0.3rem solid #EFEFF4;
+    border-bottom:0.3rem solid #EFEFF4;
     box-sizing: border-box;
+    font-size: 14px;
+}
+#shop-num span{
+    margin-left:0.2rem;
+    color: #838383;
 }
 .showTitleBox{
     width:100%;
@@ -103,6 +111,16 @@
     position: absolute;
     left:0;
     bottom:0;
+    z-index: 99999;
+    display: none;
+}
+.masks{
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.3);
+    position: fixed;
+    left:0;
+    top:0;
     z-index: 9999;
     display: none;
 }
@@ -125,21 +143,31 @@
 }
 .shop-showBox ul li .left{
     margin-right:0.39rem;
+    padding:0.1rem 0;
 }
 .shop-showBox ul li .right span{
     display: block;
-    width:1.6rem;
+    min-width:1.4rem;
+    padding:0.1rem 0.2rem;
+    margin-left:0.2rem;
+    border:1px solid #fff;
     float: left;
+    box-sizing: border-box;
+    text-align: center;
 }
 .shop-showBox p{
     margin-top:0.13rem;
+}
+.chang-nums{
+    display: flex;
+    justify-content: space-between;
+    line-height: 0.47rem;
+    padding-bottom:0.3rem;
 }
 .chang-num{
     text-align: right;
     display: flex;
     justify-content: flex-end;
-    line-height: 0.47rem;
-    padding-bottom:0.3rem;
 }
 .chang-num img{
     width:0.47rem;
@@ -159,6 +187,8 @@
 }
 .pink{
     color:#FF3366;
+    border:1px solid #ff3366!important;
+    border-radius:5px;
 }
 
 footer{
@@ -669,8 +699,49 @@ footer{
 	font-size: 0.4rem;
 	font-weight: bold;
 }
-
-
+.showList{
+    width:100%;
+    box-sizing: border-box;
+    padding:0 0.28rem;
+}
+.showList li{
+    width:100%;
+    float: left;
+}
+.showList li .titles{
+    width:1.4rem;
+    color:#838383;
+    float: left;
+    text-align: left;
+    font-size: 14px;
+}
+.showList li .cons{
+    color:#303030;
+    float: left;
+    text-align: left;
+    font-size: 14px;
+    line-height: 0.92rem;
+}
+.video_box{
+    width:100%;
+    height:4.22rem;
+    margin:0.15rem 0;
+    background: #ccc;
+}
+.video_box video{
+    width:100%;
+    height:100%;
+}
+.novideo_box{
+    width:2.6rem;
+    height:2.6rem;
+    margin:1.2rem auto 0.36rem;
+}
+.no_content{
+    width:100%;
+    text-align: center;
+    color:#c0c0c0;
+}
 
 
 

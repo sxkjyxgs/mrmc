@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/sweetalert.css">
+</head>
+<style>
+    *{
+        margin:0;padding:0;
+    }
+    body,html{
+
+        background: #ff3366;
+    }
+    .box{
+        width: 500px;height:auto;
+        margin:150px auto 0;
+        padding:20px;
+        border:1px solid #ff3366;
+    }
+    h1{
+        text-align: center;
+        margin:0;
+        margin-bottom:30px;
+        padding-bottom:30px;
+        color:#fff;
+        border-bottom:1px solid yellow;
+    }
+    li{
+        list-style: none;
+       padding:20px 0;
+    }
+    li div{
+        float: left;
+    }
+    .left{
+        text-align: right;
+        box-sizing: border-box;
+        padding-right: 20px;
+        color:#fff;
+    }
+    .right{
+        width:85%;
+    }
+    input{
+        width:100%;
+        border:none;
+        height:30px;
+        line-height: 30px;
+        padding-left:15px;
+        box-sizing: border-box;
+        border-radius: 3px;
+    }
+    .btn{
+        background: yellow;
+        color:#333;
+        width:100%;
+        border:none;
+        padding:10px 0;
+        margin-top:30px;
+        border-radius: 5px;
+    }
+</style>
+<body>
+<div class="box">
+    <h1>美日美C后台登录</h1>
+    <ul>
+        <li>
+            <div class="left">账号：</div>
+            <div class="right"><input type="text" placeholder="请您输入账号" class="account"></div>
+        </li>
+        <li>
+            <div class="left">密码：</div>
+            <div class="right"><input type="password" placeholder="请你输入密码" class="password"></div>
+        </li>
+        <li>
+            <button class="btn">登录</button>
+        </li>
+    </ul>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/sweetalert.min.js"></script>
+<script>
+    var baseUrl='http://192.168.3.176:8083';
+    var Ip,Address;
+    //获取IP和地址，必须引用jquery
+    $(document).ready(function(){
+        var url = 'http://chaxun.1616.net/s.php?type=ip&output=json&callback=?&_='+Math.random();
+        $.getJSON(url, function(data){
+            Ip=data.Ip;
+            Address=data.Isp.slice(0,data.Isp.length-3);
+        });
+    });
+    $('.btn').click(function(){
+        var account=$('.account').val();
+        var password=$('.password').val();
+        if(account==''){
+           swal({title:'',text:'账号不能为空'})
+        }else{
+            if(password==''){
+                swal({title:'',text:'密码不能为空'})
+            }else{
+
+                var data={'account':account,'password':password,'common': 2,'loginIp':Ip,'loginAddr':Address}
+                $.ajax({
+                    type:'POST',
+                    url:baseUrl+'/account/login',
+                    data:data,
+                    success:function(data){
+                        if(data.result){
+                            window.sessionStorage.setItem('username',account);
+                        }
+                        swal({title:'',text:data.msg});
+                    }
+                })
+            }
+        }
+        console.log(window.sessionStorage.getItem('username'));
+    })
+
+
+
+</script>
+</body>
+</html>

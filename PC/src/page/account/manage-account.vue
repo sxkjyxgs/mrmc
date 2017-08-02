@@ -19,12 +19,12 @@
               :span='3'>
             </el-table-column>
             <el-table-column
-              prop="add_time"
+              prop="createOn"
               label="添加时间"
               :span='3'>
             </el-table-column>
             <el-table-column
-              prop="add_person"
+              prop="createBy"
               label="添加人"
               :span='3'
               >
@@ -36,9 +36,9 @@
             </el-table-column>
             <el-table-column label="操作" fixed="right" :span='3'>
               <template scope="scope">
-                <el-button type="text" size="small" @click="DisplayBlock2">修改密码</el-button>
-                <el-button type="text" size="small" @click="DisplayBlock3">分配角色</el-button>
-                <el-button type="text" size="small" @click="open3()">注销账号</el-button>
+                <el-button type="text" size="small" @click="DisplayBlock2(scope.row)" class="cPass">修改密码</el-button>
+                <el-button type="text" size="small" @click="DisplayBlock3(scope.row)">分配角色</el-button>
+                <el-button type="text" size="small" @click="open3(scope.row)">注销账号</el-button>
               </template>
             </el-table-column>
           </el-table>
@@ -47,7 +47,10 @@
         <div class="block">
           <el-pagination
             layout="prev, pager, next"
-            :total="50">
+            :page-size="5"
+            :total="SumPage"
+            @current-change="handleCurrentChange"
+            >
           </el-pagination>
         </div>
       </div>
@@ -70,35 +73,213 @@
     <div class="assign_roles popup">
       <div class="assign_roles_title popup_title">分配角色</div>
       <ul>
-        <li><el-checkbox label="主管理员" name="type"></el-checkbox></li>
-        <li><el-checkbox label="客服" name="type"></el-checkbox></li>
-        <li><el-checkbox label="管理员" name="type"></el-checkbox></li>
+        <li v-for="item in RoledList">
+          <input type="radio" v-bind:value="item.id" name="check" v-model="check"><span v-text="item.role" style="margin-left:20px;"></span>
+        </li>
       </ul>
       <div class="assign_role_btn">
         <el-button @click="DisplayNone">取消</el-button>
-        <el-button type="primary">确定</el-button>
+        <el-button type="primary" @click="Sumbit">确定</el-button>
       </div>
     </div>
-
+    <!--修改密码-->
     <div class="popup change_password">
       <div class="popup_title">修改密码</div>
       <div class="popup_form">
-        <div class="popup_form_title">旧密码</div>
-        <el-input v-model="input" placeholder="请输入内容"></el-input>
-      </div>
-      <div class="popup_form">
         <div class="popup_form_title">新密码</div>
-        <el-input v-model="input" placeholder="请输入内容"></el-input>
+        <el-input placeholder="请输入内容" v-model="newPass"></el-input>
       </div>
 
       <div class="popup_btn">
         <el-button @click="DisplayNone2">取消</el-button>
-        <el-button type="primary">确定</el-button>
+        <el-button type="primary" @click="ChangePass">确定</el-button>
       </div>
     </div>
   </div>
 </template>
+<script>
+  export default {
+    data() {
+      return {
+        tableData: [],
+        RoledList:[],
+        TableDataUrl:this.GLOBAL.baseUrl+'account/findAccountList',
+        ChangePassUrl:this.GLOBAL.baseUrl+'account/modifyAccountPassword',
+        DelectData:this.GLOBAL.baseUrl+'account/removeAccountL',
+        RoledUrl:this.GLOBAL.baseUrl+'role/findRoleList',
+        currentChange:1,
+        SumPage:'',
+        newPass:'',
+        ChangePassAccount:'',
+        check:''
+      }
+    },
+    created: function(){
+      this.getTable()//定义方法
+      this.getRoled()
+    },
+    methods: {
+      //获取列表
+      getTable:function(){
+        var tableList=[];
+        var sumPage;
+        $.ajax({
+          type:'POST',
+          data:{'common':this.GLOBAL.common,'size':5,'nowpage':this.currentChange},
+          async:false,
+          url:this.TableDataUrl,
+          success:function (data) {
+            if(data.result){
+              tableList=data.data.accountList;
+              sumPage=data.data.count;
+            }
+          }
+        })
+        this.tableData=tableList;
+        this.SumPage=sumPage;
+      },
+      //分页
+      handleCurrentChange(val) {
+        this.currentChange=val;
+        this.getTable()
+      },
+      //修改密码
+      ChangePass:function(){
+          if(this.newPass==''){
+              swal({title:'',text:'密码不能为空！'})
+          }else{
+              var data={'account':this.ChangePassAccount,'common':this.GLOBAL.common,'password':this.newPass};
+              $.ajax({
+                type:'POST',
+                url:this.ChangePassUrl,
+                data:data,
+                success:function (data) {
+                  if(data.result){
+                    this.newPass='';
+                    swal({title:"",text:data.msg},function(){
+                      $('.mask').css('display','none');
+                      $('.change_password').css('display','none');
+                    })
+                  }else{
+                    swal({title:"",text:data.msg})
+                  }
 
+                }
+
+              })
+          }
+      },
+      //添加账号
+      open2() {
+        this.$confirm('此操作将添加后台账号, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          this.$message({
+            type: 'success',
+            message: '添加成功!'
+          });
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消添加'
+          });
+        });
+      },
+      //注销账号
+      open3(row) {
+        this.$confirm('此操作将注销账号, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+            var data={
+                'common':this.GLOBAL.common,
+                'id':row.id
+            }
+            var that=this;
+            $.ajax({
+              type:'POST',
+              url:this.DelectData,
+              data:data,
+              success:function(data){
+                  if(data.result){
+                    that.$message({
+                      type: 'success',
+                      message: '注销成功'
+                    });
+                  }else{
+                    that.$message({
+                      type: 'info',
+                      message: '注销失败'
+                    });
+                  }
+              }
+            })
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消注销'
+          });
+        });
+      },
+      //获取角色列表
+      getRoled:function(){
+          var data={'common':this.GLOBAL.common};
+          var roleList=[];
+          $.ajax({
+            type:'POST',
+            data:data,
+            url:this.RoledUrl,
+            async:false,
+            success:function(data){
+              if(data.result){
+                  roleList=data.data.list;
+              }
+            }
+          })
+        this.RoledList=roleList;
+      },
+      DisplayBlock:function(){
+        this.check='';
+        $('.mask').css('display','block');
+        $('.assign_roles').css('display','block');
+      },
+      Sumbit:function(){
+        console.log(this.check)
+      },
+      DisplayNone:function(){
+        $('.mask').css('display','none');
+        $('.assign_roles').css('display','none');
+      },
+      DisplayBlock2:function(row){
+        this.newPass='';
+        $('.mask').css('display','block');
+        $('.change_password').css('display','block');
+        var user=row.account;
+        this.ChangePassAccount=user;
+      },
+
+      DisplayNone2:function(){
+        $('.mask').css('display','none');
+        $('.change_password').css('display','none');
+      },
+      DisplayBlock3:function(row){
+        console.log(this.check)
+        this.check=row.id;
+        $('.mask').css('display','block');
+        $('.assign_roles').css('display','block');
+      },
+
+      DisplayNone3:function(){
+        $('.mask').css('display','none');
+        $('.assign_roles').css('display','none');
+      }
+    },
+
+  }
+</script>
 <style>
   .popup_form{
     width: 80%;
@@ -222,7 +403,7 @@
     margin-top: 20px;
   }
   .assign_roles ul li{
-    width: 25%;
+    width:40%;
     height: 28px;
     text-align: left;
     margin: 0 auto;
@@ -240,101 +421,3 @@
     margin-right: 20%;
   }
 </style>
-
-<script>
-  export default {
-    methods: {
-      open2() {
-        this.$confirm('此操作将添加后台账号, 是否继续?', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-        }).then(() => {
-          this.$message({
-            type: 'success',
-            message: '添加成功!'
-          });
-        }).catch(() => {
-          this.$message({
-            type: 'info',
-            message: '已取消添加'
-          });
-        });
-      },
-      open3() {
-        this.$confirm('此操作将注销账号, 是否继续?', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-        }).then(() => {
-          this.$message({
-            type: 'success',
-            message: '注销成功!'
-          });
-        }).catch(() => {
-          this.$message({
-            type: 'info',
-            message: '已取消注销'
-          });
-        });
-      },
-
-      DisplayBlock:function(){
-        $('.mask').css('display','block');
-        $('.assign_roles').css('display','block');
-      },
-
-      DisplayNone:function(){
-        $('.mask').css('display','none');
-        $('.assign_roles').css('display','none');
-      },
-      DisplayBlock2:function(){
-        $('.mask').css('display','block');
-        $('.change_password').css('display','block');
-      },
-
-      DisplayNone2:function(){
-        $('.mask').css('display','none');
-        $('.change_password').css('display','none');
-      },
-      DisplayBlock3:function(){
-        $('.mask').css('display','block');
-        $('.assign_roles').css('display','block');
-      },
-
-      DisplayNone3:function(){
-        $('.mask').css('display','none');
-        $('.assign_roles').css('display','none');
-      }
-    },
-    data() {
-    return {
-      tableData: [{
-        account: '账号',
-        add_time:'添加时间',
-        add_person: '添加人',
-        role: '角色',
-        operation: '操作'
-      }, {
-        account: '账号',
-        add_time:'添加时间',
-        add_person: '添加人',
-        role: '角色',
-        operation: '操作'
-      }, {
-        account: '账号',
-        add_time:'添加时间',
-        add_person: '添加人',
-        role: '角色',
-        operation: '操作'
-      }, {
-        account: '账号',
-        add_time:'添加时间',
-        add_person: '添加人',
-        role: '角色',
-        operation: '操作'
-      }]
-    }
-  }
-  }
-</script>

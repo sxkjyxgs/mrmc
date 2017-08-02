@@ -5,22 +5,43 @@
         登录信息
       </div>
       <ul>
-        <li>用户名：<span>admin</span></li>
-        <li>上次登录时间：<span>2017-08-07</span></li>
-        <li>上次登录地址：<span>杭州市</span></li>
-        <li>ip地址：<span>196.12.0.14</span></li>
+        <li>用户名：<span v-text="accounts.account"></span></li>
+        <li>上次登录时间：<span v-text="accounts.loginTime"></span></li>
+        <li>上次登录地址：<span v-text="accounts.loginAddr"></span></li>
+        <li>ip地址：<span v-text="accounts.loginIp"></span></li>
       </ul>
     </div>
   </div>
 </template>
 <script>
-  import Vue from 'vue'
-  import Element from 'element-ui'
-  import 'element-ui/lib/theme-default/index.css'
-  Vue.use(Element)
   export default {
-    name: 'boxs'
+    data(){
+      return{
+        accounts:{},
+        getAccount:this.GLOBAL.baseUrl+'account/findNewsByAccount'
+      }
+    },
+    created: function(){
+      this.getAccounts()
+    },
+    methods: {
+      getAccounts: function () {
+        var account = {};
+        $.ajax({
+          type: 'POST',
+          data: {'account': 'admin', 'common': this.GLOBAL.common},
+          async: false,
+          url: this.getAccount,
+          success: function (data) {
+            account = data.data.account;
+          }
+        })
+        this.accounts = account;
+      }
+
+    }
   }
+
 </script>
 <style>
   .titles{

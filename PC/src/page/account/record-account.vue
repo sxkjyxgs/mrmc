@@ -14,7 +14,7 @@
             border
             style="width: 100%">
             <el-table-column
-              prop="date"
+              prop="time"
               label="时间">
             </el-table-column>
             <el-table-column
@@ -30,14 +30,53 @@
         <div class="block">
           <el-pagination
             layout="prev, pager, next"
-            :total="50">
+            @current-change="handleCurrentChange"
+            :total="SumPage">
           </el-pagination>
         </div>
       </div>
     </div>
   </div>
 </template>
-
+<script>
+  export default {
+    data() {
+      return {
+        TableDataUrl:this.GLOBAL.baseUrl+'account/findAccountOperation',
+        tableData:[],
+        currentChange:1,
+        SumPage:''
+      }
+    },
+    created: function(){
+      this.getTableList()              //定义方法
+    },
+    methods:{
+      getTableList:function(){
+        var tableList=[];
+        var sumPage;
+        $.ajax({
+          type:'POST',
+          data:{'common':this.GLOBAL.common,'size':10,'nowpage':this.currentChange},
+          async:false,
+          url:this.TableDataUrl,
+          success:function (data) {
+              if(data.result){
+                tableList=data.data.list;
+                sumPage=data.data.count;
+              }
+          }
+        })
+        this.tableData=tableList;
+        this.SumPage=sumPage;
+      },
+      handleCurrentChange(val) {
+         this.currentChange=val;
+         this.getTableList()
+      }
+    }
+  }
+</script>
 <style>
   html,body{
     font-size: 14px;
@@ -87,29 +126,3 @@
     border-color: #303030 !important;
   }
 </style>
-
-<script>
-  export default {
-    data() {
-    return {
-      tableData: [{
-        date: '2016-05-02',
-        account: '王小虎',
-        operation: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        date: '2016-05-04',
-        account: '王小虎',
-        operation: '上海市普陀区金沙江路 1517 弄'
-      }, {
-        date: '2016-05-01',
-        account: '王小虎',
-        operation: '上海市普陀区金沙江路 1519 弄'
-      }, {
-        date: '2016-05-03',
-        account: '王小虎',
-        operation: '上海市普陀区金沙江路 1516 弄'
-      }]
-    }
-  }
-  }
-</script>
