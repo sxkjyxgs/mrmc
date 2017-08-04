@@ -34,9 +34,11 @@
           url: this.getAccount,
           success: function (data) {
             account = data.data.account;
+
           }
         })
         this.accounts = account;
+        console.log(this.accounts)
       }
 
     }

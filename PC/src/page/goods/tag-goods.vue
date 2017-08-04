@@ -38,13 +38,26 @@
             <el-button type="success right" @click="DisplayBlock">添加兴趣</el-button>
           </div>
           <div class="tag_list3">
-            <div class="tag_list3_title">兴趣</div>
-            <ul>
-              <li>小吃甜点<a href="#">修改</a></li>
-              <li class="bordertop">小吃甜点<a href="#">修改</a><span>删除</span></li>
-              <li class="bordertop">小吃甜点<a href="#">修改</a><span>删除</span></li>
-              <li class="bordertop">小吃甜点<a href="#">修改</a><span>删除</span></li>
-            </ul>
+            <el-table
+              :data="tableData"
+              border
+              style="width:250px;">
+              <el-table-column
+                prop="interest"
+                label="兴趣"
+                :span="2"
+              >
+              </el-table-column>
+              <el-table-column
+                :span="4"
+                label="操作"
+              >
+                <template scope="scope">
+                  <el-button type="text" size="small" @click="Change(scope.row)">修改</el-button>
+                  <el-button type="text" size="small" @click="Delete(scope.row)">删除</el-button>
+                </template>
+              </el-table-column>
+            </el-table>
           </div>
         </div>
       </div>
@@ -54,17 +67,170 @@
       <div class="add_interests_title popup_title">添加兴趣</div>
       <div class="add_interests_ipt">
         <div class="add_interests_name">兴趣名称</div>
-        <el-input v-model="input" placeholder="请输入内容"></el-input>
+        <el-input v-model="AddInterest" placeholder="请输入内容"></el-input>
       </div>
 
       <div class="add_interests_btn">
         <el-button @click="DisplayNone">取消</el-button>
-        <el-button type="primary">确定</el-button>
+        <el-button type="primary" @click="SumbitInterest">确定</el-button>
+      </div>
+    </div>
+    <div class="add_interests2 popup">
+      <div class="add_interests_title popup_title">修改兴趣</div>
+      <div class="add_interests_ipt">
+        <div class="add_interests_name">兴趣名称</div>
+        <el-input v-model="ChangeInterest" placeholder="请输入内容"></el-input>
+      </div>
+
+      <div class="add_interests_btn">
+        <el-button @click="DisplayNone">取消</el-button>
+        <el-button type="primary" @click="ChangesInterest">确定</el-button>
       </div>
     </div>
   </div>
 </template>
+<script>
+  export default {
+    data() {
+      return {
+        tableData:[],
+        AddInterest:'',
+        ChangeInterest:'',
+        ChangeID:'',
+        DelectID:'',
+        TableDataUrl:this.GLOBAL.baseUrl+'productTagInterest/findProductTagInterestList',
+        AddUrl:this.GLOBAL.baseUrl+'productTagInterest/addProductTagInterest',
+        ChangeUrl:this.GLOBAL.baseUrl+'productTagInterest/modifyProductTagInterest',
+        DelectUrl:this.GLOBAL.baseUrl+'productTagInterest/removeProductTagInterestL'
+      }
+    },
+    created: function(){
+      this.getTable();
+    },
+    methods: {
+      getTable:function(){
+          var list=[];
+          var that=this;
+          var data={'common':this.GLOBAL.common}
+          $.ajax({
+            type:'POST',
+            url:this.TableDataUrl,
+            data:data,
+            success:function(data){
+               if(data.result){
+                   list=data.data.list;
+                   that.tableData=list;
 
+               }else{
+                   swal({title:'',text:'获取数据失败'})
+               }
+            }
+          })
+      },
+      //添加兴趣
+      SumbitInterest:function(){
+         var data={'common':this.GLOBAL.common,'interest':this.AddInterest}
+         var that=this;
+         if(this.AddInterest==''){
+             swal({title:'',text:'兴趣不能为空'})
+         }else{
+             $.ajax({
+               type:'POST',
+               url:this.AddUrl,
+               data:data,
+               success:function(data){
+                 if(data.result){
+                   $('.mask').css('display','none');
+                   $('.add_interests').css('display','none');
+                   that.AddInterest='';
+                   that.getTable();
+                 }
+                 swal({title:'',text:data.msg})
+
+               }
+             })
+         }
+
+      },
+      //添加兴趣弹框
+      DisplayBlock:function(){
+        $('.mask').css('display','block');
+        $('.add_interests').css('display','block');
+      },
+      //修改兴趣按钮
+      Change:function(row){
+        this.ChangeInterest=row.interest;
+        this.ChangeID=row.id;
+        $('.mask').css('display','block');
+        $('.add_interests2').css('display','block');
+      },
+      //修改兴趣
+      ChangesInterest:function(){
+          var data={'common':this.GLOBAL.common,'interest':this.ChangeInterest,'id':this.ChangeID};
+          var that=this;
+          $.ajax({
+            type:'POST',
+            url:this.ChangeUrl,
+            data:data,
+            success:function(data){
+                if(data.result){
+                  that.ChangeInterest='';
+                  that.ChangeId='';
+                  that.getTable();
+                  $('.mask').css('display','none');
+                  $('.add_interests2').css('display','none');
+                }
+                swal({title:'',text:data.msg})
+            }
+          })
+
+      },
+      //取消
+      DisplayNone:function(){
+        $('.mask').css('display','none');
+        $('.add_interests').css('display','none');
+        $('.add_interests2').css('display','none');
+      },
+      //删除
+      Delete:function(row){
+        var thats=this;
+        this.$confirm('此操作将永久删除该数据, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then(() => {
+          var that=this;
+          $.ajax({
+            type:'POST',
+            data:{'common':this.GLOBAL.common,'id':row.id},
+            url:thats.DelectUrl,
+            success:function (data) {
+                console.log(data)
+              if(data.result){
+                that.$message({
+                  type: 'success',
+                  message: '删除成功!'
+                });
+                thats.getTable();
+              }else{
+                that.$message({
+                  type: 'info',
+                  message: '删除失败!'
+                });
+              }
+            }
+          })
+
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });
+        });
+      }
+    }
+  }
+</script>
 <style>
   li{
     list-style: none;
@@ -211,20 +377,3 @@
     margin-top: 30px;
   }
 </style>
-
-
-<script>
-  export default {
-    methods: {
-      DisplayBlock:function(){
-        $('.mask').css('display','block');
-        $('.add_interests').css('display','block');
-      },
-
-      DisplayNone:function(){
-        $('.mask').css('display','none');
-        $('.add_interests').css('display','none');
-      }
-    }
-  }
-</script>

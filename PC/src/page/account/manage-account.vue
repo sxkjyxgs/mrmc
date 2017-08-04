@@ -43,7 +43,7 @@
             </el-table-column>
           </el-table>
         </div>
-
+        <!--分页-->
         <div class="block">
           <el-pagination
             layout="prev, pager, next"
@@ -54,32 +54,47 @@
           </el-pagination>
         </div>
       </div>
-
+      <!--添加后台账号-->
       <div class="add_background_account">
         <div class="add_background_account_title mid">添加后台账号</div>
         <div class="login_account">
-          <div class="login_account_title">登录账号：</div><el-input  placeholder="登录账号"></el-input>
+          <div class="login_account_title">登录账号：</div><el-input  placeholder="登录账号" v-model="loginName"></el-input>
         </div>
         <div class="login_password">
-          <div class="login_password_title">登录密码：</div><el-input  placeholder="登录密码"></el-input>
+          <div class="login_password_title">登录密码：</div><el-input  placeholder="登录密码" v-model="loginPass"></el-input>
         </div>
         <p><el-button type="text" @click="DisplayBlock">分配角色</el-button></p>
         <el-button type="primary" @click="open2">确认</el-button>
-        <div class="current_tip">已存在的账号，添加失败</div>
       </div>
     </div>
     <div class="mask"></div>
-
+    <!--分配角色-->
     <div class="assign_roles popup">
       <div class="assign_roles_title popup_title">分配角色</div>
       <ul>
         <li v-for="item in RoledList">
-          <input type="radio" v-bind:value="item.id" name="check" v-model="check"><span v-text="item.role" style="margin-left:20px;"></span>
+
+          <input type="radio" v-bind:value="item.id" class="check" name="check"><span v-text="item.role" style="margin-left:20px;"></span>
+
         </li>
       </ul>
       <div class="assign_role_btn">
         <el-button @click="DisplayNone">取消</el-button>
         <el-button type="primary" @click="Sumbit">确定</el-button>
+      </div>
+    </div>
+    <div class="assign_roles2 popup">
+      <div class="assign_roles_title popup_title">分配角色</div>
+      <ul>
+        <li v-for="item in RoledList">
+
+          <input type="radio" v-bind:value="item.id" class="check" name="check"><span v-text="item.role" style="margin-left:20px;"></span>
+
+        </li>
+      </ul>
+      <div class="assign_role_btn">
+        <el-button @click="DisplayNone">取消</el-button>
+        <el-button type="primary" @click="Sumbit2">确定</el-button>
       </div>
     </div>
     <!--修改密码-->
@@ -107,11 +122,19 @@
         ChangePassUrl:this.GLOBAL.baseUrl+'account/modifyAccountPassword',
         DelectData:this.GLOBAL.baseUrl+'account/removeAccountL',
         RoledUrl:this.GLOBAL.baseUrl+'role/findRoleList',
+        AddUrl:this.GLOBAL.baseUrl+'account/addAccount',
+        ChangeRoleUrl:this.GLOBAL.baseUrl+'account/modifyAccountRole',
         currentChange:1,
         SumPage:'',
         newPass:'',
         ChangePassAccount:'',
-        check:''
+        AddID:'',
+        AddValue:'',
+        loginName:'',
+        loginPass:'',
+        ChangeID:'',
+        ChangeValue:'',
+        RoleID:''
       }
     },
     created: function(){
@@ -171,15 +194,54 @@
       },
       //添加账号
       open2() {
+        var thats=this;
         this.$confirm('此操作将添加后台账号, 是否继续?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
-          this.$message({
-            type: 'success',
-            message: '添加成功!'
-          });
+          var that=this;
+          if(this.loginName==''){
+            that.$message({
+              type: 'info',
+              message: '登录账号不能为空!'
+            });
+          }else{
+              if(this.loginPass==''){
+                that.$message({
+                  type: 'info',
+                  message: '登录密码不能为空!'
+                });
+              }else{
+                  if(this.AddID==''||this.AddValue==''){
+                    that.$message({
+                      type: 'info',
+                      message: '请选择角色分配!'
+                    });
+                  }else{
+                      var data={'account':this.loginName,'password': this.loginPass,'roleIds':this.AddID, 'roles':this.AddValue,'common':this.GLOBAL.common };
+                      $.ajax({
+                        type:'POST',
+                        data:data,
+                        url:this.AddUrl,
+                        success:function(data){
+                          if(data.result){
+                            thats.loginName='';
+                            thats.loginPass='';
+                            thats.AddID='';
+                            thats.AddValue='';
+                            swal({title:'',text:'添加成功'})
+                            that.getTable()
+                          }else{
+                            swal({title:'',text:data.msg})
+                          }
+
+
+                        }
+                      })
+                  }
+              }
+          }
         }).catch(() => {
           this.$message({
             type: 'info',
@@ -204,11 +266,13 @@
               url:this.DelectData,
               data:data,
               success:function(data){
+                  console.log(data)
                   if(data.result){
                     that.$message({
                       type: 'success',
                       message: '注销成功'
                     });
+                    that.getTable()
                   }else{
                     that.$message({
                       type: 'info',
@@ -241,18 +305,70 @@
           })
         this.RoledList=roleList;
       },
+      //添加账号分配角色
       DisplayBlock:function(){
-        this.check='';
+        $(".check").attr('checked',false);
         $('.mask').css('display','block');
         $('.assign_roles').css('display','block');
       },
+      //确认角色按钮
       Sumbit:function(){
-        console.log(this.check)
-      },
-      DisplayNone:function(){
+         var  arrId='';
+         var arrValue='';
+         $(".check").each(function(){
+           var isChecked=$(this).is(':checked');
+             if(isChecked){
+                 arrId=$(this).attr('value');
+                 arrValue=$(this).next('span').html();
+             }
+         })
+        this.AddID=arrId;
+        this.AddValue=arrValue;
         $('.mask').css('display','none');
         $('.assign_roles').css('display','none');
       },
+      //确认角色按钮--修改
+      Sumbit2:function(){
+        var  arrId='';
+        var arrValue='';
+        $(".check").each(function(){
+          var isChecked=$(this).is(':checked');
+          if(isChecked){
+            arrId=$(this).attr('value');
+            arrValue=$(this).next('span').html();
+          }
+        })
+        this.ChangeID=arrId;
+        this.ChangeValue=arrValue;
+        var data={'roleIds':this.ChangeID, 'roles':this.ChangeValue, 'id':this.RoleID,'common':this.GLOBAL.common}
+        var that=this;
+        $.ajax({
+          type:'POST',
+          data:data,
+          url:this.ChangeRoleUrl,
+          success:function(data){
+              if(data.result){
+                 swal({title:'',text:'修改成功'},function(){
+                     window.location.href='';
+                })
+                 that.ChangeID='';
+                 that.ChangeValue='';
+                 that.RoleID='';
+              }else{
+                 swal({title:'',text:'修改失败'})
+            }
+          }
+        })
+        $('.mask').css('display','none');
+        $('.assign_roles2').css('display','none');
+      },
+      //取消
+      DisplayNone:function(){
+        $('.mask').css('display','none');
+        $('.assign_roles').css('display','none');
+        $('.assign_roles2').css('display','none');
+      },
+      //修改密码
       DisplayBlock2:function(row){
         this.newPass='';
         $('.mask').css('display','block');
@@ -260,21 +376,22 @@
         var user=row.account;
         this.ChangePassAccount=user;
       },
-
+      //修改密码取消按钮
       DisplayNone2:function(){
         $('.mask').css('display','none');
         $('.change_password').css('display','none');
       },
+      //修改角色分配
       DisplayBlock3:function(row){
-        console.log(this.check)
-        this.check=row.id;
-        $('.mask').css('display','block');
-        $('.assign_roles').css('display','block');
-      },
-
-      DisplayNone3:function(){
-        $('.mask').css('display','none');
-        $('.assign_roles').css('display','none');
+        var that=this;
+        $(".check").each(function(){
+          if($(this).next('span').html()==row.role){
+              $(this).attr('checked',true)
+          }
+          that.RoleID=row.id;
+          $('.mask').css('display','block');
+          $('.assign_roles2').css('display','block');
+        })
       }
     },
 
@@ -402,7 +519,16 @@
   .assign_roles ul{
     margin-top: 20px;
   }
-  .assign_roles ul li{
+  .assign_roles li{
+    width:40%;
+    height: 28px;
+    text-align: left;
+    margin: 0 auto;
+  }
+  .assign_roles2 ul{
+    margin-top: 20px;
+  }
+  .assign_roles2 li{
     width:40%;
     height: 28px;
     text-align: left;

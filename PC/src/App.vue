@@ -38,7 +38,7 @@ export default {
     }
   },
   created: function(){
-    this.$router.push('/ManageAccount');
+    this.$router.push('/BrandGoods');
   }
 }
 </script>

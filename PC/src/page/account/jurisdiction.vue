@@ -33,7 +33,7 @@
               label="操作"
             >
               <template scope="scope">
-                <el-button type="text" size="small" @click="DisplayBlock2">权限分配</el-button>
+                <el-button type="text" size="small" @click="DisplayBlock2(scope.row)">权限分配</el-button>
                 <el-button type="text" size="small" @click="open3(scope.row)">删除</el-button>
               </template>
             </el-table-column>
@@ -49,16 +49,16 @@
           </el-pagination>
         </div>
       </div>
-
+      <!--添加账号角色-->
       <div class="add_account">
         <div class="add_title">添加账号角色</div>
         <div class="add_name">
-          <el-input  placeholder="填写角色名称"></el-input>
+          <el-input  placeholder="填写角色名称" v-model="AddName"></el-input>
         </div>
         <div class="add_distribution">
           <i class="permission_url" @click="DisplayBlock">权限分配</i>
         </div>
-        <el-button type="primary" @click="open2">确认添加</el-button>
+        <el-button type="primary" @click="AddRole">确认添加</el-button>
       </div>
     </div>
     <div class="mask"></div>
@@ -66,18 +66,44 @@
       <div class="assign_role_permissions_title popup_title">分配角色权限</div>
       <div class="checkbox_box">
         <div class="assign_checkbox">
-          <ul  >
-            <li v-for="item in jurData">
-               <span v-text="item.name"></span>
+          <ul>
+            <li v-for="item in jurData" class="lis">
+              <input type="checkbox" class="checks checkAll" v-bind:value="item.id"><span v-text="item.name"></span>
+              <ul style="padding-left:30px;">
+                <li v-for="list in item.data" class="listLi">
+                  <input type="checkbox" class="checks checkList" v-bind:value="list.id"><span v-text="list.name"></span>
+                </li>
+              </ul>
             </li>
-            <li v-text="jurData"></li>
           </ul>
         </div>
       </div>
 
       <div class="popup_btn">
         <el-button @click="DisplayNone">取消</el-button>
-        <el-button type="primary">确定</el-button>
+        <el-button type="primary" @click="SumbitAdd">确定</el-button>
+      </div>
+    </div>
+    <div class="assign_role_permissions2 popup">
+      <div class="assign_role_permissions_title popup_title">分配角色权限</div>
+      <div class="checkbox_box">
+        <div class="assign_checkbox">
+          <ul>
+            <li v-for="item in jurData" class="lis">
+              <input type="checkbox" class="check checkAll" v-bind:value="item.id"><span v-text="item.name" class="roleValue"></span>
+              <ul style="padding-left:30px;">
+                <li v-for="list in item.data" class="listLi">
+                  <input type="checkbox" class="check checkList" v-bind:value="list.id"><span v-text="list.name" class="roleValue"></span>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="popup_btn">
+        <el-button @click="DisplayNone">取消</el-button>
+        <el-button type="primary" @click="ChangeSumbit">确定</el-button>
       </div>
     </div>
   </div>
@@ -95,15 +121,22 @@
         TableDataUrl:this.GLOBAL.baseUrl+'role/findAuthorityByRoleList',
         JurListUrl:this.GLOBAL.baseUrl+'authority/findAuthorityList',
         DelectList:this.GLOBAL.baseUrl+'role/removeRoleByIdL',
+        AddRoleUrl:this.GLOBAL.baseUrl+'role/addRole',
+        getJurListUrl:this.GLOBAL.baseUrl+'authority/findAuthorityByRoleId',
+        ChangeRoleUrl:this.GLOBAL.baseUrl+'role/saveAuthority',
         currentChange:1,
         SumPage:'',
-
+        AddName:'',
+        AddID:'',
+        AddValue:'',
+        ChangeID:'',
+        ChangeValue:'',
+        RoleID:''
       }
     },
     created: function(){
-      this.getJurisdiction()
-      this.getTable()//定义方法
-
+      this.getJurisdiction();//定义方法
+      this.getTable();
     },
     methods: {
       //获取列表信息
@@ -133,6 +166,7 @@
       //获取权限列表
       getJurisdiction:function(){
         var list=[];
+        var that=this;
         $.ajax({
             type:'POST',
             data:{'common':this.GLOBAL.common},
@@ -171,25 +205,61 @@
                       }
                     }
                   }
-                  this.jurData=parentList;
-                  console.log(this.jurData);
+                  that.jurData=parentList;
                 }else{
                     swal({title:'',text:data.msg})
                 }
-
             }
         })
+
       },
-      open2(){
+     //添加角色确认按钮
+      AddRole(){
+        var that=this;
         this.$confirm('此操作将添加账号角色, 是否继续?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
-          this.$message({
-            type: 'success',
-            message: '添加成功!'
-          });
+          var item=this;
+          if(that.AddName==''){
+            item.$message({
+              type: 'info',
+              message: '角色不能为空!'
+            });
+          }else{
+              if(that.AddID==''||that.AddValue==''){
+                item.$message({
+                  type: 'info',
+                  message: '请选择权限分配!'
+                });
+              }else{
+                  var data={'role':that.AddName,'menuIds':that.AddID,'menus':that.AddValue,'common':this.GLOBAL.common}
+                  $.ajax({
+                    type:'POST',
+                    data:data,
+                    url:that.AddRoleUrl,
+                    success:function(data){
+                        if(data.result){
+                          item.$message({
+                            type: 'info',
+                            message: '添加成功!'
+                          });
+                          that.AddID='';
+                          that.AddValue='';
+                          that.AddName='';
+                          that.getTable();
+                        }else{
+                          item.$message({
+                            type: 'info',
+                            message: data.msg
+                          });
+                        }
+                    }
+                  })
+              }
+          }
+
         }).catch(() => {
           this.$message({
             type: 'info',
@@ -199,6 +269,7 @@
       },
       //删除
       open3(row) {
+        var thats=this;
         this.$confirm('此操作将永久删除该数据, 是否继续?', '提示', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
@@ -215,10 +286,11 @@
                   type: 'success',
                   message: '删除成功!'
                 });
+                thats.getTable();
               }else{
                 that.$message({
                   type: 'info',
-                  message: '删除失败!'
+                  message: '此角色下有账号，不能删除成功!'
                 });
               }
             }
@@ -231,23 +303,100 @@
           });
         });
       },
+      //添加角色
       DisplayBlock:function(){
+        if(this.AddID==''){
+          $(".checks").attr('checked',false)
+        }
         $('.mask').css('display','block');
         $('.assign_role_permissions').css('display','block');
       },
-
+      //添加获取角色id和value
+      SumbitAdd:function(){
+        var ChecksID='';
+        var ChecksValue='';
+        $(".checks").each(function(){
+          var isChecked=$(this).is(':checked');
+          if(isChecked){
+            ChecksID+=$(this).attr('value')+',';
+            ChecksValue+=$(this).next('span').html()+',';
+          }
+        })
+        this.AddID=ChecksID;
+        this.AddValue=ChecksValue;
+        $('.mask').css('display','none');
+        $('.assign_role_permissions').css('display','none');
+      },
+      //取消
       DisplayNone:function(){
         $('.mask').css('display','none');
         $('.assign_role_permissions').css('display','none');
+        $('.assign_role_permissions2').css('display','none');
       },
-      DisplayBlock2:function(){
+      //修改权限
+      DisplayBlock2:function(row){
+        var roleID=row.id;
+        this.RoleID=roleID;
+        var data={'roleId':roleID,'common':this.GLOBAL.common}
+        $.ajax({
+          type:'POST',
+          data:data,
+          url:this.getJurListUrl,
+          success:function(data){
+             if(data.result){
+                 var list=data.data.authorityList;
+                 var IdList=[];
+                 for(var i=0;i<list.length;i++){
+                    IdList.push(list[i].id)
+                 }
+                 $(".check").each(function(){
+                     for(var j=0;j<IdList.length;j++){
+                         if($(this).val()==IdList[j]){
+                           $(this).attr('checked',true)
+                         }
+                     }
+                 })
+             }
+          }
+        })
         $('.mask').css('display','block');
-        $('.assign_role_permissions').css('display','block');
+        $('.assign_role_permissions2').css('display','block');
       },
-
-      DisplayNone2:function(){
+      //修改权限id和value
+      ChangeSumbit:function(){
+        var ChecksID='';
+        var ChecksValue='';
+        $(".check").each(function(){
+          var isChecked=$(this).is(':checked');
+          if(isChecked){
+            ChecksID+=$(this).attr('value')+',';
+            ChecksValue+=$(this).next('span').html()+',';
+          }
+        })
+        this.ChangeID=ChecksID;
+        this.ChangeValue=ChecksValue;
+        var data={'roleId':this.RoleID,'menuIds':this.ChangeID,'menus':this.ChangeValue,'common':this.GLOBAL.common,'loginAccount':'admin','Id':1}
+        var that=this;
+        $.ajax({
+          type:'POST',
+          data:data,
+          url:this.ChangeRoleUrl,
+          success:function(data){
+              console.log(data)
+              if(data.result){
+                that.RoleID='';
+                that.ChangeID='';
+                that.ChangeValue='';
+                that.getTable();
+              }else{
+                that.ChangeID='';
+                that.ChangeValue='';
+              }
+              swal({title:'',text:data.msg})
+          }
+        })
         $('.mask').css('display','none');
-        $('.assign_role_permissions').css('display','none');
+        $('.assign_role_permissions2').css('display','none');
       },
 
 
@@ -308,6 +457,9 @@
     overflow: hidden;
     margin-top: 50px;
   }
+  .listLi{
+    margin-top:10px;
+  }
   .distribution_title{
     text-align: center;
     font-size: 18px;
@@ -342,10 +494,11 @@
     float: right;
     margin: 50px 10% 0 0;
   }
-  .assign_checkbox li{
+  .assign_checkbox .lis{
     width:100%;
-    height:30px;
-    background: pink;
+    height:auto;
+    text-align: left;
+    margin:0 auto 15px;
   }
   .mask{
     width:100%;
@@ -386,7 +539,7 @@
   }
   .assign_checkbox{
     width: 50%;
-    float: left;
     height:auto;
+    margin:0 auto;
   }
 </style>
